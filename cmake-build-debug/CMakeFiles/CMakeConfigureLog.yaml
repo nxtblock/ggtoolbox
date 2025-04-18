@@ -4,16 +4,16 @@ events:
   -
     kind: "message-v1"
     backtrace:
-      - "D:/JetBrains/CLion 2024.3.4/bin/cmake/win/x64/share/cmake-3.30/Modules/CMakeDetermineSystem.cmake:205 (message)"
+      - "D:/IDE/JetBrains/CLion 2025.1/bin/cmake/win/x64/share/cmake-3.31/Modules/CMakeDetermineSystem.cmake:205 (message)"
       - "CMakeLists.txt:2 (project)"
     message: |
       The system is: Windows - 10.0.26120 - AMD64
   -
     kind: "message-v1"
     backtrace:
-      - "D:/JetBrains/CLion 2024.3.4/bin/cmake/win/x64/share/cmake-3.30/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
-      - "D:/JetBrains/CLion 2024.3.4/bin/cmake/win/x64/share/cmake-3.30/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
-      - "D:/JetBrains/CLion 2024.3.4/bin/cmake/win/x64/share/cmake-3.30/Modules/CMakeDetermineCCompiler.cmake:123 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "D:/IDE/JetBrains/CLion 2025.1/bin/cmake/win/x64/share/cmake-3.31/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
+      - "D:/IDE/JetBrains/CLion 2025.1/bin/cmake/win/x64/share/cmake-3.31/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "D:/IDE/JetBrains/CLion 2025.1/bin/cmake/win/x64/share/cmake-3.31/Modules/CMakeDetermineCCompiler.cmake:123 (CMAKE_DETERMINE_COMPILER_ID)"
       - "CMakeLists.txt:2 (project)"
     message: |
       Compiling the C compiler identification source file "CMakeCCompilerId.c" succeeded.
@@ -28,14 +28,14 @@ events:
       Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "a.exe"
       
       The C compiler identification is GNU, found in:
-        C:/Users/liyif/CLionProjects/ggtoolbox/cmake-build-debug/CMakeFiles/3.30.5/CompilerIdC/a.exe
+        C:/Users/liyif/CLionProjects/ggtoolbox/cmake-build-debug/CMakeFiles/3.31.6/CompilerIdC/a.exe
       
   -
     kind: "message-v1"
     backtrace:
-      - "D:/JetBrains/CLion 2024.3.4/bin/cmake/win/x64/share/cmake-3.30/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
-      - "D:/JetBrains/CLion 2024.3.4/bin/cmake/win/x64/share/cmake-3.30/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
-      - "D:/JetBrains/CLion 2024.3.4/bin/cmake/win/x64/share/cmake-3.30/Modules/CMakeDetermineCXXCompiler.cmake:126 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "D:/IDE/JetBrains/CLion 2025.1/bin/cmake/win/x64/share/cmake-3.31/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
+      - "D:/IDE/JetBrains/CLion 2025.1/bin/cmake/win/x64/share/cmake-3.31/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "D:/IDE/JetBrains/CLion 2025.1/bin/cmake/win/x64/share/cmake-3.31/Modules/CMakeDetermineCXXCompiler.cmake:126 (CMAKE_DETERMINE_COMPILER_ID)"
       - "CMakeLists.txt:2 (project)"
     message: |
       Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
@@ -50,19 +50,19 @@ events:
       Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "a.exe"
       
       The CXX compiler identification is GNU, found in:
-        C:/Users/liyif/CLionProjects/ggtoolbox/cmake-build-debug/CMakeFiles/3.30.5/CompilerIdCXX/a.exe
+        C:/Users/liyif/CLionProjects/ggtoolbox/cmake-build-debug/CMakeFiles/3.31.6/CompilerIdCXX/a.exe
       
   -
     kind: "try_compile-v1"
     backtrace:
-      - "D:/JetBrains/CLion 2024.3.4/bin/cmake/win/x64/share/cmake-3.30/Modules/CMakeDetermineCompilerABI.cmake:74 (try_compile)"
-      - "D:/JetBrains/CLion 2024.3.4/bin/cmake/win/x64/share/cmake-3.30/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "D:/IDE/JetBrains/CLion 2025.1/bin/cmake/win/x64/share/cmake-3.31/Modules/CMakeDetermineCompilerABI.cmake:74 (try_compile)"
+      - "D:/IDE/JetBrains/CLion 2025.1/bin/cmake/win/x64/share/cmake-3.31/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
       - "CMakeLists.txt:2 (project)"
     checks:
       - "Detecting C compiler ABI info"
     directories:
-      source: "C:/Users/liyif/CLionProjects/ggtoolbox/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-z2eukr"
-      binary: "C:/Users/liyif/CLionProjects/ggtoolbox/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-z2eukr"
+      source: "C:/Users/liyif/CLionProjects/ggtoolbox/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-ntc1a8"
+      binary: "C:/Users/liyif/CLionProjects/ggtoolbox/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-ntc1a8"
     cmakeVariables:
       CMAKE_C_FLAGS: ""
       CMAKE_C_FLAGS_DEBUG: "-g"
@@ -71,10 +71,10 @@ events:
       variable: "CMAKE_C_ABI_COMPILED"
       cached: true
       stdout: |
-        Change Dir: 'C:/Users/liyif/CLionProjects/ggtoolbox/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-z2eukr'
+        Change Dir: 'C:/Users/liyif/CLionProjects/ggtoolbox/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-ntc1a8'
         
-        Run Build Command(s): "D:/JetBrains/CLion 2024.3.4/bin/ninja/win/x64/ninja.exe" -v cmTC_90268
-        [1/2] D:\\IDE\\RedPanda-Cpp\\mingw64\\bin\\gcc.exe   -fdiagnostics-color=always   -v -o CMakeFiles/cmTC_90268.dir/CMakeCCompilerABI.c.obj -c "D:/JetBrains/CLion 2024.3.4/bin/cmake/win/x64/share/cmake-3.30/Modules/CMakeCCompilerABI.c"
+        Run Build Command(s): "D:/IDE/JetBrains/CLion 2025.1/bin/ninja/win/x64/ninja.exe" -v cmTC_ca191
+        [1/2] D:\\IDE\\RedPanda-Cpp\\mingw64\\bin\\gcc.exe   -fdiagnostics-color=always   -v -o CMakeFiles/cmTC_ca191.dir/CMakeCCompilerABI.c.obj -c "D:/IDE/JetBrains/CLion 2025.1/bin/cmake/win/x64/share/cmake-3.31/Modules/CMakeCCompilerABI.c"
         Using built-in specs.
         COLLECT_GCC=D:\\IDE\\RedPanda-Cpp\\mingw64\\bin\\gcc.exe
         Target: x86_64-w64-mingw32
@@ -82,8 +82,8 @@ events:
         Thread model: posix
         Supported LTO compression algorithms: zlib
         gcc version 11.4.0 (x86_64-posix-seh, Built by MinGW-Builds project) 
-        COLLECT_GCC_OPTIONS='-fdiagnostics-color=always' '-v' '-o' 'CMakeFiles/cmTC_90268.dir/CMakeCCompilerABI.c.obj' '-c' '-mtune=core2' '-march=nocona' '-dumpdir' 'CMakeFiles/cmTC_90268.dir/'
-         D:/IDE/RedPanda-Cpp/mingw64/bin/../libexec/gcc/x86_64-w64-mingw32/11.4.0/cc1.exe -quiet -v -iprefix D:/IDE/RedPanda-Cpp/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/11.4.0/ -D_REENTRANT D:/JetBrains/CLion 2024.3.4/bin/cmake/win/x64/share/cmake-3.30/Modules/CMakeCCompilerABI.c -quiet -dumpdir CMakeFiles/cmTC_90268.dir/ -dumpbase CMakeCCompilerABI.c.c -dumpbase-ext .c -mtune=core2 -march=nocona -version -fdiagnostics-color=always -o C:\\Users\\liyif\\AppData\\Local\\Temp\\cc1mGIJr.s
+        COLLECT_GCC_OPTIONS='-fdiagnostics-color=always' '-v' '-o' 'CMakeFiles/cmTC_ca191.dir/CMakeCCompilerABI.c.obj' '-c' '-mtune=core2' '-march=nocona' '-dumpdir' 'CMakeFiles/cmTC_ca191.dir/'
+         D:/IDE/RedPanda-Cpp/mingw64/bin/../libexec/gcc/x86_64-w64-mingw32/11.4.0/cc1.exe -quiet -v -iprefix D:/IDE/RedPanda-Cpp/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/11.4.0/ -D_REENTRANT D:/IDE/JetBrains/CLion 2025.1/bin/cmake/win/x64/share/cmake-3.31/Modules/CMakeCCompilerABI.c -quiet -dumpdir CMakeFiles/cmTC_ca191.dir/ -dumpbase CMakeCCompilerABI.c.c -dumpbase-ext .c -mtune=core2 -march=nocona -version -fdiagnostics-color=always -o C:\\Users\\liyif\\AppData\\Local\\Temp\\ccJOufxT.s
         GNU C17 (x86_64-posix-seh, Built by MinGW-Builds project) version 11.4.0 (x86_64-w64-mingw32)
         	compiled by GNU C version 11.4.0, GMP version 6.2.1, MPFR version 4.1.0, MPC version 1.2.1, isl version isl-0.25-GMP
         
@@ -104,13 +104,13 @@ events:
         
         GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
         Compiler executable checksum: 97ab6e9e3ad82d4e0ced6b6e0f1ebff1
-        COLLECT_GCC_OPTIONS='-fdiagnostics-color=always' '-v' '-o' 'CMakeFiles/cmTC_90268.dir/CMakeCCompilerABI.c.obj' '-c' '-mtune=core2' '-march=nocona' '-dumpdir' 'CMakeFiles/cmTC_90268.dir/'
-         D:/IDE/RedPanda-Cpp/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/11.4.0/../../../../x86_64-w64-mingw32/bin/as.exe -v -o CMakeFiles/cmTC_90268.dir/CMakeCCompilerABI.c.obj C:\\Users\\liyif\\AppData\\Local\\Temp\\cc1mGIJr.s
+        COLLECT_GCC_OPTIONS='-fdiagnostics-color=always' '-v' '-o' 'CMakeFiles/cmTC_ca191.dir/CMakeCCompilerABI.c.obj' '-c' '-mtune=core2' '-march=nocona' '-dumpdir' 'CMakeFiles/cmTC_ca191.dir/'
+         D:/IDE/RedPanda-Cpp/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/11.4.0/../../../../x86_64-w64-mingw32/bin/as.exe -v -o CMakeFiles/cmTC_ca191.dir/CMakeCCompilerABI.c.obj C:\\Users\\liyif\\AppData\\Local\\Temp\\ccJOufxT.s
         GNU assembler version 2.38 (x86_64-w64-mingw32) using BFD version (GNU Binutils) 2.38
         COMPILER_PATH=D:/IDE/RedPanda-Cpp/mingw64/bin/../libexec/gcc/x86_64-w64-mingw32/11.4.0/;D:/IDE/RedPanda-Cpp/mingw64/bin/../libexec/gcc/;D:/IDE/RedPanda-Cpp/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/11.4.0/../../../../x86_64-w64-mingw32/bin/
         LIBRARY_PATH=D:/IDE/RedPanda-Cpp/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/11.4.0/;D:/IDE/RedPanda-Cpp/mingw64/bin/../lib/gcc/;D:/IDE/RedPanda-Cpp/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/11.4.0/../../../../x86_64-w64-mingw32/lib/../lib/;D:/IDE/RedPanda-Cpp/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/11.4.0/../../../../lib/;D:/IDE/RedPanda-Cpp/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/11.4.0/../../../../x86_64-w64-mingw32/lib/;D:/IDE/RedPanda-Cpp/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/11.4.0/../../../
-        COLLECT_GCC_OPTIONS='-fdiagnostics-color=always' '-v' '-o' 'CMakeFiles/cmTC_90268.dir/CMakeCCompilerABI.c.obj' '-c' '-mtune=core2' '-march=nocona' '-dumpdir' 'CMakeFiles/cmTC_90268.dir/CMakeCCompilerABI.c.'\x0d
-        [2/2] C:\\WINDOWS\\system32\\cmd.exe /C "cd . && D:\\IDE\\RedPanda-Cpp\\mingw64\\bin\\gcc.exe  -v -Wl,-v CMakeFiles/cmTC_90268.dir/CMakeCCompilerABI.c.obj -o cmTC_90268.exe -Wl,--out-implib,libcmTC_90268.dll.a -Wl,--major-image-version,0,--minor-image-version,0   && cd ."
+        COLLECT_GCC_OPTIONS='-fdiagnostics-color=always' '-v' '-o' 'CMakeFiles/cmTC_ca191.dir/CMakeCCompilerABI.c.obj' '-c' '-mtune=core2' '-march=nocona' '-dumpdir' 'CMakeFiles/cmTC_ca191.dir/CMakeCCompilerABI.c.'\x0d
+        [2/2] C:\\WINDOWS\\system32\\cmd.exe /C "cd . && D:\\IDE\\RedPanda-Cpp\\mingw64\\bin\\gcc.exe  -v -Wl,-v CMakeFiles/cmTC_ca191.dir/CMakeCCompilerABI.c.obj -o cmTC_ca191.exe -Wl,--out-implib,libcmTC_ca191.dll.a -Wl,--major-image-version,0,--minor-image-version,0   && cd ."
         Using built-in specs.
         COLLECT_GCC=D:\\IDE\\RedPanda-Cpp\\mingw64\\bin\\gcc.exe
         COLLECT_LTO_WRAPPER=D:/IDE/RedPanda-Cpp/mingw64/bin/../libexec/gcc/x86_64-w64-mingw32/11.4.0/lto-wrapper.exe
@@ -121,19 +121,19 @@ events:
         gcc version 11.4.0 (x86_64-posix-seh, Built by MinGW-Builds project) 
         COMPILER_PATH=D:/IDE/RedPanda-Cpp/mingw64/bin/../libexec/gcc/x86_64-w64-mingw32/11.4.0/;D:/IDE/RedPanda-Cpp/mingw64/bin/../libexec/gcc/;D:/IDE/RedPanda-Cpp/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/11.4.0/../../../../x86_64-w64-mingw32/bin/
         LIBRARY_PATH=D:/IDE/RedPanda-Cpp/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/11.4.0/;D:/IDE/RedPanda-Cpp/mingw64/bin/../lib/gcc/;D:/IDE/RedPanda-Cpp/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/11.4.0/../../../../x86_64-w64-mingw32/lib/../lib/;D:/IDE/RedPanda-Cpp/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/11.4.0/../../../../lib/;D:/IDE/RedPanda-Cpp/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/11.4.0/../../../../x86_64-w64-mingw32/lib/;D:/IDE/RedPanda-Cpp/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/11.4.0/../../../
-        COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_90268.exe' '-mtune=core2' '-march=nocona' '-dumpdir' 'cmTC_90268.'
-         D:/IDE/RedPanda-Cpp/mingw64/bin/../libexec/gcc/x86_64-w64-mingw32/11.4.0/collect2.exe -plugin D:/IDE/RedPanda-Cpp/mingw64/bin/../libexec/gcc/x86_64-w64-mingw32/11.4.0/liblto_plugin.dll -plugin-opt=D:/IDE/RedPanda-Cpp/mingw64/bin/../libexec/gcc/x86_64-w64-mingw32/11.4.0/lto-wrapper.exe -plugin-opt=-fresolution=C:\\Users\\liyif\\AppData\\Local\\Temp\\ccBHLLNA.res -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_eh -plugin-opt=-pass-through=-lmoldname -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-lpthread -plugin-opt=-pass-through=-ladvapi32 -plugin-opt=-pass-through=-lshell32 -plugin-opt=-pass-through=-luser32 -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-liconv -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_eh -plugin-opt=-pass-through=-lmoldname -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt -plugin-opt=-pass-through=-lkernel32 --sysroot=I:/mingw-builds/x86_64-1140-posix-seh-msvcrt-rt_v11/mingw64 -m i386pep -Bdynamic -o cmTC_90268.exe D:/IDE/RedPanda-Cpp/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/11.4.0/../../../../x86_64-w64-mingw32/lib/../lib/crt2.o D:/IDE/RedPanda-Cpp/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/11.4.0/crtbegin.o -LD:/IDE/RedPanda-Cpp/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/11.4.0 -LD:/IDE/RedPanda-Cpp/mingw64/bin/../lib/gcc -LD:/IDE/RedPanda-Cpp/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/11.4.0/../../../../x86_64-w64-mingw32/lib/../lib -LD:/IDE/RedPanda-Cpp/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/11.4.0/../../../../lib -LD:/IDE/RedPanda-Cpp/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/11.4.0/../../../../x86_64-w64-mingw32/lib -LD:/IDE/RedPanda-Cpp/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/11.4.0/../../.. -v CMakeFiles/cmTC_90268.dir/CMakeCCompilerABI.c.obj --out-implib libcmTC_90268.dll.a --major-image-version 0 --minor-image-version 0 -lmingw32 -lgcc -lgcc_eh -lmoldname -lmingwex -lmsvcrt -lkernel32 -lpthread -ladvapi32 -lshell32 -luser32 -lkernel32 -liconv -lmingw32 -lgcc -lgcc_eh -lmoldname -lmingwex -lmsvcrt -lkernel32 D:/IDE/RedPanda-Cpp/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/11.4.0/crtend.o
+        COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_ca191.exe' '-mtune=core2' '-march=nocona' '-dumpdir' 'cmTC_ca191.'
+         D:/IDE/RedPanda-Cpp/mingw64/bin/../libexec/gcc/x86_64-w64-mingw32/11.4.0/collect2.exe -plugin D:/IDE/RedPanda-Cpp/mingw64/bin/../libexec/gcc/x86_64-w64-mingw32/11.4.0/liblto_plugin.dll -plugin-opt=D:/IDE/RedPanda-Cpp/mingw64/bin/../libexec/gcc/x86_64-w64-mingw32/11.4.0/lto-wrapper.exe -plugin-opt=-fresolution=C:\\Users\\liyif\\AppData\\Local\\Temp\\ccgjFGqe.res -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_eh -plugin-opt=-pass-through=-lmoldname -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-lpthread -plugin-opt=-pass-through=-ladvapi32 -plugin-opt=-pass-through=-lshell32 -plugin-opt=-pass-through=-luser32 -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-liconv -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_eh -plugin-opt=-pass-through=-lmoldname -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt -plugin-opt=-pass-through=-lkernel32 --sysroot=I:/mingw-builds/x86_64-1140-posix-seh-msvcrt-rt_v11/mingw64 -m i386pep -Bdynamic -o cmTC_ca191.exe D:/IDE/RedPanda-Cpp/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/11.4.0/../../../../x86_64-w64-mingw32/lib/../lib/crt2.o D:/IDE/RedPanda-Cpp/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/11.4.0/crtbegin.o -LD:/IDE/RedPanda-Cpp/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/11.4.0 -LD:/IDE/RedPanda-Cpp/mingw64/bin/../lib/gcc -LD:/IDE/RedPanda-Cpp/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/11.4.0/../../../../x86_64-w64-mingw32/lib/../lib -LD:/IDE/RedPanda-Cpp/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/11.4.0/../../../../lib -LD:/IDE/RedPanda-Cpp/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/11.4.0/../../../../x86_64-w64-mingw32/lib -LD:/IDE/RedPanda-Cpp/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/11.4.0/../../.. -v CMakeFiles/cmTC_ca191.dir/CMakeCCompilerABI.c.obj --out-implib libcmTC_ca191.dll.a --major-image-version 0 --minor-image-version 0 -lmingw32 -lgcc -lgcc_eh -lmoldname -lmingwex -lmsvcrt -lkernel32 -lpthread -ladvapi32 -lshell32 -luser32 -lkernel32 -liconv -lmingw32 -lgcc -lgcc_eh -lmoldname -lmingwex -lmsvcrt -lkernel32 D:/IDE/RedPanda-Cpp/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/11.4.0/crtend.o
         collect2 version 11.4.0
-        D:/IDE/RedPanda-Cpp/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/11.4.0/../../../../x86_64-w64-mingw32/bin/ld.exe -plugin D:/IDE/RedPanda-Cpp/mingw64/bin/../libexec/gcc/x86_64-w64-mingw32/11.4.0/liblto_plugin.dll -plugin-opt=D:/IDE/RedPanda-Cpp/mingw64/bin/../libexec/gcc/x86_64-w64-mingw32/11.4.0/lto-wrapper.exe -plugin-opt=-fresolution=C:\\Users\\liyif\\AppData\\Local\\Temp\\ccBHLLNA.res -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_eh -plugin-opt=-pass-through=-lmoldname -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-lpthread -plugin-opt=-pass-through=-ladvapi32 -plugin-opt=-pass-through=-lshell32 -plugin-opt=-pass-through=-luser32 -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-liconv -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_eh -plugin-opt=-pass-through=-lmoldname -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt -plugin-opt=-pass-through=-lkernel32 --sysroot=I:/mingw-builds/x86_64-1140-posix-seh-msvcrt-rt_v11/mingw64 -m i386pep -Bdynamic -o cmTC_90268.exe D:/IDE/RedPanda-Cpp/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/11.4.0/../../../../x86_64-w64-mingw32/lib/../lib/crt2.o D:/IDE/RedPanda-Cpp/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/11.4.0/crtbegin.o -LD:/IDE/RedPanda-Cpp/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/11.4.0 -LD:/IDE/RedPanda-Cpp/mingw64/bin/../lib/gcc -LD:/IDE/RedPanda-Cpp/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/11.4.0/../../../../x86_64-w64-mingw32/lib/../lib -LD:/IDE/RedPanda-Cpp/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/11.4.0/../../../../lib -LD:/IDE/RedPanda-Cpp/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/11.4.0/../../../../x86_64-w64-mingw32/lib -LD:/IDE/RedPanda-Cpp/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/11.4.0/../../.. -v CMakeFiles/cmTC_90268.dir/CMakeCCompilerABI.c.obj --out-implib libcmTC_90268.dll.a --major-image-version 0 --minor-image-version 0 -lmingw32 -lgcc -lgcc_eh -lmoldname -lmingwex -lmsvcrt -lkernel32 -lpthread -ladvapi32 -lshell32 -luser32 -lkernel32 -liconv -lmingw32 -lgcc -lgcc_eh -lmoldname -lmingwex -lmsvcrt -lkernel32 D:/IDE/RedPanda-Cpp/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/11.4.0/crtend.o
+        D:/IDE/RedPanda-Cpp/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/11.4.0/../../../../x86_64-w64-mingw32/bin/ld.exe -plugin D:/IDE/RedPanda-Cpp/mingw64/bin/../libexec/gcc/x86_64-w64-mingw32/11.4.0/liblto_plugin.dll -plugin-opt=D:/IDE/RedPanda-Cpp/mingw64/bin/../libexec/gcc/x86_64-w64-mingw32/11.4.0/lto-wrapper.exe -plugin-opt=-fresolution=C:\\Users\\liyif\\AppData\\Local\\Temp\\ccgjFGqe.res -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_eh -plugin-opt=-pass-through=-lmoldname -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-lpthread -plugin-opt=-pass-through=-ladvapi32 -plugin-opt=-pass-through=-lshell32 -plugin-opt=-pass-through=-luser32 -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-liconv -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_eh -plugin-opt=-pass-through=-lmoldname -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt -plugin-opt=-pass-through=-lkernel32 --sysroot=I:/mingw-builds/x86_64-1140-posix-seh-msvcrt-rt_v11/mingw64 -m i386pep -Bdynamic -o cmTC_ca191.exe D:/IDE/RedPanda-Cpp/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/11.4.0/../../../../x86_64-w64-mingw32/lib/../lib/crt2.o D:/IDE/RedPanda-Cpp/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/11.4.0/crtbegin.o -LD:/IDE/RedPanda-Cpp/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/11.4.0 -LD:/IDE/RedPanda-Cpp/mingw64/bin/../lib/gcc -LD:/IDE/RedPanda-Cpp/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/11.4.0/../../../../x86_64-w64-mingw32/lib/../lib -LD:/IDE/RedPanda-Cpp/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/11.4.0/../../../../lib -LD:/IDE/RedPanda-Cpp/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/11.4.0/../../../../x86_64-w64-mingw32/lib -LD:/IDE/RedPanda-Cpp/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/11.4.0/../../.. -v CMakeFiles/cmTC_ca191.dir/CMakeCCompilerABI.c.obj --out-implib libcmTC_ca191.dll.a --major-image-version 0 --minor-image-version 0 -lmingw32 -lgcc -lgcc_eh -lmoldname -lmingwex -lmsvcrt -lkernel32 -lpthread -ladvapi32 -lshell32 -luser32 -lkernel32 -liconv -lmingw32 -lgcc -lgcc_eh -lmoldname -lmingwex -lmsvcrt -lkernel32 D:/IDE/RedPanda-Cpp/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/11.4.0/crtend.o
         GNU ld (GNU Binutils) 2.38
-        COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_90268.exe' '-mtune=core2' '-march=nocona' '-dumpdir' 'cmTC_90268.'\x0d
+        COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_ca191.exe' '-mtune=core2' '-march=nocona' '-dumpdir' 'cmTC_ca191.'\x0d
         
       exitCode: 0
   -
     kind: "message-v1"
     backtrace:
-      - "D:/JetBrains/CLion 2024.3.4/bin/cmake/win/x64/share/cmake-3.30/Modules/CMakeDetermineCompilerABI.cmake:182 (message)"
-      - "D:/JetBrains/CLion 2024.3.4/bin/cmake/win/x64/share/cmake-3.30/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "D:/IDE/JetBrains/CLion 2025.1/bin/cmake/win/x64/share/cmake-3.31/Modules/CMakeDetermineCompilerABI.cmake:182 (message)"
+      - "D:/IDE/JetBrains/CLion 2025.1/bin/cmake/win/x64/share/cmake-3.31/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
       - "CMakeLists.txt:2 (project)"
     message: |
       Parsed C implicit include dir info: rv=done
@@ -152,17 +152,17 @@ events:
   -
     kind: "message-v1"
     backtrace:
-      - "D:/JetBrains/CLion 2024.3.4/bin/cmake/win/x64/share/cmake-3.30/Modules/CMakeDetermineCompilerABI.cmake:218 (message)"
-      - "D:/JetBrains/CLion 2024.3.4/bin/cmake/win/x64/share/cmake-3.30/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "D:/IDE/JetBrains/CLion 2025.1/bin/cmake/win/x64/share/cmake-3.31/Modules/CMakeDetermineCompilerABI.cmake:218 (message)"
+      - "D:/IDE/JetBrains/CLion 2025.1/bin/cmake/win/x64/share/cmake-3.31/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
       - "CMakeLists.txt:2 (project)"
     message: |
       Parsed C implicit link information:
         link line regex: [^( *|.*[/\\])(ld[0-9]*(\\.[a-z]+)?|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\\]+-)?ld|collect2)[^/\\]*( |$)]
         linker tool regex: [^[ 	]*(->|")?[ 	]*(([^"]*[/\\])?(ld[0-9]*(\\.[a-z]+)?))("|,| |$)]
-        ignore line: [Change Dir: 'C:/Users/liyif/CLionProjects/ggtoolbox/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-z2eukr']
+        ignore line: [Change Dir: 'C:/Users/liyif/CLionProjects/ggtoolbox/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-ntc1a8']
         ignore line: []
-        ignore line: [Run Build Command(s): "D:/JetBrains/CLion 2024.3.4/bin/ninja/win/x64/ninja.exe" -v cmTC_90268]
-        ignore line: [[1/2] D:\\IDE\\RedPanda-Cpp\\mingw64\\bin\\gcc.exe   -fdiagnostics-color=always   -v -o CMakeFiles/cmTC_90268.dir/CMakeCCompilerABI.c.obj -c "D:/JetBrains/CLion 2024.3.4/bin/cmake/win/x64/share/cmake-3.30/Modules/CMakeCCompilerABI.c"]
+        ignore line: [Run Build Command(s): "D:/IDE/JetBrains/CLion 2025.1/bin/ninja/win/x64/ninja.exe" -v cmTC_ca191]
+        ignore line: [[1/2] D:\\IDE\\RedPanda-Cpp\\mingw64\\bin\\gcc.exe   -fdiagnostics-color=always   -v -o CMakeFiles/cmTC_ca191.dir/CMakeCCompilerABI.c.obj -c "D:/IDE/JetBrains/CLion 2025.1/bin/cmake/win/x64/share/cmake-3.31/Modules/CMakeCCompilerABI.c"]
         ignore line: [Using built-in specs.]
         ignore line: [COLLECT_GCC=D:\\IDE\\RedPanda-Cpp\\mingw64\\bin\\gcc.exe]
         ignore line: [Target: x86_64-w64-mingw32]
@@ -170,8 +170,8 @@ events:
         ignore line: [Thread model: posix]
         ignore line: [Supported LTO compression algorithms: zlib]
         ignore line: [gcc version 11.4.0 (x86_64-posix-seh  Built by MinGW-Builds project) ]
-        ignore line: [COLLECT_GCC_OPTIONS='-fdiagnostics-color=always' '-v' '-o' 'CMakeFiles/cmTC_90268.dir/CMakeCCompilerABI.c.obj' '-c' '-mtune=core2' '-march=nocona' '-dumpdir' 'CMakeFiles/cmTC_90268.dir/']
-        ignore line: [ D:/IDE/RedPanda-Cpp/mingw64/bin/../libexec/gcc/x86_64-w64-mingw32/11.4.0/cc1.exe -quiet -v -iprefix D:/IDE/RedPanda-Cpp/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/11.4.0/ -D_REENTRANT D:/JetBrains/CLion 2024.3.4/bin/cmake/win/x64/share/cmake-3.30/Modules/CMakeCCompilerABI.c -quiet -dumpdir CMakeFiles/cmTC_90268.dir/ -dumpbase CMakeCCompilerABI.c.c -dumpbase-ext .c -mtune=core2 -march=nocona -version -fdiagnostics-color=always -o C:\\Users\\liyif\\AppData\\Local\\Temp\\cc1mGIJr.s]
+        ignore line: [COLLECT_GCC_OPTIONS='-fdiagnostics-color=always' '-v' '-o' 'CMakeFiles/cmTC_ca191.dir/CMakeCCompilerABI.c.obj' '-c' '-mtune=core2' '-march=nocona' '-dumpdir' 'CMakeFiles/cmTC_ca191.dir/']
+        ignore line: [ D:/IDE/RedPanda-Cpp/mingw64/bin/../libexec/gcc/x86_64-w64-mingw32/11.4.0/cc1.exe -quiet -v -iprefix D:/IDE/RedPanda-Cpp/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/11.4.0/ -D_REENTRANT D:/IDE/JetBrains/CLion 2025.1/bin/cmake/win/x64/share/cmake-3.31/Modules/CMakeCCompilerABI.c -quiet -dumpdir CMakeFiles/cmTC_ca191.dir/ -dumpbase CMakeCCompilerABI.c.c -dumpbase-ext .c -mtune=core2 -march=nocona -version -fdiagnostics-color=always -o C:\\Users\\liyif\\AppData\\Local\\Temp\\ccJOufxT.s]
         ignore line: [GNU C17 (x86_64-posix-seh  Built by MinGW-Builds project) version 11.4.0 (x86_64-w64-mingw32)]
         ignore line: [	compiled by GNU C version 11.4.0  GMP version 6.2.1  MPFR version 4.1.0  MPC version 1.2.1  isl version isl-0.25-GMP]
         ignore line: []
@@ -192,8 +192,8 @@ events:
         ignore line: []
         ignore line: [GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072]
         ignore line: [Compiler executable checksum: 97ab6e9e3ad82d4e0ced6b6e0f1ebff1]
-        ignore line: [COLLECT_GCC_OPTIONS='-fdiagnostics-color=always' '-v' '-o' 'CMakeFiles/cmTC_90268.dir/CMakeCCompilerABI.c.obj' '-c' '-mtune=core2' '-march=nocona' '-dumpdir' 'CMakeFiles/cmTC_90268.dir/']
-        ignore line: [ D:/IDE/RedPanda-Cpp/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/11.4.0/../../../../x86_64-w64-mingw32/bin/as.exe -v -o CMakeFiles/cmTC_90268.dir/CMakeCCompilerABI.c.obj C:\\Users\\liyif\\AppData\\Local\\Temp\\cc1mGIJr.s]
+        ignore line: [COLLECT_GCC_OPTIONS='-fdiagnostics-color=always' '-v' '-o' 'CMakeFiles/cmTC_ca191.dir/CMakeCCompilerABI.c.obj' '-c' '-mtune=core2' '-march=nocona' '-dumpdir' 'CMakeFiles/cmTC_ca191.dir/']
+        ignore line: [ D:/IDE/RedPanda-Cpp/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/11.4.0/../../../../x86_64-w64-mingw32/bin/as.exe -v -o CMakeFiles/cmTC_ca191.dir/CMakeCCompilerABI.c.obj C:\\Users\\liyif\\AppData\\Local\\Temp\\ccJOufxT.s]
         ignore line: [GNU assembler version 2.38 (x86_64-w64-mingw32) using BFD version (GNU Binutils) 2.38]
         ignore line: [COMPILER_PATH=D:/IDE/RedPanda-Cpp/mingw64/bin/../libexec/gcc/x86_64-w64-mingw32/11.4.0/]
         ignore line: [D:/IDE/RedPanda-Cpp/mingw64/bin/../libexec/gcc/]
@@ -204,8 +204,8 @@ events:
         ignore line: [D:/IDE/RedPanda-Cpp/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/11.4.0/../../../../lib/]
         ignore line: [D:/IDE/RedPanda-Cpp/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/11.4.0/../../../../x86_64-w64-mingw32/lib/]
         ignore line: [D:/IDE/RedPanda-Cpp/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/11.4.0/../../../]
-        ignore line: [COLLECT_GCC_OPTIONS='-fdiagnostics-color=always' '-v' '-o' 'CMakeFiles/cmTC_90268.dir/CMakeCCompilerABI.c.obj' '-c' '-mtune=core2' '-march=nocona' '-dumpdir' 'CMakeFiles/cmTC_90268.dir/CMakeCCompilerABI.c.'\x0d]
-        ignore line: [[2/2] C:\\WINDOWS\\system32\\cmd.exe /C "cd . && D:\\IDE\\RedPanda-Cpp\\mingw64\\bin\\gcc.exe  -v -Wl -v CMakeFiles/cmTC_90268.dir/CMakeCCompilerABI.c.obj -o cmTC_90268.exe -Wl --out-implib libcmTC_90268.dll.a -Wl --major-image-version 0 --minor-image-version 0   && cd ."]
+        ignore line: [COLLECT_GCC_OPTIONS='-fdiagnostics-color=always' '-v' '-o' 'CMakeFiles/cmTC_ca191.dir/CMakeCCompilerABI.c.obj' '-c' '-mtune=core2' '-march=nocona' '-dumpdir' 'CMakeFiles/cmTC_ca191.dir/CMakeCCompilerABI.c.'\x0d]
+        ignore line: [[2/2] C:\\WINDOWS\\system32\\cmd.exe /C "cd . && D:\\IDE\\RedPanda-Cpp\\mingw64\\bin\\gcc.exe  -v -Wl -v CMakeFiles/cmTC_ca191.dir/CMakeCCompilerABI.c.obj -o cmTC_ca191.exe -Wl --out-implib libcmTC_ca191.dll.a -Wl --major-image-version 0 --minor-image-version 0   && cd ."]
         ignore line: [Using built-in specs.]
         ignore line: [COLLECT_GCC=D:\\IDE\\RedPanda-Cpp\\mingw64\\bin\\gcc.exe]
         ignore line: [COLLECT_LTO_WRAPPER=D:/IDE/RedPanda-Cpp/mingw64/bin/../libexec/gcc/x86_64-w64-mingw32/11.4.0/lto-wrapper.exe]
@@ -223,13 +223,13 @@ events:
         ignore line: [D:/IDE/RedPanda-Cpp/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/11.4.0/../../../../lib/]
         ignore line: [D:/IDE/RedPanda-Cpp/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/11.4.0/../../../../x86_64-w64-mingw32/lib/]
         ignore line: [D:/IDE/RedPanda-Cpp/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/11.4.0/../../../]
-        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_90268.exe' '-mtune=core2' '-march=nocona' '-dumpdir' 'cmTC_90268.']
-        link line: [ D:/IDE/RedPanda-Cpp/mingw64/bin/../libexec/gcc/x86_64-w64-mingw32/11.4.0/collect2.exe -plugin D:/IDE/RedPanda-Cpp/mingw64/bin/../libexec/gcc/x86_64-w64-mingw32/11.4.0/liblto_plugin.dll -plugin-opt=D:/IDE/RedPanda-Cpp/mingw64/bin/../libexec/gcc/x86_64-w64-mingw32/11.4.0/lto-wrapper.exe -plugin-opt=-fresolution=C:\\Users\\liyif\\AppData\\Local\\Temp\\ccBHLLNA.res -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_eh -plugin-opt=-pass-through=-lmoldname -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-lpthread -plugin-opt=-pass-through=-ladvapi32 -plugin-opt=-pass-through=-lshell32 -plugin-opt=-pass-through=-luser32 -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-liconv -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_eh -plugin-opt=-pass-through=-lmoldname -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt -plugin-opt=-pass-through=-lkernel32 --sysroot=I:/mingw-builds/x86_64-1140-posix-seh-msvcrt-rt_v11/mingw64 -m i386pep -Bdynamic -o cmTC_90268.exe D:/IDE/RedPanda-Cpp/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/11.4.0/../../../../x86_64-w64-mingw32/lib/../lib/crt2.o D:/IDE/RedPanda-Cpp/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/11.4.0/crtbegin.o -LD:/IDE/RedPanda-Cpp/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/11.4.0 -LD:/IDE/RedPanda-Cpp/mingw64/bin/../lib/gcc -LD:/IDE/RedPanda-Cpp/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/11.4.0/../../../../x86_64-w64-mingw32/lib/../lib -LD:/IDE/RedPanda-Cpp/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/11.4.0/../../../../lib -LD:/IDE/RedPanda-Cpp/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/11.4.0/../../../../x86_64-w64-mingw32/lib -LD:/IDE/RedPanda-Cpp/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/11.4.0/../../.. -v CMakeFiles/cmTC_90268.dir/CMakeCCompilerABI.c.obj --out-implib libcmTC_90268.dll.a --major-image-version 0 --minor-image-version 0 -lmingw32 -lgcc -lgcc_eh -lmoldname -lmingwex -lmsvcrt -lkernel32 -lpthread -ladvapi32 -lshell32 -luser32 -lkernel32 -liconv -lmingw32 -lgcc -lgcc_eh -lmoldname -lmingwex -lmsvcrt -lkernel32 D:/IDE/RedPanda-Cpp/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/11.4.0/crtend.o]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_ca191.exe' '-mtune=core2' '-march=nocona' '-dumpdir' 'cmTC_ca191.']
+        link line: [ D:/IDE/RedPanda-Cpp/mingw64/bin/../libexec/gcc/x86_64-w64-mingw32/11.4.0/collect2.exe -plugin D:/IDE/RedPanda-Cpp/mingw64/bin/../libexec/gcc/x86_64-w64-mingw32/11.4.0/liblto_plugin.dll -plugin-opt=D:/IDE/RedPanda-Cpp/mingw64/bin/../libexec/gcc/x86_64-w64-mingw32/11.4.0/lto-wrapper.exe -plugin-opt=-fresolution=C:\\Users\\liyif\\AppData\\Local\\Temp\\ccgjFGqe.res -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_eh -plugin-opt=-pass-through=-lmoldname -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-lpthread -plugin-opt=-pass-through=-ladvapi32 -plugin-opt=-pass-through=-lshell32 -plugin-opt=-pass-through=-luser32 -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-liconv -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_eh -plugin-opt=-pass-through=-lmoldname -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt -plugin-opt=-pass-through=-lkernel32 --sysroot=I:/mingw-builds/x86_64-1140-posix-seh-msvcrt-rt_v11/mingw64 -m i386pep -Bdynamic -o cmTC_ca191.exe D:/IDE/RedPanda-Cpp/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/11.4.0/../../../../x86_64-w64-mingw32/lib/../lib/crt2.o D:/IDE/RedPanda-Cpp/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/11.4.0/crtbegin.o -LD:/IDE/RedPanda-Cpp/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/11.4.0 -LD:/IDE/RedPanda-Cpp/mingw64/bin/../lib/gcc -LD:/IDE/RedPanda-Cpp/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/11.4.0/../../../../x86_64-w64-mingw32/lib/../lib -LD:/IDE/RedPanda-Cpp/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/11.4.0/../../../../lib -LD:/IDE/RedPanda-Cpp/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/11.4.0/../../../../x86_64-w64-mingw32/lib -LD:/IDE/RedPanda-Cpp/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/11.4.0/../../.. -v CMakeFiles/cmTC_ca191.dir/CMakeCCompilerABI.c.obj --out-implib libcmTC_ca191.dll.a --major-image-version 0 --minor-image-version 0 -lmingw32 -lgcc -lgcc_eh -lmoldname -lmingwex -lmsvcrt -lkernel32 -lpthread -ladvapi32 -lshell32 -luser32 -lkernel32 -liconv -lmingw32 -lgcc -lgcc_eh -lmoldname -lmingwex -lmsvcrt -lkernel32 D:/IDE/RedPanda-Cpp/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/11.4.0/crtend.o]
           arg [D:/IDE/RedPanda-Cpp/mingw64/bin/../libexec/gcc/x86_64-w64-mingw32/11.4.0/collect2.exe] ==> ignore
           arg [-plugin] ==> ignore
           arg [D:/IDE/RedPanda-Cpp/mingw64/bin/../libexec/gcc/x86_64-w64-mingw32/11.4.0/liblto_plugin.dll] ==> ignore
           arg [-plugin-opt=D:/IDE/RedPanda-Cpp/mingw64/bin/../libexec/gcc/x86_64-w64-mingw32/11.4.0/lto-wrapper.exe] ==> ignore
-          arg [-plugin-opt=-fresolution=C:\\Users\\liyif\\AppData\\Local\\Temp\\ccBHLLNA.res] ==> ignore
+          arg [-plugin-opt=-fresolution=C:\\Users\\liyif\\AppData\\Local\\Temp\\ccgjFGqe.res] ==> ignore
           arg [-plugin-opt=-pass-through=-lmingw32] ==> ignore
           arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
           arg [-plugin-opt=-pass-through=-lgcc_eh] ==> ignore
@@ -255,7 +255,7 @@ events:
           arg [i386pep] ==> ignore
           arg [-Bdynamic] ==> search dynamic
           arg [-o] ==> ignore
-          arg [cmTC_90268.exe] ==> ignore
+          arg [cmTC_ca191.exe] ==> ignore
           arg [D:/IDE/RedPanda-Cpp/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/11.4.0/../../../../x86_64-w64-mingw32/lib/../lib/crt2.o] ==> obj [D:/IDE/RedPanda-Cpp/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/11.4.0/../../../../x86_64-w64-mingw32/lib/../lib/crt2.o]
           arg [D:/IDE/RedPanda-Cpp/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/11.4.0/crtbegin.o] ==> obj [D:/IDE/RedPanda-Cpp/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/11.4.0/crtbegin.o]
           arg [-LD:/IDE/RedPanda-Cpp/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/11.4.0] ==> dir [D:/IDE/RedPanda-Cpp/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/11.4.0]
@@ -265,9 +265,9 @@ events:
           arg [-LD:/IDE/RedPanda-Cpp/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/11.4.0/../../../../x86_64-w64-mingw32/lib] ==> dir [D:/IDE/RedPanda-Cpp/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/11.4.0/../../../../x86_64-w64-mingw32/lib]
           arg [-LD:/IDE/RedPanda-Cpp/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/11.4.0/../../..] ==> dir [D:/IDE/RedPanda-Cpp/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/11.4.0/../../..]
           arg [-v] ==> ignore
-          arg [CMakeFiles/cmTC_90268.dir/CMakeCCompilerABI.c.obj] ==> ignore
+          arg [CMakeFiles/cmTC_ca191.dir/CMakeCCompilerABI.c.obj] ==> ignore
           arg [--out-implib] ==> ignore
-          arg [libcmTC_90268.dll.a] ==> ignore
+          arg [libcmTC_ca191.dll.a] ==> ignore
           arg [--major-image-version] ==> ignore
           arg [0] ==> ignore
           arg [--minor-image-version] ==> ignore
@@ -316,9 +316,9 @@ events:
   -
     kind: "message-v1"
     backtrace:
-      - "D:/JetBrains/CLion 2024.3.4/bin/cmake/win/x64/share/cmake-3.30/Modules/Internal/CMakeDetermineLinkerId.cmake:40 (message)"
-      - "D:/JetBrains/CLion 2024.3.4/bin/cmake/win/x64/share/cmake-3.30/Modules/CMakeDetermineCompilerABI.cmake:255 (cmake_determine_linker_id)"
-      - "D:/JetBrains/CLion 2024.3.4/bin/cmake/win/x64/share/cmake-3.30/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "D:/IDE/JetBrains/CLion 2025.1/bin/cmake/win/x64/share/cmake-3.31/Modules/Internal/CMakeDetermineLinkerId.cmake:40 (message)"
+      - "D:/IDE/JetBrains/CLion 2025.1/bin/cmake/win/x64/share/cmake-3.31/Modules/CMakeDetermineCompilerABI.cmake:255 (cmake_determine_linker_id)"
+      - "D:/IDE/JetBrains/CLion 2025.1/bin/cmake/win/x64/share/cmake-3.31/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
       - "CMakeLists.txt:2 (project)"
     message: |
       Running the C compiler's linker: "../src/gcc-11.4.0/configure --host=x86_64-w64-mingw32 --build=x86_64-w64-mingw32 --target=x86_64-w64-mingw32 --prefix=/mingw64 --with-sysroot=/i/mingw-builds/x86_64-1140-posix-seh-msvcrt-rt_v11/mingw64 --enable-host-shared --disable-multilib --enable-languages=c,c++,lto --enable-libstdcxx-time=yes --enable-threads=posix --enable-libgomp --enable-libatomic --enable-lto --enable-graphite --enable-checking=release --enable-fully-dynamic-string --enable-version-specific-runtime-libs --enable-libstdcxx-filesystem-ts=yes --disable-libstdcxx-pch --disable-libstdcxx-debug --enable-bootstrap --disable-rpath --disable-win32-registry --disable-nls --disable-werror --disable-symvers --with-gnu-as --with-gnu-ld --with-arch=nocona --with-tune=core2 --with-libiconv --with-system-zlib --with-gmp=/i/mingw-builds/prerequisites/x86_64-w64-mingw32-static --with-mpfr=/i/mingw-builds/prerequisites/x86_64-w64-mingw32-static --with-mpc=/i/mingw-builds/prerequisites/x86_64-w64-mingw32-static --with-isl=/i/mingw-builds/prerequisites/x86_64-w64-mingw32-static --with-pkgversion='x86_64-posix-seh, Built by MinGW-Builds project' --with-bugurl=https:/github.com/niXman/mingw-builds CFLAGS='-O2 -pipe -fno-ident -I/i/mingw-builds/x86_64-1140-posix-seh-msvcrt-rt_v11/mingw64/opt/include -I/i/mingw-builds/prerequisites/x86_64-zlib-static/include -I/i/mingw-builds/prerequisites/x86_64-w64-mingw32-static/include' CXXFLAGS='-O2 -pipe -fno-ident -I/i/mingw-builds/x86_64-1140-posix-seh-msvcrt-rt_v11/mingw64/opt/include -I/i/mingw-builds/prerequisites/x86_64-zlib-static/include -I/i/mingw-builds/prerequisites/x86_64-w64-mingw32-static/include' CPPFLAGS=' -I/i/mingw-builds/x86_64-1140-posix-seh-msvcrt-rt_v11/mingw64/opt/include -I/i/mingw-builds/prerequisites/x86_64-zlib-static/include -I/i/mingw-builds/prerequisites/x86_64-w64-mingw32-static/include' LDFLAGS='-pipe -fno-ident -L/i/mingw-builds/x86_64-1140-posix-seh-msvcrt-rt_v11/mingw64/opt/lib -L/i/mingw-builds/prerequisites/x86_64-zlib-static/lib -L/i/mingw-builds/prerequisites/x86_64-w64-mingw32-static/lib ' LD_FOR_TARGET=/i/mingw-builds/x86_64-1140-posix-seh-msvcrt-rt_v11/mingw64/bin/ld.exe" "-v"
@@ -326,9 +326,9 @@ events:
   -
     kind: "message-v1"
     backtrace:
-      - "D:/JetBrains/CLion 2024.3.4/bin/cmake/win/x64/share/cmake-3.30/Modules/Internal/CMakeDetermineLinkerId.cmake:40 (message)"
-      - "D:/JetBrains/CLion 2024.3.4/bin/cmake/win/x64/share/cmake-3.30/Modules/CMakeDetermineCompilerABI.cmake:255 (cmake_determine_linker_id)"
-      - "D:/JetBrains/CLion 2024.3.4/bin/cmake/win/x64/share/cmake-3.30/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "D:/IDE/JetBrains/CLion 2025.1/bin/cmake/win/x64/share/cmake-3.31/Modules/Internal/CMakeDetermineLinkerId.cmake:40 (message)"
+      - "D:/IDE/JetBrains/CLion 2025.1/bin/cmake/win/x64/share/cmake-3.31/Modules/CMakeDetermineCompilerABI.cmake:255 (cmake_determine_linker_id)"
+      - "D:/IDE/JetBrains/CLion 2025.1/bin/cmake/win/x64/share/cmake-3.31/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
       - "CMakeLists.txt:2 (project)"
     message: |
       Running the C compiler's linker: "../src/gcc-11.4.0/configure --host=x86_64-w64-mingw32 --build=x86_64-w64-mingw32 --target=x86_64-w64-mingw32 --prefix=/mingw64 --with-sysroot=/i/mingw-builds/x86_64-1140-posix-seh-msvcrt-rt_v11/mingw64 --enable-host-shared --disable-multilib --enable-languages=c,c++,lto --enable-libstdcxx-time=yes --enable-threads=posix --enable-libgomp --enable-libatomic --enable-lto --enable-graphite --enable-checking=release --enable-fully-dynamic-string --enable-version-specific-runtime-libs --enable-libstdcxx-filesystem-ts=yes --disable-libstdcxx-pch --disable-libstdcxx-debug --enable-bootstrap --disable-rpath --disable-win32-registry --disable-nls --disable-werror --disable-symvers --with-gnu-as --with-gnu-ld --with-arch=nocona --with-tune=core2 --with-libiconv --with-system-zlib --with-gmp=/i/mingw-builds/prerequisites/x86_64-w64-mingw32-static --with-mpfr=/i/mingw-builds/prerequisites/x86_64-w64-mingw32-static --with-mpc=/i/mingw-builds/prerequisites/x86_64-w64-mingw32-static --with-isl=/i/mingw-builds/prerequisites/x86_64-w64-mingw32-static --with-pkgversion='x86_64-posix-seh, Built by MinGW-Builds project' --with-bugurl=https:/github.com/niXman/mingw-builds CFLAGS='-O2 -pipe -fno-ident -I/i/mingw-builds/x86_64-1140-posix-seh-msvcrt-rt_v11/mingw64/opt/include -I/i/mingw-builds/prerequisites/x86_64-zlib-static/include -I/i/mingw-builds/prerequisites/x86_64-w64-mingw32-static/include' CXXFLAGS='-O2 -pipe -fno-ident -I/i/mingw-builds/x86_64-1140-posix-seh-msvcrt-rt_v11/mingw64/opt/include -I/i/mingw-builds/prerequisites/x86_64-zlib-static/include -I/i/mingw-builds/prerequisites/x86_64-w64-mingw32-static/include' CPPFLAGS=' -I/i/mingw-builds/x86_64-1140-posix-seh-msvcrt-rt_v11/mingw64/opt/include -I/i/mingw-builds/prerequisites/x86_64-zlib-static/include -I/i/mingw-builds/prerequisites/x86_64-w64-mingw32-static/include' LDFLAGS='-pipe -fno-ident -L/i/mingw-builds/x86_64-1140-posix-seh-msvcrt-rt_v11/mingw64/opt/lib -L/i/mingw-builds/prerequisites/x86_64-zlib-static/lib -L/i/mingw-builds/prerequisites/x86_64-w64-mingw32-static/lib ' LD_FOR_TARGET=/i/mingw-builds/x86_64-1140-posix-seh-msvcrt-rt_v11/mingw64/bin/ld.exe" "-V"
@@ -336,9 +336,9 @@ events:
   -
     kind: "message-v1"
     backtrace:
-      - "D:/JetBrains/CLion 2024.3.4/bin/cmake/win/x64/share/cmake-3.30/Modules/Internal/CMakeDetermineLinkerId.cmake:40 (message)"
-      - "D:/JetBrains/CLion 2024.3.4/bin/cmake/win/x64/share/cmake-3.30/Modules/CMakeDetermineCompilerABI.cmake:255 (cmake_determine_linker_id)"
-      - "D:/JetBrains/CLion 2024.3.4/bin/cmake/win/x64/share/cmake-3.30/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "D:/IDE/JetBrains/CLion 2025.1/bin/cmake/win/x64/share/cmake-3.31/Modules/Internal/CMakeDetermineLinkerId.cmake:40 (message)"
+      - "D:/IDE/JetBrains/CLion 2025.1/bin/cmake/win/x64/share/cmake-3.31/Modules/CMakeDetermineCompilerABI.cmake:255 (cmake_determine_linker_id)"
+      - "D:/IDE/JetBrains/CLion 2025.1/bin/cmake/win/x64/share/cmake-3.31/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
       - "CMakeLists.txt:2 (project)"
     message: |
       Running the C compiler's linker: "../src/gcc-11.4.0/configure --host=x86_64-w64-mingw32 --build=x86_64-w64-mingw32 --target=x86_64-w64-mingw32 --prefix=/mingw64 --with-sysroot=/i/mingw-builds/x86_64-1140-posix-seh-msvcrt-rt_v11/mingw64 --enable-host-shared --disable-multilib --enable-languages=c,c++,lto --enable-libstdcxx-time=yes --enable-threads=posix --enable-libgomp --enable-libatomic --enable-lto --enable-graphite --enable-checking=release --enable-fully-dynamic-string --enable-version-specific-runtime-libs --enable-libstdcxx-filesystem-ts=yes --disable-libstdcxx-pch --disable-libstdcxx-debug --enable-bootstrap --disable-rpath --disable-win32-registry --disable-nls --disable-werror --disable-symvers --with-gnu-as --with-gnu-ld --with-arch=nocona --with-tune=core2 --with-libiconv --with-system-zlib --with-gmp=/i/mingw-builds/prerequisites/x86_64-w64-mingw32-static --with-mpfr=/i/mingw-builds/prerequisites/x86_64-w64-mingw32-static --with-mpc=/i/mingw-builds/prerequisites/x86_64-w64-mingw32-static --with-isl=/i/mingw-builds/prerequisites/x86_64-w64-mingw32-static --with-pkgversion='x86_64-posix-seh, Built by MinGW-Builds project' --with-bugurl=https:/github.com/niXman/mingw-builds CFLAGS='-O2 -pipe -fno-ident -I/i/mingw-builds/x86_64-1140-posix-seh-msvcrt-rt_v11/mingw64/opt/include -I/i/mingw-builds/prerequisites/x86_64-zlib-static/include -I/i/mingw-builds/prerequisites/x86_64-w64-mingw32-static/include' CXXFLAGS='-O2 -pipe -fno-ident -I/i/mingw-builds/x86_64-1140-posix-seh-msvcrt-rt_v11/mingw64/opt/include -I/i/mingw-builds/prerequisites/x86_64-zlib-static/include -I/i/mingw-builds/prerequisites/x86_64-w64-mingw32-static/include' CPPFLAGS=' -I/i/mingw-builds/x86_64-1140-posix-seh-msvcrt-rt_v11/mingw64/opt/include -I/i/mingw-builds/prerequisites/x86_64-zlib-static/include -I/i/mingw-builds/prerequisites/x86_64-w64-mingw32-static/include' LDFLAGS='-pipe -fno-ident -L/i/mingw-builds/x86_64-1140-posix-seh-msvcrt-rt_v11/mingw64/opt/lib -L/i/mingw-builds/prerequisites/x86_64-zlib-static/lib -L/i/mingw-builds/prerequisites/x86_64-w64-mingw32-static/lib ' LD_FOR_TARGET=/i/mingw-builds/x86_64-1140-posix-seh-msvcrt-rt_v11/mingw64/bin/ld.exe" "--version"
@@ -346,14 +346,14 @@ events:
   -
     kind: "try_compile-v1"
     backtrace:
-      - "D:/JetBrains/CLion 2024.3.4/bin/cmake/win/x64/share/cmake-3.30/Modules/CMakeDetermineCompilerABI.cmake:74 (try_compile)"
-      - "D:/JetBrains/CLion 2024.3.4/bin/cmake/win/x64/share/cmake-3.30/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "D:/IDE/JetBrains/CLion 2025.1/bin/cmake/win/x64/share/cmake-3.31/Modules/CMakeDetermineCompilerABI.cmake:74 (try_compile)"
+      - "D:/IDE/JetBrains/CLion 2025.1/bin/cmake/win/x64/share/cmake-3.31/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
       - "CMakeLists.txt:2 (project)"
     checks:
       - "Detecting CXX compiler ABI info"
     directories:
-      source: "C:/Users/liyif/CLionProjects/ggtoolbox/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-c46r13"
-      binary: "C:/Users/liyif/CLionProjects/ggtoolbox/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-c46r13"
+      source: "C:/Users/liyif/CLionProjects/ggtoolbox/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-mpujzz"
+      binary: "C:/Users/liyif/CLionProjects/ggtoolbox/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-mpujzz"
     cmakeVariables:
       CMAKE_CXX_FLAGS: ""
       CMAKE_CXX_FLAGS_DEBUG: "-g"
@@ -363,10 +363,10 @@ events:
       variable: "CMAKE_CXX_ABI_COMPILED"
       cached: true
       stdout: |
-        Change Dir: 'C:/Users/liyif/CLionProjects/ggtoolbox/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-c46r13'
+        Change Dir: 'C:/Users/liyif/CLionProjects/ggtoolbox/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-mpujzz'
         
-        Run Build Command(s): "D:/JetBrains/CLion 2024.3.4/bin/ninja/win/x64/ninja.exe" -v cmTC_68297
-        [1/2] D:\\IDE\\RedPanda-Cpp\\mingw64\\bin\\c++.exe   -fdiagnostics-color=always   -v -o CMakeFiles/cmTC_68297.dir/CMakeCXXCompilerABI.cpp.obj -c "D:/JetBrains/CLion 2024.3.4/bin/cmake/win/x64/share/cmake-3.30/Modules/CMakeCXXCompilerABI.cpp"
+        Run Build Command(s): "D:/IDE/JetBrains/CLion 2025.1/bin/ninja/win/x64/ninja.exe" -v cmTC_59c0e
+        [1/2] D:\\IDE\\RedPanda-Cpp\\mingw64\\bin\\c++.exe   -fdiagnostics-color=always   -v -o CMakeFiles/cmTC_59c0e.dir/CMakeCXXCompilerABI.cpp.obj -c "D:/IDE/JetBrains/CLion 2025.1/bin/cmake/win/x64/share/cmake-3.31/Modules/CMakeCXXCompilerABI.cpp"
         Using built-in specs.
         COLLECT_GCC=D:\\IDE\\RedPanda-Cpp\\mingw64\\bin\\c++.exe
         Target: x86_64-w64-mingw32
@@ -374,8 +374,8 @@ events:
         Thread model: posix
         Supported LTO compression algorithms: zlib
         gcc version 11.4.0 (x86_64-posix-seh, Built by MinGW-Builds project) 
-        COLLECT_GCC_OPTIONS='-fdiagnostics-color=always' '-v' '-o' 'CMakeFiles/cmTC_68297.dir/CMakeCXXCompilerABI.cpp.obj' '-c' '-shared-libgcc' '-mtune=core2' '-march=nocona' '-dumpdir' 'CMakeFiles/cmTC_68297.dir/'
-         D:/IDE/RedPanda-Cpp/mingw64/bin/../libexec/gcc/x86_64-w64-mingw32/11.4.0/cc1plus.exe -quiet -v -iprefix D:/IDE/RedPanda-Cpp/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/11.4.0/ -D_REENTRANT D:/JetBrains/CLion 2024.3.4/bin/cmake/win/x64/share/cmake-3.30/Modules/CMakeCXXCompilerABI.cpp -quiet -dumpdir CMakeFiles/cmTC_68297.dir/ -dumpbase CMakeCXXCompilerABI.cpp.cpp -dumpbase-ext .cpp -mtune=core2 -march=nocona -version -fdiagnostics-color=always -o C:\\Users\\liyif\\AppData\\Local\\Temp\\ccN3Muja.s
+        COLLECT_GCC_OPTIONS='-fdiagnostics-color=always' '-v' '-o' 'CMakeFiles/cmTC_59c0e.dir/CMakeCXXCompilerABI.cpp.obj' '-c' '-shared-libgcc' '-mtune=core2' '-march=nocona' '-dumpdir' 'CMakeFiles/cmTC_59c0e.dir/'
+         D:/IDE/RedPanda-Cpp/mingw64/bin/../libexec/gcc/x86_64-w64-mingw32/11.4.0/cc1plus.exe -quiet -v -iprefix D:/IDE/RedPanda-Cpp/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/11.4.0/ -D_REENTRANT D:/IDE/JetBrains/CLion 2025.1/bin/cmake/win/x64/share/cmake-3.31/Modules/CMakeCXXCompilerABI.cpp -quiet -dumpdir CMakeFiles/cmTC_59c0e.dir/ -dumpbase CMakeCXXCompilerABI.cpp.cpp -dumpbase-ext .cpp -mtune=core2 -march=nocona -version -fdiagnostics-color=always -o C:\\Users\\liyif\\AppData\\Local\\Temp\\ccy09HwL.s
         GNU C++17 (x86_64-posix-seh, Built by MinGW-Builds project) version 11.4.0 (x86_64-w64-mingw32)
         	compiled by GNU C version 11.4.0, GMP version 6.2.1, MPFR version 4.1.0, MPC version 1.2.1, isl version isl-0.25-GMP
         
@@ -402,13 +402,13 @@ events:
         
         GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
         Compiler executable checksum: 7f355d67d24d6d642d9ae65467295255
-        COLLECT_GCC_OPTIONS='-fdiagnostics-color=always' '-v' '-o' 'CMakeFiles/cmTC_68297.dir/CMakeCXXCompilerABI.cpp.obj' '-c' '-shared-libgcc' '-mtune=core2' '-march=nocona' '-dumpdir' 'CMakeFiles/cmTC_68297.dir/'
-         D:/IDE/RedPanda-Cpp/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/11.4.0/../../../../x86_64-w64-mingw32/bin/as.exe -v -o CMakeFiles/cmTC_68297.dir/CMakeCXXCompilerABI.cpp.obj C:\\Users\\liyif\\AppData\\Local\\Temp\\ccN3Muja.s
+        COLLECT_GCC_OPTIONS='-fdiagnostics-color=always' '-v' '-o' 'CMakeFiles/cmTC_59c0e.dir/CMakeCXXCompilerABI.cpp.obj' '-c' '-shared-libgcc' '-mtune=core2' '-march=nocona' '-dumpdir' 'CMakeFiles/cmTC_59c0e.dir/'
+         D:/IDE/RedPanda-Cpp/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/11.4.0/../../../../x86_64-w64-mingw32/bin/as.exe -v -o CMakeFiles/cmTC_59c0e.dir/CMakeCXXCompilerABI.cpp.obj C:\\Users\\liyif\\AppData\\Local\\Temp\\ccy09HwL.s
         GNU assembler version 2.38 (x86_64-w64-mingw32) using BFD version (GNU Binutils) 2.38
         COMPILER_PATH=D:/IDE/RedPanda-Cpp/mingw64/bin/../libexec/gcc/x86_64-w64-mingw32/11.4.0/;D:/IDE/RedPanda-Cpp/mingw64/bin/../libexec/gcc/;D:/IDE/RedPanda-Cpp/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/11.4.0/../../../../x86_64-w64-mingw32/bin/
         LIBRARY_PATH=D:/IDE/RedPanda-Cpp/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/11.4.0/;D:/IDE/RedPanda-Cpp/mingw64/bin/../lib/gcc/;D:/IDE/RedPanda-Cpp/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/11.4.0/../../../../x86_64-w64-mingw32/lib/../lib/;D:/IDE/RedPanda-Cpp/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/11.4.0/../../../../lib/;D:/IDE/RedPanda-Cpp/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/11.4.0/../../../../x86_64-w64-mingw32/lib/;D:/IDE/RedPanda-Cpp/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/11.4.0/../../../\x0d
-        COLLECT_GCC_OPTIONS='-fdiagnostics-color=always' '-v' '-o' 'CMakeFiles/cmTC_68297.dir/CMakeCXXCompilerABI.cpp.obj' '-c' '-shared-libgcc' '-mtune=core2' '-march=nocona' '-dumpdir' 'CMakeFiles/cmTC_68297.dir/CMakeCXXCompilerABI.cpp.'\x0d
-        [2/2] C:\\WINDOWS\\system32\\cmd.exe /C "cd . && D:\\IDE\\RedPanda-Cpp\\mingw64\\bin\\c++.exe  -v -Wl,-v CMakeFiles/cmTC_68297.dir/CMakeCXXCompilerABI.cpp.obj -o cmTC_68297.exe -Wl,--out-implib,libcmTC_68297.dll.a -Wl,--major-image-version,0,--minor-image-version,0   && cd ."
+        COLLECT_GCC_OPTIONS='-fdiagnostics-color=always' '-v' '-o' 'CMakeFiles/cmTC_59c0e.dir/CMakeCXXCompilerABI.cpp.obj' '-c' '-shared-libgcc' '-mtune=core2' '-march=nocona' '-dumpdir' 'CMakeFiles/cmTC_59c0e.dir/CMakeCXXCompilerABI.cpp.'\x0d
+        [2/2] C:\\WINDOWS\\system32\\cmd.exe /C "cd . && D:\\IDE\\RedPanda-Cpp\\mingw64\\bin\\c++.exe  -v -Wl,-v CMakeFiles/cmTC_59c0e.dir/CMakeCXXCompilerABI.cpp.obj -o cmTC_59c0e.exe -Wl,--out-implib,libcmTC_59c0e.dll.a -Wl,--major-image-version,0,--minor-image-version,0   && cd ."
         Using built-in specs.
         COLLECT_GCC=D:\\IDE\\RedPanda-Cpp\\mingw64\\bin\\c++.exe
         COLLECT_LTO_WRAPPER=D:/IDE/RedPanda-Cpp/mingw64/bin/../libexec/gcc/x86_64-w64-mingw32/11.4.0/lto-wrapper.exe
@@ -419,19 +419,19 @@ events:
         gcc version 11.4.0 (x86_64-posix-seh, Built by MinGW-Builds project) 
         COMPILER_PATH=D:/IDE/RedPanda-Cpp/mingw64/bin/../libexec/gcc/x86_64-w64-mingw32/11.4.0/;D:/IDE/RedPanda-Cpp/mingw64/bin/../libexec/gcc/;D:/IDE/RedPanda-Cpp/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/11.4.0/../../../../x86_64-w64-mingw32/bin/
         LIBRARY_PATH=D:/IDE/RedPanda-Cpp/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/11.4.0/;D:/IDE/RedPanda-Cpp/mingw64/bin/../lib/gcc/;D:/IDE/RedPanda-Cpp/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/11.4.0/../../../../x86_64-w64-mingw32/lib/../lib/;D:/IDE/RedPanda-Cpp/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/11.4.0/../../../../lib/;D:/IDE/RedPanda-Cpp/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/11.4.0/../../../../x86_64-w64-mingw32/lib/;D:/IDE/RedPanda-Cpp/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/11.4.0/../../../
-        COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_68297.exe' '-shared-libgcc' '-mtune=core2' '-march=nocona' '-dumpdir' 'cmTC_68297.'
-         D:/IDE/RedPanda-Cpp/mingw64/bin/../libexec/gcc/x86_64-w64-mingw32/11.4.0/collect2.exe -plugin D:/IDE/RedPanda-Cpp/mingw64/bin/../libexec/gcc/x86_64-w64-mingw32/11.4.0/liblto_plugin.dll -plugin-opt=D:/IDE/RedPanda-Cpp/mingw64/bin/../libexec/gcc/x86_64-w64-mingw32/11.4.0/lto-wrapper.exe -plugin-opt=-fresolution=C:\\Users\\liyif\\AppData\\Local\\Temp\\ccbq7VEk.res -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lmoldname -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-lpthread -plugin-opt=-pass-through=-ladvapi32 -plugin-opt=-pass-through=-lshell32 -plugin-opt=-pass-through=-luser32 -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-liconv -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lmoldname -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt -plugin-opt=-pass-through=-lkernel32 --sysroot=I:/mingw-builds/x86_64-1140-posix-seh-msvcrt-rt_v11/mingw64 -m i386pep -Bdynamic -o cmTC_68297.exe D:/IDE/RedPanda-Cpp/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/11.4.0/../../../../x86_64-w64-mingw32/lib/../lib/crt2.o D:/IDE/RedPanda-Cpp/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/11.4.0/crtbegin.o -LD:/IDE/RedPanda-Cpp/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/11.4.0 -LD:/IDE/RedPanda-Cpp/mingw64/bin/../lib/gcc -LD:/IDE/RedPanda-Cpp/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/11.4.0/../../../../x86_64-w64-mingw32/lib/../lib -LD:/IDE/RedPanda-Cpp/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/11.4.0/../../../../lib -LD:/IDE/RedPanda-Cpp/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/11.4.0/../../../../x86_64-w64-mingw32/lib -LD:/IDE/RedPanda-Cpp/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/11.4.0/../../.. -v CMakeFiles/cmTC_68297.dir/CMakeCXXCompilerABI.cpp.obj --out-implib libcmTC_68297.dll.a --major-image-version 0 --minor-image-version 0 -lstdc++ -lmingw32 -lgcc_s -lgcc -lmoldname -lmingwex -lmsvcrt -lkernel32 -lpthread -ladvapi32 -lshell32 -luser32 -lkernel32 -liconv -lmingw32 -lgcc_s -lgcc -lmoldname -lmingwex -lmsvcrt -lkernel32 D:/IDE/RedPanda-Cpp/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/11.4.0/crtend.o
+        COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_59c0e.exe' '-shared-libgcc' '-mtune=core2' '-march=nocona' '-dumpdir' 'cmTC_59c0e.'
+         D:/IDE/RedPanda-Cpp/mingw64/bin/../libexec/gcc/x86_64-w64-mingw32/11.4.0/collect2.exe -plugin D:/IDE/RedPanda-Cpp/mingw64/bin/../libexec/gcc/x86_64-w64-mingw32/11.4.0/liblto_plugin.dll -plugin-opt=D:/IDE/RedPanda-Cpp/mingw64/bin/../libexec/gcc/x86_64-w64-mingw32/11.4.0/lto-wrapper.exe -plugin-opt=-fresolution=C:\\Users\\liyif\\AppData\\Local\\Temp\\cclnOnlC.res -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lmoldname -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-lpthread -plugin-opt=-pass-through=-ladvapi32 -plugin-opt=-pass-through=-lshell32 -plugin-opt=-pass-through=-luser32 -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-liconv -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lmoldname -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt -plugin-opt=-pass-through=-lkernel32 --sysroot=I:/mingw-builds/x86_64-1140-posix-seh-msvcrt-rt_v11/mingw64 -m i386pep -Bdynamic -o cmTC_59c0e.exe D:/IDE/RedPanda-Cpp/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/11.4.0/../../../../x86_64-w64-mingw32/lib/../lib/crt2.o D:/IDE/RedPanda-Cpp/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/11.4.0/crtbegin.o -LD:/IDE/RedPanda-Cpp/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/11.4.0 -LD:/IDE/RedPanda-Cpp/mingw64/bin/../lib/gcc -LD:/IDE/RedPanda-Cpp/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/11.4.0/../../../../x86_64-w64-mingw32/lib/../lib -LD:/IDE/RedPanda-Cpp/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/11.4.0/../../../../lib -LD:/IDE/RedPanda-Cpp/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/11.4.0/../../../../x86_64-w64-mingw32/lib -LD:/IDE/RedPanda-Cpp/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/11.4.0/../../.. -v CMakeFiles/cmTC_59c0e.dir/CMakeCXXCompilerABI.cpp.obj --out-implib libcmTC_59c0e.dll.a --major-image-version 0 --minor-image-version 0 -lstdc++ -lmingw32 -lgcc_s -lgcc -lmoldname -lmingwex -lmsvcrt -lkernel32 -lpthread -ladvapi32 -lshell32 -luser32 -lkernel32 -liconv -lmingw32 -lgcc_s -lgcc -lmoldname -lmingwex -lmsvcrt -lkernel32 D:/IDE/RedPanda-Cpp/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/11.4.0/crtend.o
         collect2 version 11.4.0
-        D:/IDE/RedPanda-Cpp/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/11.4.0/../../../../x86_64-w64-mingw32/bin/ld.exe -plugin D:/IDE/RedPanda-Cpp/mingw64/bin/../libexec/gcc/x86_64-w64-mingw32/11.4.0/liblto_plugin.dll -plugin-opt=D:/IDE/RedPanda-Cpp/mingw64/bin/../libexec/gcc/x86_64-w64-mingw32/11.4.0/lto-wrapper.exe -plugin-opt=-fresolution=C:\\Users\\liyif\\AppData\\Local\\Temp\\ccbq7VEk.res -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lmoldname -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-lpthread -plugin-opt=-pass-through=-ladvapi32 -plugin-opt=-pass-through=-lshell32 -plugin-opt=-pass-through=-luser32 -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-liconv -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lmoldname -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt -plugin-opt=-pass-through=-lkernel32 --sysroot=I:/mingw-builds/x86_64-1140-posix-seh-msvcrt-rt_v11/mingw64 -m i386pep -Bdynamic -o cmTC_68297.exe D:/IDE/RedPanda-Cpp/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/11.4.0/../../../../x86_64-w64-mingw32/lib/../lib/crt2.o D:/IDE/RedPanda-Cpp/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/11.4.0/crtbegin.o -LD:/IDE/RedPanda-Cpp/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/11.4.0 -LD:/IDE/RedPanda-Cpp/mingw64/bin/../lib/gcc -LD:/IDE/RedPanda-Cpp/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/11.4.0/../../../../x86_64-w64-mingw32/lib/../lib -LD:/IDE/RedPanda-Cpp/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/11.4.0/../../../../lib -LD:/IDE/RedPanda-Cpp/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/11.4.0/../../../../x86_64-w64-mingw32/lib -LD:/IDE/RedPanda-Cpp/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/11.4.0/../../.. -v CMakeFiles/cmTC_68297.dir/CMakeCXXCompilerABI.cpp.obj --out-implib libcmTC_68297.dll.a --major-image-version 0 --minor-image-version 0 -lstdc++ -lmingw32 -lgcc_s -lgcc -lmoldname -lmingwex -lmsvcrt -lkernel32 -lpthread -ladvapi32 -lshell32 -luser32 -lkernel32 -liconv -lmingw32 -lgcc_s -lgcc -lmoldname -lmingwex -lmsvcrt -lkernel32 D:/IDE/RedPanda-Cpp/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/11.4.0/crtend.o
+        D:/IDE/RedPanda-Cpp/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/11.4.0/../../../../x86_64-w64-mingw32/bin/ld.exe -plugin D:/IDE/RedPanda-Cpp/mingw64/bin/../libexec/gcc/x86_64-w64-mingw32/11.4.0/liblto_plugin.dll -plugin-opt=D:/IDE/RedPanda-Cpp/mingw64/bin/../libexec/gcc/x86_64-w64-mingw32/11.4.0/lto-wrapper.exe -plugin-opt=-fresolution=C:\\Users\\liyif\\AppData\\Local\\Temp\\cclnOnlC.res -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lmoldname -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-lpthread -plugin-opt=-pass-through=-ladvapi32 -plugin-opt=-pass-through=-lshell32 -plugin-opt=-pass-through=-luser32 -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-liconv -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lmoldname -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt -plugin-opt=-pass-through=-lkernel32 --sysroot=I:/mingw-builds/x86_64-1140-posix-seh-msvcrt-rt_v11/mingw64 -m i386pep -Bdynamic -o cmTC_59c0e.exe D:/IDE/RedPanda-Cpp/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/11.4.0/../../../../x86_64-w64-mingw32/lib/../lib/crt2.o D:/IDE/RedPanda-Cpp/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/11.4.0/crtbegin.o -LD:/IDE/RedPanda-Cpp/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/11.4.0 -LD:/IDE/RedPanda-Cpp/mingw64/bin/../lib/gcc -LD:/IDE/RedPanda-Cpp/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/11.4.0/../../../../x86_64-w64-mingw32/lib/../lib -LD:/IDE/RedPanda-Cpp/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/11.4.0/../../../../lib -LD:/IDE/RedPanda-Cpp/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/11.4.0/../../../../x86_64-w64-mingw32/lib -LD:/IDE/RedPanda-Cpp/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/11.4.0/../../.. -v CMakeFiles/cmTC_59c0e.dir/CMakeCXXCompilerABI.cpp.obj --out-implib libcmTC_59c0e.dll.a --major-image-version 0 --minor-image-version 0 -lstdc++ -lmingw32 -lgcc_s -lgcc -lmoldname -lmingwex -lmsvcrt -lkernel32 -lpthread -ladvapi32 -lshell32 -luser32 -lkernel32 -liconv -lmingw32 -lgcc_s -lgcc -lmoldname -lmingwex -lmsvcrt -lkernel32 D:/IDE/RedPanda-Cpp/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/11.4.0/crtend.o
         GNU ld (GNU Binutils) 2.38
-        COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_68297.exe' '-shared-libgcc' '-mtune=core2' '-march=nocona' '-dumpdir' 'cmTC_68297.'\x0d
+        COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_59c0e.exe' '-shared-libgcc' '-mtune=core2' '-march=nocona' '-dumpdir' 'cmTC_59c0e.'\x0d
         
       exitCode: 0
   -
     kind: "message-v1"
     backtrace:
-      - "D:/JetBrains/CLion 2024.3.4/bin/cmake/win/x64/share/cmake-3.30/Modules/CMakeDetermineCompilerABI.cmake:182 (message)"
-      - "D:/JetBrains/CLion 2024.3.4/bin/cmake/win/x64/share/cmake-3.30/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "D:/IDE/JetBrains/CLion 2025.1/bin/cmake/win/x64/share/cmake-3.31/Modules/CMakeDetermineCompilerABI.cmake:182 (message)"
+      - "D:/IDE/JetBrains/CLion 2025.1/bin/cmake/win/x64/share/cmake-3.31/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
       - "CMakeLists.txt:2 (project)"
     message: |
       Parsed CXX implicit include dir info: rv=done
@@ -456,17 +456,17 @@ events:
   -
     kind: "message-v1"
     backtrace:
-      - "D:/JetBrains/CLion 2024.3.4/bin/cmake/win/x64/share/cmake-3.30/Modules/CMakeDetermineCompilerABI.cmake:218 (message)"
-      - "D:/JetBrains/CLion 2024.3.4/bin/cmake/win/x64/share/cmake-3.30/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "D:/IDE/JetBrains/CLion 2025.1/bin/cmake/win/x64/share/cmake-3.31/Modules/CMakeDetermineCompilerABI.cmake:218 (message)"
+      - "D:/IDE/JetBrains/CLion 2025.1/bin/cmake/win/x64/share/cmake-3.31/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
       - "CMakeLists.txt:2 (project)"
     message: |
       Parsed CXX implicit link information:
         link line regex: [^( *|.*[/\\])(ld[0-9]*(\\.[a-z]+)?|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\\]+-)?ld|collect2)[^/\\]*( |$)]
         linker tool regex: [^[ 	]*(->|")?[ 	]*(([^"]*[/\\])?(ld[0-9]*(\\.[a-z]+)?))("|,| |$)]
-        ignore line: [Change Dir: 'C:/Users/liyif/CLionProjects/ggtoolbox/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-c46r13']
+        ignore line: [Change Dir: 'C:/Users/liyif/CLionProjects/ggtoolbox/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-mpujzz']
         ignore line: []
-        ignore line: [Run Build Command(s): "D:/JetBrains/CLion 2024.3.4/bin/ninja/win/x64/ninja.exe" -v cmTC_68297]
-        ignore line: [[1/2] D:\\IDE\\RedPanda-Cpp\\mingw64\\bin\\c++.exe   -fdiagnostics-color=always   -v -o CMakeFiles/cmTC_68297.dir/CMakeCXXCompilerABI.cpp.obj -c "D:/JetBrains/CLion 2024.3.4/bin/cmake/win/x64/share/cmake-3.30/Modules/CMakeCXXCompilerABI.cpp"]
+        ignore line: [Run Build Command(s): "D:/IDE/JetBrains/CLion 2025.1/bin/ninja/win/x64/ninja.exe" -v cmTC_59c0e]
+        ignore line: [[1/2] D:\\IDE\\RedPanda-Cpp\\mingw64\\bin\\c++.exe   -fdiagnostics-color=always   -v -o CMakeFiles/cmTC_59c0e.dir/CMakeCXXCompilerABI.cpp.obj -c "D:/IDE/JetBrains/CLion 2025.1/bin/cmake/win/x64/share/cmake-3.31/Modules/CMakeCXXCompilerABI.cpp"]
         ignore line: [Using built-in specs.]
         ignore line: [COLLECT_GCC=D:\\IDE\\RedPanda-Cpp\\mingw64\\bin\\c++.exe]
         ignore line: [Target: x86_64-w64-mingw32]
@@ -474,8 +474,8 @@ events:
         ignore line: [Thread model: posix]
         ignore line: [Supported LTO compression algorithms: zlib]
         ignore line: [gcc version 11.4.0 (x86_64-posix-seh  Built by MinGW-Builds project) ]
-        ignore line: [COLLECT_GCC_OPTIONS='-fdiagnostics-color=always' '-v' '-o' 'CMakeFiles/cmTC_68297.dir/CMakeCXXCompilerABI.cpp.obj' '-c' '-shared-libgcc' '-mtune=core2' '-march=nocona' '-dumpdir' 'CMakeFiles/cmTC_68297.dir/']
-        ignore line: [ D:/IDE/RedPanda-Cpp/mingw64/bin/../libexec/gcc/x86_64-w64-mingw32/11.4.0/cc1plus.exe -quiet -v -iprefix D:/IDE/RedPanda-Cpp/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/11.4.0/ -D_REENTRANT D:/JetBrains/CLion 2024.3.4/bin/cmake/win/x64/share/cmake-3.30/Modules/CMakeCXXCompilerABI.cpp -quiet -dumpdir CMakeFiles/cmTC_68297.dir/ -dumpbase CMakeCXXCompilerABI.cpp.cpp -dumpbase-ext .cpp -mtune=core2 -march=nocona -version -fdiagnostics-color=always -o C:\\Users\\liyif\\AppData\\Local\\Temp\\ccN3Muja.s]
+        ignore line: [COLLECT_GCC_OPTIONS='-fdiagnostics-color=always' '-v' '-o' 'CMakeFiles/cmTC_59c0e.dir/CMakeCXXCompilerABI.cpp.obj' '-c' '-shared-libgcc' '-mtune=core2' '-march=nocona' '-dumpdir' 'CMakeFiles/cmTC_59c0e.dir/']
+        ignore line: [ D:/IDE/RedPanda-Cpp/mingw64/bin/../libexec/gcc/x86_64-w64-mingw32/11.4.0/cc1plus.exe -quiet -v -iprefix D:/IDE/RedPanda-Cpp/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/11.4.0/ -D_REENTRANT D:/IDE/JetBrains/CLion 2025.1/bin/cmake/win/x64/share/cmake-3.31/Modules/CMakeCXXCompilerABI.cpp -quiet -dumpdir CMakeFiles/cmTC_59c0e.dir/ -dumpbase CMakeCXXCompilerABI.cpp.cpp -dumpbase-ext .cpp -mtune=core2 -march=nocona -version -fdiagnostics-color=always -o C:\\Users\\liyif\\AppData\\Local\\Temp\\ccy09HwL.s]
         ignore line: [GNU C++17 (x86_64-posix-seh  Built by MinGW-Builds project) version 11.4.0 (x86_64-w64-mingw32)]
         ignore line: [	compiled by GNU C version 11.4.0  GMP version 6.2.1  MPFR version 4.1.0  MPC version 1.2.1  isl version isl-0.25-GMP]
         ignore line: []
@@ -502,8 +502,8 @@ events:
         ignore line: []
         ignore line: [GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072]
         ignore line: [Compiler executable checksum: 7f355d67d24d6d642d9ae65467295255]
-        ignore line: [COLLECT_GCC_OPTIONS='-fdiagnostics-color=always' '-v' '-o' 'CMakeFiles/cmTC_68297.dir/CMakeCXXCompilerABI.cpp.obj' '-c' '-shared-libgcc' '-mtune=core2' '-march=nocona' '-dumpdir' 'CMakeFiles/cmTC_68297.dir/']
-        ignore line: [ D:/IDE/RedPanda-Cpp/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/11.4.0/../../../../x86_64-w64-mingw32/bin/as.exe -v -o CMakeFiles/cmTC_68297.dir/CMakeCXXCompilerABI.cpp.obj C:\\Users\\liyif\\AppData\\Local\\Temp\\ccN3Muja.s]
+        ignore line: [COLLECT_GCC_OPTIONS='-fdiagnostics-color=always' '-v' '-o' 'CMakeFiles/cmTC_59c0e.dir/CMakeCXXCompilerABI.cpp.obj' '-c' '-shared-libgcc' '-mtune=core2' '-march=nocona' '-dumpdir' 'CMakeFiles/cmTC_59c0e.dir/']
+        ignore line: [ D:/IDE/RedPanda-Cpp/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/11.4.0/../../../../x86_64-w64-mingw32/bin/as.exe -v -o CMakeFiles/cmTC_59c0e.dir/CMakeCXXCompilerABI.cpp.obj C:\\Users\\liyif\\AppData\\Local\\Temp\\ccy09HwL.s]
         ignore line: [GNU assembler version 2.38 (x86_64-w64-mingw32) using BFD version (GNU Binutils) 2.38]
         ignore line: [COMPILER_PATH=D:/IDE/RedPanda-Cpp/mingw64/bin/../libexec/gcc/x86_64-w64-mingw32/11.4.0/]
         ignore line: [D:/IDE/RedPanda-Cpp/mingw64/bin/../libexec/gcc/]
@@ -514,8 +514,8 @@ events:
         ignore line: [D:/IDE/RedPanda-Cpp/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/11.4.0/../../../../lib/]
         ignore line: [D:/IDE/RedPanda-Cpp/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/11.4.0/../../../../x86_64-w64-mingw32/lib/]
         ignore line: [D:/IDE/RedPanda-Cpp/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/11.4.0/../../../\x0d]
-        ignore line: [COLLECT_GCC_OPTIONS='-fdiagnostics-color=always' '-v' '-o' 'CMakeFiles/cmTC_68297.dir/CMakeCXXCompilerABI.cpp.obj' '-c' '-shared-libgcc' '-mtune=core2' '-march=nocona' '-dumpdir' 'CMakeFiles/cmTC_68297.dir/CMakeCXXCompilerABI.cpp.'\x0d]
-        ignore line: [[2/2] C:\\WINDOWS\\system32\\cmd.exe /C "cd . && D:\\IDE\\RedPanda-Cpp\\mingw64\\bin\\c++.exe  -v -Wl -v CMakeFiles/cmTC_68297.dir/CMakeCXXCompilerABI.cpp.obj -o cmTC_68297.exe -Wl --out-implib libcmTC_68297.dll.a -Wl --major-image-version 0 --minor-image-version 0   && cd ."]
+        ignore line: [COLLECT_GCC_OPTIONS='-fdiagnostics-color=always' '-v' '-o' 'CMakeFiles/cmTC_59c0e.dir/CMakeCXXCompilerABI.cpp.obj' '-c' '-shared-libgcc' '-mtune=core2' '-march=nocona' '-dumpdir' 'CMakeFiles/cmTC_59c0e.dir/CMakeCXXCompilerABI.cpp.'\x0d]
+        ignore line: [[2/2] C:\\WINDOWS\\system32\\cmd.exe /C "cd . && D:\\IDE\\RedPanda-Cpp\\mingw64\\bin\\c++.exe  -v -Wl -v CMakeFiles/cmTC_59c0e.dir/CMakeCXXCompilerABI.cpp.obj -o cmTC_59c0e.exe -Wl --out-implib libcmTC_59c0e.dll.a -Wl --major-image-version 0 --minor-image-version 0   && cd ."]
         ignore line: [Using built-in specs.]
         ignore line: [COLLECT_GCC=D:\\IDE\\RedPanda-Cpp\\mingw64\\bin\\c++.exe]
         ignore line: [COLLECT_LTO_WRAPPER=D:/IDE/RedPanda-Cpp/mingw64/bin/../libexec/gcc/x86_64-w64-mingw32/11.4.0/lto-wrapper.exe]
@@ -533,13 +533,13 @@ events:
         ignore line: [D:/IDE/RedPanda-Cpp/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/11.4.0/../../../../lib/]
         ignore line: [D:/IDE/RedPanda-Cpp/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/11.4.0/../../../../x86_64-w64-mingw32/lib/]
         ignore line: [D:/IDE/RedPanda-Cpp/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/11.4.0/../../../]
-        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_68297.exe' '-shared-libgcc' '-mtune=core2' '-march=nocona' '-dumpdir' 'cmTC_68297.']
-        link line: [ D:/IDE/RedPanda-Cpp/mingw64/bin/../libexec/gcc/x86_64-w64-mingw32/11.4.0/collect2.exe -plugin D:/IDE/RedPanda-Cpp/mingw64/bin/../libexec/gcc/x86_64-w64-mingw32/11.4.0/liblto_plugin.dll -plugin-opt=D:/IDE/RedPanda-Cpp/mingw64/bin/../libexec/gcc/x86_64-w64-mingw32/11.4.0/lto-wrapper.exe -plugin-opt=-fresolution=C:\\Users\\liyif\\AppData\\Local\\Temp\\ccbq7VEk.res -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lmoldname -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-lpthread -plugin-opt=-pass-through=-ladvapi32 -plugin-opt=-pass-through=-lshell32 -plugin-opt=-pass-through=-luser32 -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-liconv -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lmoldname -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt -plugin-opt=-pass-through=-lkernel32 --sysroot=I:/mingw-builds/x86_64-1140-posix-seh-msvcrt-rt_v11/mingw64 -m i386pep -Bdynamic -o cmTC_68297.exe D:/IDE/RedPanda-Cpp/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/11.4.0/../../../../x86_64-w64-mingw32/lib/../lib/crt2.o D:/IDE/RedPanda-Cpp/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/11.4.0/crtbegin.o -LD:/IDE/RedPanda-Cpp/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/11.4.0 -LD:/IDE/RedPanda-Cpp/mingw64/bin/../lib/gcc -LD:/IDE/RedPanda-Cpp/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/11.4.0/../../../../x86_64-w64-mingw32/lib/../lib -LD:/IDE/RedPanda-Cpp/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/11.4.0/../../../../lib -LD:/IDE/RedPanda-Cpp/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/11.4.0/../../../../x86_64-w64-mingw32/lib -LD:/IDE/RedPanda-Cpp/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/11.4.0/../../.. -v CMakeFiles/cmTC_68297.dir/CMakeCXXCompilerABI.cpp.obj --out-implib libcmTC_68297.dll.a --major-image-version 0 --minor-image-version 0 -lstdc++ -lmingw32 -lgcc_s -lgcc -lmoldname -lmingwex -lmsvcrt -lkernel32 -lpthread -ladvapi32 -lshell32 -luser32 -lkernel32 -liconv -lmingw32 -lgcc_s -lgcc -lmoldname -lmingwex -lmsvcrt -lkernel32 D:/IDE/RedPanda-Cpp/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/11.4.0/crtend.o]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_59c0e.exe' '-shared-libgcc' '-mtune=core2' '-march=nocona' '-dumpdir' 'cmTC_59c0e.']
+        link line: [ D:/IDE/RedPanda-Cpp/mingw64/bin/../libexec/gcc/x86_64-w64-mingw32/11.4.0/collect2.exe -plugin D:/IDE/RedPanda-Cpp/mingw64/bin/../libexec/gcc/x86_64-w64-mingw32/11.4.0/liblto_plugin.dll -plugin-opt=D:/IDE/RedPanda-Cpp/mingw64/bin/../libexec/gcc/x86_64-w64-mingw32/11.4.0/lto-wrapper.exe -plugin-opt=-fresolution=C:\\Users\\liyif\\AppData\\Local\\Temp\\cclnOnlC.res -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lmoldname -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-lpthread -plugin-opt=-pass-through=-ladvapi32 -plugin-opt=-pass-through=-lshell32 -plugin-opt=-pass-through=-luser32 -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-liconv -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lmoldname -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt -plugin-opt=-pass-through=-lkernel32 --sysroot=I:/mingw-builds/x86_64-1140-posix-seh-msvcrt-rt_v11/mingw64 -m i386pep -Bdynamic -o cmTC_59c0e.exe D:/IDE/RedPanda-Cpp/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/11.4.0/../../../../x86_64-w64-mingw32/lib/../lib/crt2.o D:/IDE/RedPanda-Cpp/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/11.4.0/crtbegin.o -LD:/IDE/RedPanda-Cpp/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/11.4.0 -LD:/IDE/RedPanda-Cpp/mingw64/bin/../lib/gcc -LD:/IDE/RedPanda-Cpp/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/11.4.0/../../../../x86_64-w64-mingw32/lib/../lib -LD:/IDE/RedPanda-Cpp/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/11.4.0/../../../../lib -LD:/IDE/RedPanda-Cpp/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/11.4.0/../../../../x86_64-w64-mingw32/lib -LD:/IDE/RedPanda-Cpp/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/11.4.0/../../.. -v CMakeFiles/cmTC_59c0e.dir/CMakeCXXCompilerABI.cpp.obj --out-implib libcmTC_59c0e.dll.a --major-image-version 0 --minor-image-version 0 -lstdc++ -lmingw32 -lgcc_s -lgcc -lmoldname -lmingwex -lmsvcrt -lkernel32 -lpthread -ladvapi32 -lshell32 -luser32 -lkernel32 -liconv -lmingw32 -lgcc_s -lgcc -lmoldname -lmingwex -lmsvcrt -lkernel32 D:/IDE/RedPanda-Cpp/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/11.4.0/crtend.o]
           arg [D:/IDE/RedPanda-Cpp/mingw64/bin/../libexec/gcc/x86_64-w64-mingw32/11.4.0/collect2.exe] ==> ignore
           arg [-plugin] ==> ignore
           arg [D:/IDE/RedPanda-Cpp/mingw64/bin/../libexec/gcc/x86_64-w64-mingw32/11.4.0/liblto_plugin.dll] ==> ignore
           arg [-plugin-opt=D:/IDE/RedPanda-Cpp/mingw64/bin/../libexec/gcc/x86_64-w64-mingw32/11.4.0/lto-wrapper.exe] ==> ignore
-          arg [-plugin-opt=-fresolution=C:\\Users\\liyif\\AppData\\Local\\Temp\\ccbq7VEk.res] ==> ignore
+          arg [-plugin-opt=-fresolution=C:\\Users\\liyif\\AppData\\Local\\Temp\\cclnOnlC.res] ==> ignore
           arg [-plugin-opt=-pass-through=-lmingw32] ==> ignore
           arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
           arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
@@ -565,7 +565,7 @@ events:
           arg [i386pep] ==> ignore
           arg [-Bdynamic] ==> search dynamic
           arg [-o] ==> ignore
-          arg [cmTC_68297.exe] ==> ignore
+          arg [cmTC_59c0e.exe] ==> ignore
           arg [D:/IDE/RedPanda-Cpp/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/11.4.0/../../../../x86_64-w64-mingw32/lib/../lib/crt2.o] ==> obj [D:/IDE/RedPanda-Cpp/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/11.4.0/../../../../x86_64-w64-mingw32/lib/../lib/crt2.o]
           arg [D:/IDE/RedPanda-Cpp/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/11.4.0/crtbegin.o] ==> obj [D:/IDE/RedPanda-Cpp/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/11.4.0/crtbegin.o]
           arg [-LD:/IDE/RedPanda-Cpp/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/11.4.0] ==> dir [D:/IDE/RedPanda-Cpp/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/11.4.0]
@@ -575,9 +575,9 @@ events:
           arg [-LD:/IDE/RedPanda-Cpp/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/11.4.0/../../../../x86_64-w64-mingw32/lib] ==> dir [D:/IDE/RedPanda-Cpp/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/11.4.0/../../../../x86_64-w64-mingw32/lib]
           arg [-LD:/IDE/RedPanda-Cpp/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/11.4.0/../../..] ==> dir [D:/IDE/RedPanda-Cpp/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/11.4.0/../../..]
           arg [-v] ==> ignore
-          arg [CMakeFiles/cmTC_68297.dir/CMakeCXXCompilerABI.cpp.obj] ==> ignore
+          arg [CMakeFiles/cmTC_59c0e.dir/CMakeCXXCompilerABI.cpp.obj] ==> ignore
           arg [--out-implib] ==> ignore
-          arg [libcmTC_68297.dll.a] ==> ignore
+          arg [libcmTC_59c0e.dll.a] ==> ignore
           arg [--major-image-version] ==> ignore
           arg [0] ==> ignore
           arg [--minor-image-version] ==> ignore
@@ -625,9 +625,9 @@ events:
   -
     kind: "message-v1"
     backtrace:
-      - "D:/JetBrains/CLion 2024.3.4/bin/cmake/win/x64/share/cmake-3.30/Modules/Internal/CMakeDetermineLinkerId.cmake:40 (message)"
-      - "D:/JetBrains/CLion 2024.3.4/bin/cmake/win/x64/share/cmake-3.30/Modules/CMakeDetermineCompilerABI.cmake:255 (cmake_determine_linker_id)"
-      - "D:/JetBrains/CLion 2024.3.4/bin/cmake/win/x64/share/cmake-3.30/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "D:/IDE/JetBrains/CLion 2025.1/bin/cmake/win/x64/share/cmake-3.31/Modules/Internal/CMakeDetermineLinkerId.cmake:40 (message)"
+      - "D:/IDE/JetBrains/CLion 2025.1/bin/cmake/win/x64/share/cmake-3.31/Modules/CMakeDetermineCompilerABI.cmake:255 (cmake_determine_linker_id)"
+      - "D:/IDE/JetBrains/CLion 2025.1/bin/cmake/win/x64/share/cmake-3.31/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
       - "CMakeLists.txt:2 (project)"
     message: |
       Running the CXX compiler's linker: "../src/gcc-11.4.0/configure --host=x86_64-w64-mingw32 --build=x86_64-w64-mingw32 --target=x86_64-w64-mingw32 --prefix=/mingw64 --with-sysroot=/i/mingw-builds/x86_64-1140-posix-seh-msvcrt-rt_v11/mingw64 --enable-host-shared --disable-multilib --enable-languages=c,c++,lto --enable-libstdcxx-time=yes --enable-threads=posix --enable-libgomp --enable-libatomic --enable-lto --enable-graphite --enable-checking=release --enable-fully-dynamic-string --enable-version-specific-runtime-libs --enable-libstdcxx-filesystem-ts=yes --disable-libstdcxx-pch --disable-libstdcxx-debug --enable-bootstrap --disable-rpath --disable-win32-registry --disable-nls --disable-werror --disable-symvers --with-gnu-as --with-gnu-ld --with-arch=nocona --with-tune=core2 --with-libiconv --with-system-zlib --with-gmp=/i/mingw-builds/prerequisites/x86_64-w64-mingw32-static --with-mpfr=/i/mingw-builds/prerequisites/x86_64-w64-mingw32-static --with-mpc=/i/mingw-builds/prerequisites/x86_64-w64-mingw32-static --with-isl=/i/mingw-builds/prerequisites/x86_64-w64-mingw32-static --with-pkgversion='x86_64-posix-seh, Built by MinGW-Builds project' --with-bugurl=https:/github.com/niXman/mingw-builds CFLAGS='-O2 -pipe -fno-ident -I/i/mingw-builds/x86_64-1140-posix-seh-msvcrt-rt_v11/mingw64/opt/include -I/i/mingw-builds/prerequisites/x86_64-zlib-static/include -I/i/mingw-builds/prerequisites/x86_64-w64-mingw32-static/include' CXXFLAGS='-O2 -pipe -fno-ident -I/i/mingw-builds/x86_64-1140-posix-seh-msvcrt-rt_v11/mingw64/opt/include -I/i/mingw-builds/prerequisites/x86_64-zlib-static/include -I/i/mingw-builds/prerequisites/x86_64-w64-mingw32-static/include' CPPFLAGS=' -I/i/mingw-builds/x86_64-1140-posix-seh-msvcrt-rt_v11/mingw64/opt/include -I/i/mingw-builds/prerequisites/x86_64-zlib-static/include -I/i/mingw-builds/prerequisites/x86_64-w64-mingw32-static/include' LDFLAGS='-pipe -fno-ident -L/i/mingw-builds/x86_64-1140-posix-seh-msvcrt-rt_v11/mingw64/opt/lib -L/i/mingw-builds/prerequisites/x86_64-zlib-static/lib -L/i/mingw-builds/prerequisites/x86_64-w64-mingw32-static/lib ' LD_FOR_TARGET=/i/mingw-builds/x86_64-1140-posix-seh-msvcrt-rt_v11/mingw64/bin/ld.exe" "-v"
@@ -635,9 +635,9 @@ events:
   -
     kind: "message-v1"
     backtrace:
-      - "D:/JetBrains/CLion 2024.3.4/bin/cmake/win/x64/share/cmake-3.30/Modules/Internal/CMakeDetermineLinkerId.cmake:40 (message)"
-      - "D:/JetBrains/CLion 2024.3.4/bin/cmake/win/x64/share/cmake-3.30/Modules/CMakeDetermineCompilerABI.cmake:255 (cmake_determine_linker_id)"
-      - "D:/JetBrains/CLion 2024.3.4/bin/cmake/win/x64/share/cmake-3.30/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "D:/IDE/JetBrains/CLion 2025.1/bin/cmake/win/x64/share/cmake-3.31/Modules/Internal/CMakeDetermineLinkerId.cmake:40 (message)"
+      - "D:/IDE/JetBrains/CLion 2025.1/bin/cmake/win/x64/share/cmake-3.31/Modules/CMakeDetermineCompilerABI.cmake:255 (cmake_determine_linker_id)"
+      - "D:/IDE/JetBrains/CLion 2025.1/bin/cmake/win/x64/share/cmake-3.31/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
       - "CMakeLists.txt:2 (project)"
     message: |
       Running the CXX compiler's linker: "../src/gcc-11.4.0/configure --host=x86_64-w64-mingw32 --build=x86_64-w64-mingw32 --target=x86_64-w64-mingw32 --prefix=/mingw64 --with-sysroot=/i/mingw-builds/x86_64-1140-posix-seh-msvcrt-rt_v11/mingw64 --enable-host-shared --disable-multilib --enable-languages=c,c++,lto --enable-libstdcxx-time=yes --enable-threads=posix --enable-libgomp --enable-libatomic --enable-lto --enable-graphite --enable-checking=release --enable-fully-dynamic-string --enable-version-specific-runtime-libs --enable-libstdcxx-filesystem-ts=yes --disable-libstdcxx-pch --disable-libstdcxx-debug --enable-bootstrap --disable-rpath --disable-win32-registry --disable-nls --disable-werror --disable-symvers --with-gnu-as --with-gnu-ld --with-arch=nocona --with-tune=core2 --with-libiconv --with-system-zlib --with-gmp=/i/mingw-builds/prerequisites/x86_64-w64-mingw32-static --with-mpfr=/i/mingw-builds/prerequisites/x86_64-w64-mingw32-static --with-mpc=/i/mingw-builds/prerequisites/x86_64-w64-mingw32-static --with-isl=/i/mingw-builds/prerequisites/x86_64-w64-mingw32-static --with-pkgversion='x86_64-posix-seh, Built by MinGW-Builds project' --with-bugurl=https:/github.com/niXman/mingw-builds CFLAGS='-O2 -pipe -fno-ident -I/i/mingw-builds/x86_64-1140-posix-seh-msvcrt-rt_v11/mingw64/opt/include -I/i/mingw-builds/prerequisites/x86_64-zlib-static/include -I/i/mingw-builds/prerequisites/x86_64-w64-mingw32-static/include' CXXFLAGS='-O2 -pipe -fno-ident -I/i/mingw-builds/x86_64-1140-posix-seh-msvcrt-rt_v11/mingw64/opt/include -I/i/mingw-builds/prerequisites/x86_64-zlib-static/include -I/i/mingw-builds/prerequisites/x86_64-w64-mingw32-static/include' CPPFLAGS=' -I/i/mingw-builds/x86_64-1140-posix-seh-msvcrt-rt_v11/mingw64/opt/include -I/i/mingw-builds/prerequisites/x86_64-zlib-static/include -I/i/mingw-builds/prerequisites/x86_64-w64-mingw32-static/include' LDFLAGS='-pipe -fno-ident -L/i/mingw-builds/x86_64-1140-posix-seh-msvcrt-rt_v11/mingw64/opt/lib -L/i/mingw-builds/prerequisites/x86_64-zlib-static/lib -L/i/mingw-builds/prerequisites/x86_64-w64-mingw32-static/lib ' LD_FOR_TARGET=/i/mingw-builds/x86_64-1140-posix-seh-msvcrt-rt_v11/mingw64/bin/ld.exe" "-V"
@@ -645,9 +645,9 @@ events:
   -
     kind: "message-v1"
     backtrace:
-      - "D:/JetBrains/CLion 2024.3.4/bin/cmake/win/x64/share/cmake-3.30/Modules/Internal/CMakeDetermineLinkerId.cmake:40 (message)"
-      - "D:/JetBrains/CLion 2024.3.4/bin/cmake/win/x64/share/cmake-3.30/Modules/CMakeDetermineCompilerABI.cmake:255 (cmake_determine_linker_id)"
-      - "D:/JetBrains/CLion 2024.3.4/bin/cmake/win/x64/share/cmake-3.30/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "D:/IDE/JetBrains/CLion 2025.1/bin/cmake/win/x64/share/cmake-3.31/Modules/Internal/CMakeDetermineLinkerId.cmake:40 (message)"
+      - "D:/IDE/JetBrains/CLion 2025.1/bin/cmake/win/x64/share/cmake-3.31/Modules/CMakeDetermineCompilerABI.cmake:255 (cmake_determine_linker_id)"
+      - "D:/IDE/JetBrains/CLion 2025.1/bin/cmake/win/x64/share/cmake-3.31/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
       - "CMakeLists.txt:2 (project)"
     message: |
       Running the CXX compiler's linker: "../src/gcc-11.4.0/configure --host=x86_64-w64-mingw32 --build=x86_64-w64-mingw32 --target=x86_64-w64-mingw32 --prefix=/mingw64 --with-sysroot=/i/mingw-builds/x86_64-1140-posix-seh-msvcrt-rt_v11/mingw64 --enable-host-shared --disable-multilib --enable-languages=c,c++,lto --enable-libstdcxx-time=yes --enable-threads=posix --enable-libgomp --enable-libatomic --enable-lto --enable-graphite --enable-checking=release --enable-fully-dynamic-string --enable-version-specific-runtime-libs --enable-libstdcxx-filesystem-ts=yes --disable-libstdcxx-pch --disable-libstdcxx-debug --enable-bootstrap --disable-rpath --disable-win32-registry --disable-nls --disable-werror --disable-symvers --with-gnu-as --with-gnu-ld --with-arch=nocona --with-tune=core2 --with-libiconv --with-system-zlib --with-gmp=/i/mingw-builds/prerequisites/x86_64-w64-mingw32-static --with-mpfr=/i/mingw-builds/prerequisites/x86_64-w64-mingw32-static --with-mpc=/i/mingw-builds/prerequisites/x86_64-w64-mingw32-static --with-isl=/i/mingw-builds/prerequisites/x86_64-w64-mingw32-static --with-pkgversion='x86_64-posix-seh, Built by MinGW-Builds project' --with-bugurl=https:/github.com/niXman/mingw-builds CFLAGS='-O2 -pipe -fno-ident -I/i/mingw-builds/x86_64-1140-posix-seh-msvcrt-rt_v11/mingw64/opt/include -I/i/mingw-builds/prerequisites/x86_64-zlib-static/include -I/i/mingw-builds/prerequisites/x86_64-w64-mingw32-static/include' CXXFLAGS='-O2 -pipe -fno-ident -I/i/mingw-builds/x86_64-1140-posix-seh-msvcrt-rt_v11/mingw64/opt/include -I/i/mingw-builds/prerequisites/x86_64-zlib-static/include -I/i/mingw-builds/prerequisites/x86_64-w64-mingw32-static/include' CPPFLAGS=' -I/i/mingw-builds/x86_64-1140-posix-seh-msvcrt-rt_v11/mingw64/opt/include -I/i/mingw-builds/prerequisites/x86_64-zlib-static/include -I/i/mingw-builds/prerequisites/x86_64-w64-mingw32-static/include' LDFLAGS='-pipe -fno-ident -L/i/mingw-builds/x86_64-1140-posix-seh-msvcrt-rt_v11/mingw64/opt/lib -L/i/mingw-builds/prerequisites/x86_64-zlib-static/lib -L/i/mingw-builds/prerequisites/x86_64-w64-mingw32-static/lib ' LD_FOR_TARGET=/i/mingw-builds/x86_64-1140-posix-seh-msvcrt-rt_v11/mingw64/bin/ld.exe" "--version"

@@ -7,10 +7,10 @@
 
 using namespace std;
 
-// 用于缓存已加载字体的结构体
+/// 用于缓存已加载字体的结构体
 struct CachedFont {
     string key; // 唯一标识（例如文本＋字号）
-    Font fnt;
+    Font fnt;   // 字体对象
     // 重载 < 运算符，便于 set 内部排序
     bool operator<(const CachedFont &other) const {
         return key < other.key;
@@ -23,7 +23,10 @@ static set<CachedFont> fntCache;
 static int fntFileSize = 0; // 修改为 int 类型
 static unsigned char *fntFileData = LoadFileData("../src/NotoSansSC.ttf", &fntFileSize);
 
-// 动态加载字体的函数：传入 UTF-8 文本和字号，返回对应字体
+/// 动态加载字体的函数
+/// @param txt 输入的 UTF-8 文本
+/// @param fntSize 字号
+/// @return 返回对应的字体对象
 Font GetDynamicFont(const char *txt, int fntSize = 32) {
     // 使用文本和字号生成唯一 key
     string key = string(txt) + "_" + to_string(fntSize);
@@ -51,7 +54,12 @@ Font GetDynamicFont(const char *txt, int fntSize = 32) {
     return fnt;
 }
 
-// DrawTextUTF 函数：封装了动态加载字体并绘制 UTF-8 文本的过程
+/// 绘制 UTF-8 文本的函数
+/// @param stxt 输入的字符串
+/// @param pos 文本绘制位置
+/// @param fntSize 字号
+/// @param spc 字符间距
+/// @param clr 文本颜色
 void DrawTextUTF(string stxt, Vector2 pos, int fntSize, float spc, Color clr) {
     if (stxt.empty()) return;
     stxt+="     ";
@@ -60,7 +68,13 @@ void DrawTextUTF(string stxt, Vector2 pos, int fntSize, float spc, Color clr) {
     DrawTextEx(fnt, txt, pos, fntSize, spc, clr);
 }
 
-// DrawMicaRectangle 函数：封装了Mica效果的矩形绘制
+/// 绘制带 Mica 效果的矩形
+/// @param x 矩形左上角的 X 坐标
+/// @param y 矩形左上角的 Y 坐标
+/// @param width 矩形宽度
+/// @param height 矩形高度
+/// @param roundness 圆角半径
+/// @param color 矩形颜色
 void DrawMicaRectangle(float x, float y, float width, float height, float roundness, Color color) {
     // 绘制阴影效果
     const int sl = 5;
@@ -91,12 +105,29 @@ void DrawMicaRectangle(float x, float y, float width, float height, float roundn
     DrawRectangleRounded(mainRect, roundness, 8, color);
 }
 
-// 缓动函数实现
+/// 缓动函数：正弦出缓动
+/// @param t 时间参数（0 到 1）
+/// @return 缓动值
 float ESineO(float t) { return sin(t * PI / 2); }
+
+/// 缓动函数：弹性出缓动
+/// @param t 时间参数（0 到 1）
+/// @return 缓动值
 float EElasO(float t) { return sin(-13 * (t + 1) * PI / 2) * pow(2, -10 * t) + 1; }
+
+/// 缓动函数：弹性入缓动
+/// @param t 时间参数（0 到 1）
+/// @return 缓动值
 float EElasI(float t) { return sin(13 * t * PI / 2) * pow(2, 10 * (t - 1)); }
 
-// 输入框组件
+/// 绘制输入框组件
+/// @param p 输入框位置
+/// @param w 输入框宽度
+/// @param fs 字号
+/// @param s 内边距
+/// @param c 输入框颜色
+/// @param f 是否启用输入功能（1 启用，0 禁用）
+/// @return 返回输入框中的文本
 string DrawMicaInputbox(Vector2 p, float w, int fs, float s, Color c, int f) {
     static string t;
     static bool a = false;
@@ -134,7 +165,14 @@ string DrawMicaInputbox(Vector2 p, float w, int fs, float s, Color c, int f) {
     return t;
 }
 
-// 普通按钮
+/// 绘制普通按钮
+/// @param p 按钮位置
+/// @param w 按钮宽度
+/// @param h 按钮高度
+/// @param t 按钮文本
+/// @param c 按钮颜色
+/// @param curvature 按钮圆角程度
+/// @return 如果按钮被点击，返回 true；否则返回 false
 bool DrawMicaButton(Vector2 p, float w, float h, const char *t, Color c, float curvature) {
     static float a[2] = {0};
     Rectangle r = {p.x, p.y, w, h};
@@ -152,33 +190,27 @@ bool DrawMicaButton(Vector2 p, float w, float h, const char *t, Color c, float c
     return cl;
 }
 
-// 灯泡按钮
-int DrawMicaLightButton(int &st, Vector2 p, float s, const char *t, Color c, float curvature) {
-    static float a[2] = {0};
-    Rectangle r = {p.x, p.y, s, s};
-    bool hv = CheckCollisionPointRec(GetMousePosition(), r);
-
-    if (hv && IsMouseButtonPressed(0)) st ^= 1;
-
-    a[0] = CLAMP(a[0]+(hv?10:-10)*GetFrameTime(), 0, 1);
-    a[1] = CLAMP(a[1]+((hv&&IsMouseButtonDown(0))?10:-10)*GetFrameTime(), 0, 1);
-
-    float sc = 1 - EElasO(a[1]) * 0.2f;
-    DrawMicaRectangle(p.x + s * (1 - sc) / 2, p.y + s * (1 - sc) / 2, s * sc, s * sc, curvature,
-                      ColorAlpha(st ? GOLD : c, 0.8 + a[0] * 0.2));
-    DrawTextUTF(t, {p.x + s / 2 - MeasureText(t, 20) / 2, p.y + s / 2 - 10}, 20, 0,WHITE);
+/// 绘制带图标的灯泡按钮
+/// @param st 按钮状态（0 或 1）
+/// @param i 图标纹理
+/// @param p 按钮位置
+/// @param s 按钮大小
+/// @param c 按钮颜色
+/// @param curvature 按钮圆角程度
+/// @return 返回按钮状态
+int DrawMicaImageLightButton(int &st, Texture2D i, Vector2 p, float w,float h, const char *t, Color c, float curvature) {
+    DrawMicaButton({p.x, p.y}, w, h, t, c, curvature);
+    DrawTextureEx(i, {p.x, p.y + (w - i.height) / 2}, 0, 1,WHITE);
     return st;
 }
 
-// 带图标的灯泡按钮
-int DrawMicaImageLightButton(int &st, Texture2D i, Vector2 p, float s, Color c, float curvature) {
-    float is = i.height * 1.2f;
-    DrawMicaLightButton(st, {p.x + is, p.y}, s, "", c, curvature);
-    DrawTextureEx(i, {p.x, p.y + (s - i.height) / 2}, 0, 1,WHITE);
-    return st;
-}
-
-// 进度条
+/// 绘制进度条
+/// @param tg 目标进度（0 到 1）
+/// @param p 进度条位置
+/// @param w 进度条宽度
+/// @param h 进度条高度
+/// @param sp 缓动速度
+/// @return 返回当前进度
 float DrawMicaProgress(float &tg, Vector2 p, float w, float h, float sp) {
     static float cv = 0;
     cv += (tg - cv) * GetFrameTime() * sp;
@@ -188,5 +220,5 @@ float DrawMicaProgress(float &tg, Vector2 p, float w, float h, float sp) {
     return cv;
 }
 
-
 #endif //NBS_H
+

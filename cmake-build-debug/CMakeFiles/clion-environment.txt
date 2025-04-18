@@ -1,5 +1,5 @@
 ToolSet: 11.0 w64 (local)@D:\IDE\RedPanda-Cpp\mingw64
-Ninja: 1.12.1@D:\JetBrains\CLion 2024.3.4\bin\ninja\win\x64\ninja.exe
+Ninja: 1.12.1@D:\IDE\JetBrains\CLion 2025.1\bin\ninja\win\x64\ninja.exe
 Options: 
 
-Options:-DCMAKE_MAKE_PROGRAM=D:/JetBrains/CLion 2024.3.4/bin/ninja/win/x64/ninja.exe
+Options:-DCMAKE_MAKE_PROGRAM=D:/IDE/JetBrains/CLion 2025.1/bin/ninja/win/x64/ninja.exe

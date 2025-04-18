@@ -10,17 +10,20 @@ Texture2D logo,homepng;
 
 //home  rmcl     rvcl         rgsl
 //主页   MC启动器  VScode启动器  gengen脚本启动器
-string now;
 
 void mark() {
     DrawTextUTF("DEV Version", {1080, 650}, 20, 2, WHITE);
     DrawTextUTF("有些 Bug 很正常", {1080, 680}, 20, 2, WHITE);
 }
+string now;
+map<string,int> app;
 string Sidebar() {
     DrawTextureEx(logo, {SidebarHeight/2-90, 20}, 0, 0.5f, WHITE);
     DrawTextUTF("GenGen", {SidebarHeight/2-30, 20}, 40, 2, WHITE);
     DrawTextUTF("ToolBox", {SidebarHeight/2-20, 50}, 25, 2, WHITE);
-    // DrawMicaButton({SidebarHeight/2-100, 100}, {200, 50}, "主页", 25, WHITE, DARK_BACKGROUND);
+    app[now]=1;
+    cout<<DrawMicaImageLightButton( {0, 100},SidebarHeight,30, "124",YELLOW, WHITE, 0.3f)<<endl;
+
     return now;
 }
 void Sign() {
@@ -36,8 +39,7 @@ void Sign() {
     int weekday = local_time->tm_wday;
 
     string week[]={"日","一","二","三","四","五","六"};
-
-    if (query_file("sign")!=to_string(month)+" "+to_string(day)) {
+    if (query_file("sign").find(to_string(month)+"-"+to_string(day))==-1) {
         //签到 类似于洛谷主页
         if (month>=10) {
             DrawTextUTF(to_string(month), {SidebarHeight+50, 110}, 30, 2, GREEN);
@@ -59,10 +61,20 @@ void Sign() {
             sday="0"+sday;
         DrawTextUTF(sday, {SidebarHeight+95, 100}, 100, 2, WHITE);
         if (DrawMicaButton({SidebarHeight+35, 220}, 205, 50, "签到", GREEN, 0.3f)==1) {
-            update_file("sign",to_string(month)+" "+to_string(day));
+            random_device fate;
+            update_file("sign",to_string(month)+"-"+to_string(day)+"-"+to_string(fate()%3));
         }
     }
     else {
+        string file=query_file("sign");
+        int last_fate=stoi(file.substr(file.find("-", file.find("-")+1)+1));
+        if (last_fate == 0) {
+            DrawTextUTF("$大吉$", {SidebarHeight+50, 110}, 80, 2, RED);
+        } else if (last_fate == 1) {
+            DrawTextUTF("$中平$", {SidebarHeight+50, 110}, 80, 2, GREEN);
+        } else if (last_fate == 2) {
+            DrawTextUTF("$大凶$", {SidebarHeight+50, 110}, 80, 2, WHITE);
+        }
         DrawMicaButton({SidebarHeight+35, 220}, 205, 50, "已签到", GREEN, 0.3f);
     }
 
@@ -72,11 +84,9 @@ void Home(){
     DrawTextUTF("主页", {SidebarHeight+30, 30}, 50, 2, YELLOW);
     Sign();
 
-    // DrawTextureEx(homepng, {SidebarHeight+270, 90}, 0, 0.5f, WHITE);
-    // DrawTextUTF("欢迎使用GenGen ToolBox", {SidebarHeight+30, 250}, 30, 2, WHITE);
+    DrawTextureEx(homepng, {SidebarHeight+275, 90}, 0, 0.5f, WHITE);
 }
 int main() {
-    system("md ../data");
     init_file();
     InitWindow(screenWidth, screenHeight, "GenGen ToolBox");
     SetTargetFPS(60);
