@@ -10,7 +10,7 @@ using namespace std;
 /// 用于缓存已加载字体的结构体
 struct CachedFont {
     string key; // 唯一标识（例如文本＋字号）
-    Font fnt;   // 字体对象
+    Font fnt; // 字体对象
     // 重载 < 运算符，便于 set 内部排序
     bool operator<(const CachedFont &other) const {
         return key < other.key;
@@ -62,8 +62,8 @@ Font GetDynamicFont(const char *txt, int fntSize = 32) {
 /// @param clr 文本颜色
 void DrawTextUTF(string stxt, Vector2 pos, int fntSize, float spc, Color clr) {
     if (stxt.empty()) return;
-    stxt+="     ";
-    const char *txt=stxt.c_str();
+    stxt += "     ";
+    const char *txt = stxt.c_str();
     Font fnt = GetDynamicFont(txt, fntSize);
     DrawTextEx(fnt, txt, pos, fntSize, spc, clr);
 }
@@ -173,6 +173,7 @@ string DrawMicaInputbox(Vector2 p, float w, int fs, float s, Color c, int f) {
 /// @param c 按钮颜色
 /// @param curvature 按钮圆角程度
 /// @return 如果按钮被点击，返回 true；否则返回 false
+
 bool DrawMicaButton(Vector2 p, float w, float h, const char *t, Color c, float curvature) {
     static float a[2] = {0};
     Rectangle r = {p.x, p.y, w, h};
@@ -181,27 +182,52 @@ bool DrawMicaButton(Vector2 p, float w, float h, const char *t, Color c, float c
     a[0] = CLAMP(a[0]+(hv?12:-12)*GetFrameTime(), 0, 1);
     a[1] = CLAMP(a[1]+((hv&&IsMouseButtonDown(0))?12:-12)*GetFrameTime(), 0, 1);
 
-    if (hv && IsMouseButtonReleased(0)) cl = true;
+    if (hv && IsMouseButtonDown(0)) cl = true;
 
     float s = 1 - EElasO(a[1]) * 0.1f;
     Vector2 np = {p.x + w * (1 - s) / 2, p.y + h * (1 - s) / 2};
     DrawMicaRectangle(np.x, np.y, w * s, h * s, curvature, ColorAlpha(c, 0.8 + a[0] * 0.2));
-    DrawTextUTF(t, {np.x + w * s / 2 - MeasureText(t, 20) / 2, np.y + h * s / 2 - 10}, 20, 0,WHITE);
+    DrawTextUTF(t, {np.x + w * s / 2 - MeasureText(t, 25) / 2, np.y + h * s / 2 - 12}, 25, 0,WHITE);
     return cl;
 }
 
 /// 绘制带图标的灯泡按钮
-/// @param st 按钮状态（0 或 1）
-/// @param i 图标纹理
-/// @param p 按钮位置
-/// @param s 按钮大小
-/// @param c 按钮颜色
+/// @param texture 图标纹理
+/// @param position 按钮位置
+/// @param width 按钮长
+/// @param height 按钮宽
+/// @param text 按钮颜色
+/// @param color 按钮颜色
 /// @param curvature 按钮圆角程度
-/// @return 返回按钮状态
-int DrawMicaImageLightButton(int &st, Texture2D i, Vector2 p, float w,float h, const char *t, Color c, float curvature) {
-    DrawMicaButton({p.x, p.y}, w, h, t, c, curvature);
-    DrawTextureEx(i, {p.x, p.y + (w - i.height) / 2}, 0, 1,WHITE);
-    return st;
+bool DrawMicaImageButton(Texture2D texture, Vector2 position, float width, float height, const char *text, Color color,float curvature) {
+    bool check=DrawMicaButton({position.x, position.y}, width, height, text, color, curvature);
+
+    // 2. 计算图像缩放比例（保持宽高比，不放大图像）
+    float scale = fminf(
+        width / texture.width, // 水平方向最大可能缩放
+        height / texture.height // 垂直方向最大可能缩放
+    );
+    scale = fminf(scale, 1.0f)*0.8; // 限制最大缩放比例为1（防止放大）
+
+    // 3. 计算缩放后的图像尺寸
+    float scaledWidth = texture.width * scale;
+    float scaledHeight = texture.height * scale;
+
+    // 4. 计算居中坐标（考虑缩放后的尺寸）
+    Vector2 imagePosition = {
+        position.x+check*10+5, // 居左
+        position.y + (height - scaledHeight) / 2 // 垂直居中
+    };
+
+    // 5. 绘制缩放后的图像
+    DrawTextureEx(
+        texture,
+        imagePosition,
+        0.0f, // 旋转角度
+        scale, // 缩放比例
+        WHITE // 着色颜色（WHITE表示保持原色）
+    );
+    return check;
 }
 
 /// 绘制进度条
@@ -221,4 +247,3 @@ float DrawMicaProgress(float &tg, Vector2 p, float w, float h, float sp) {
 }
 
 #endif //NBS_H
-

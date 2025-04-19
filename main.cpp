@@ -8,21 +8,35 @@ const int SidebarHeight = 200;
 #define DARK_BACKGROUND CLITERAL(Color){40, 40, 40, 255 }
 Texture2D logo,homepng;
 
-//home  rmcl     rvcl         rgsl
-//主页   MC启动器  VScode启动器  gengen脚本启动器
+
 
 void mark() {
     DrawTextUTF("DEV Version", {1080, 650}, 20, 2, WHITE);
     DrawTextUTF("有些 Bug 很正常", {1080, 680}, 20, 2, WHITE);
 }
+//home  rmcl      jsml
+//主页   MC启动器   gengen脚本启动器
 string now;
-map<string,int> app;
+map<string,Texture2D> appq;
+map<string,Texture2D> apps;
+vector<string> appname={"home","rmcl","jsml"};
 string Sidebar() {
     DrawTextureEx(logo, {SidebarHeight/2-90, 20}, 0, 0.5f, WHITE);
     DrawTextUTF("GenGen", {SidebarHeight/2-30, 20}, 40, 2, WHITE);
     DrawTextUTF("ToolBox", {SidebarHeight/2-20, 50}, 25, 2, WHITE);
-    app[now]=1;
-    cout<<DrawMicaImageLightButton( {0, 100},SidebarHeight,30, "124",YELLOW, WHITE, 0.3f)<<endl;
+
+    float y=100;
+    for (auto i:appname) {
+        if (i==now) {
+            DrawMicaImageButton( appq[i],{0, y},SidebarHeight,50, i.c_str(),BLUE, 0.3f);
+        }
+        else {
+            if (DrawMicaImageButton( apps[i],{0, y},SidebarHeight,50, i.c_str(),DARK_BACKGROUND, 0.3f)) {
+                now=i;
+            }
+        }
+        y+=55;
+    }
 
     return now;
 }
@@ -94,6 +108,12 @@ int main() {
     now="home";
     logo = LoadTexture("../src/logo.png");
     homepng = LoadTexture("../src/home.png");
+    appq["home"] = LoadTexture("../src/app/qh.png");
+    appq["jsml"] = LoadTexture("../src/app/qj.png");
+    appq["rmcl"] = LoadTexture("../src/app/qm.png");
+    apps["home"] = LoadTexture("../src/app/sh.png");
+    apps["jsml"] = LoadTexture("../src/app/sj.png");
+    apps["rmcl"] = LoadTexture("../src/app/sm.png");
     SetWindowIcon(LoadImage("../src/logo.png"));
     while (!WindowShouldClose()) {
         BeginDrawing();
