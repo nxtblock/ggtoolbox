@@ -183,13 +183,24 @@ int main() {
     zh_app["home"]="主页";
     zh_app["rmcl"]="RMCL";
     zh_app["jsml"]="GG脚本市场";
+
+
+    for (float fade=1.0f;fade>0.0f;fade-=0.01f) {
+        BeginDrawing();
+        ClearBackground(DARK_BACKGROUND);
+        DrawMicaRectangle(SidebarHeight, 0, screenWidth-SidebarHeight, screenHeight, 0.03f, Fade(BLACK, 0.5f));
+        Sidebar();
+        Home();
+        mark();
+        DrawTextureEx(loading, {0, 0}, 0, 1.0f, ColorAlpha(WHITE, fade));
+        EndDrawing();
+    }
     while (!WindowShouldClose()) {
         BeginDrawing();
         ClearBackground(DARK_BACKGROUND);
         // 左侧主界面 (宽度300)
         DrawMicaRectangle(SidebarHeight, 0, screenWidth-SidebarHeight, screenHeight, 0.03f, Fade(BLACK, 0.5f));
         //添加 LOGO.png
-        mark();
         now=Sidebar();
         if (now=="home") {
             Home();
@@ -197,6 +208,7 @@ int main() {
         if (now=="rmcl") {
             RMCL();
         }
+        mark();
         EndDrawing();
 
     }
