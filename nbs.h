@@ -21,7 +21,7 @@ struct CachedFont {
 static set<CachedFont> fntCache;
 // 保存字体文件数据（程序启动时加载一次）
 static int fntFileSize = 0; // 修改为 int 类型
-static unsigned char *fntFileData = LoadFileData("../src/NotoSansSC.ttf", &fntFileSize);
+static unsigned char *fntFileData;
 
 /// 动态加载字体的函数
 /// @param txt 输入的 UTF-8 文本
@@ -174,7 +174,7 @@ string DrawMicaInputbox(Vector2 p, float w, int fs, float s, Color c, int f) {
 /// @param curvature 按钮圆角程度
 /// @return 如果按钮被点击，返回 true；否则返回 false
 
-bool DrawMicaButton(Vector2 p, float w, float h, const char *t, Color c, float curvature) {
+bool DrawMicaButton(Vector2 p, float w, float h, string t, Color c, float curvature) {
     static float a[2] = {0};
     Rectangle r = {p.x, p.y, w, h};
     bool hv = CheckCollisionPointRec(GetMousePosition(), r), cl = false;
@@ -187,7 +187,7 @@ bool DrawMicaButton(Vector2 p, float w, float h, const char *t, Color c, float c
     float s = 1 - EElasO(a[1]) * 0.1f;
     Vector2 np = {p.x + w * (1 - s) / 2, p.y + h * (1 - s) / 2};
     DrawMicaRectangle(np.x, np.y, w * s, h * s, curvature, ColorAlpha(c, 0.8 + a[0] * 0.2));
-    DrawTextUTF(t, {np.x + w * s / 2 - MeasureText(t, 25) / 2, np.y + h * s / 2 - 12}, 25, 0,WHITE);
+    DrawTextUTF(t, {np.x + w * s / 2 - MeasureText(t.c_str(), 25) / 2, np.y + h * s / 2 - 12}, 25, 0,WHITE);
     return cl;
 }
 
@@ -199,7 +199,7 @@ bool DrawMicaButton(Vector2 p, float w, float h, const char *t, Color c, float c
 /// @param text 按钮颜色
 /// @param color 按钮颜色
 /// @param curvature 按钮圆角程度
-bool DrawMicaImageButton(Texture2D texture, Vector2 position, float width, float height, const char *text, Color color,float curvature) {
+bool DrawMicaImageButton(Texture2D texture, Vector2 position, float width, float height, string text, Color color,float curvature) {
     bool check=DrawMicaButton({position.x, position.y}, width, height, text, color, curvature);
 
     // 2. 计算图像缩放比例（保持宽高比，不放大图像）

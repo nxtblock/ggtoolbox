@@ -22,7 +22,6 @@ string chinese_num(string q) {
     m['8']="八";
     m['9']="九";
     m['0']="零";
-    cout<<m['1'];
     string ans="";
     for (auto i:q) {
         if ('0'<=i and i<='9') {
