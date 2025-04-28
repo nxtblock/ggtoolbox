@@ -1,0 +1,8 @@
+[
+{
+  "directory": "C:/Users/liyif/CLionProjects/ggtoolbox/build",
+  "command": "D:\\IDE\\RedPanda-Cpp\\mingw64\\bin\\g++.exe   -g -std=gnu++20 -o CMakeFiles\\ggtoolbox.dir\\main.cpp.obj -c C:\\Users\\liyif\\CLionProjects\\ggtoolbox\\main.cpp",
+  "file": "C:/Users/liyif/CLionProjects/ggtoolbox/main.cpp",
+  "output": "CMakeFiles/ggtoolbox.dir/main.cpp.obj"
+}
+]

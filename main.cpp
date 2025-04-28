@@ -6,7 +6,7 @@ const int screenHeight = 720;
 const int SidebarHeight = 200;
 // 颜色定义
 #define DARK_BACKGROUND CLITERAL(Color){40, 40, 40, 255 }
-Texture2D logo,homepng,mcpng,loading;
+Texture2D logo,homepng,mcpng,loading,blur;
 
 
 
@@ -29,10 +29,10 @@ string Sidebar() {
     float y=100;
     for (auto i:appname) {
         if (i==now) {
-            DrawMicaImageButton( appq[i],{0, y},SidebarHeight,50, zh_app[i],DARKBLUE, 0.3f);
+            DrawMicaImageButton( appq[i],{0, y},SidebarHeight,50, zh_app[i],BLANK, 0.3f);
         }
         else {
-            if (DrawMicaImageButton( apps[i],{0, y},SidebarHeight,50, zh_app[i],DARK_BACKGROUND, 0.3f)) {
+            if (DrawMicaImageButton( apps[i],{0, y},SidebarHeight,50, zh_app[i],BLANK, 0.3f)) {
                 now=i;
             }
         }
@@ -108,53 +108,53 @@ void Home(){
     DrawTextUTF("Minecraft", {SidebarHeight+535, 380}, 30, 2, WHITE);
     DrawTextUTF("Florr.io", {SidebarHeight+785, 380}, 30, 2, WHITE);
     //在常用下的3个按钮
-    if (DrawMicaButton({SidebarHeight+35, 420}, 205, 70, "Notion 笔记", MAROON, 0.3f)) {
+    if (DrawMicaButton({SidebarHeight+35, 420}, 205, 70, "Notion 笔记", RED, 0.3f)) {
         system("start https://www.notion.so/");
     }
 
-    if (DrawMicaButton({SidebarHeight+35, 500}, 205, 70, "博客园",MAROON, 0.3f)) {
+    if (DrawMicaButton({SidebarHeight+35, 500}, 205, 70, "博客园",RED, 0.3f)) {
         system("start https://www.cnblogs.com/");
     }
 
-    if (DrawMicaButton({SidebarHeight+35, 580}, 205, 70, "深度求知", MAROON, 0.3f)) {
+    if (DrawMicaButton({SidebarHeight+35, 580}, 205, 70, "深度求知", RED, 0.3f)) {
         system("start https://chat.deepseek.com/");
     }
     //在信息学奥赛下的3个按钮
-    if (DrawMicaButton({SidebarHeight+285, 420}, 205, 70, "洛谷", DARKBLUE, 0.3f)) {
+    if (DrawMicaButton({SidebarHeight+285, 420}, 205, 70, "洛谷", ORANGE, 0.3f)) {
         system("start https://www.luogu.com.cn/");
     }
-    if (DrawMicaButton({SidebarHeight+285, 500}, 205, 70, "OI wiki", DARKBLUE, 0.3f)) {
+    if (DrawMicaButton({SidebarHeight+285, 500}, 205, 70, "OI wiki", ORANGE, 0.3f)) {
         system("start https://OI.wiki/");
     }
-    if (DrawMicaButton({SidebarHeight+285, 580}, 205, 70, "Vjudge", DARKBLUE, 0.3f)) {
+    if (DrawMicaButton({SidebarHeight+285, 580}, 205, 70, "Vjudge", ORANGE, 0.3f)) {
         system("start https://vjudge.net/");
     }
     //在Minecraft下的3个按钮
-    if (DrawMicaButton({SidebarHeight+535, 420}, 205, 70, "Mod 百科", DARKGREEN, 0.3f)) {
+    if (DrawMicaButton({SidebarHeight+535, 420}, 205, 70, "Mod 百科", BLUE, 0.3f)) {
         system("start https://www.mcmod.cn/");
     }
-    if (DrawMicaButton({SidebarHeight+535, 500}, 205, 70, "MC 资源", DARKGREEN, 0.3f)) {
+    if (DrawMicaButton({SidebarHeight+535, 500}, 205, 70, "MC 资源", BLUE, 0.3f)) {
         system("start https://modrinth.com/");
     }
-    if (DrawMicaButton({SidebarHeight+535, 580}, 205, 70, "MC Wiki", DARKGREEN, 0.3f)) {
+    if (DrawMicaButton({SidebarHeight+535, 580}, 205, 70, "MC Wiki", BLUE, 0.3f)) {
         system("start https://zh.minecraft.wiki/");
     }
 
     //在Florr.io下的3个按钮
-    if (DrawMicaButton({SidebarHeight+785, 420}, 205, 70, "Florr.io", DARKPURPLE, 0.3f)) {
+    if (DrawMicaButton({SidebarHeight+785, 420}, 205, 70, "Florr.io", PURPLE, 0.3f)) {
         system("start https://florr.io/");
     }
-    if (DrawMicaButton({SidebarHeight+785, 500}, 205, 70, "Florr.io Wiki", DARKPURPLE, 0.3f)) {
-        system("start https://florrio.fandom.com/zh/wiki/%E9%A6%96%E9%A1%B5");
+    if (DrawMicaButton({SidebarHeight+785, 500}, 205, 70, "Florr.io Wiki", PURPLE, 0.3f)) {
+        system("start https://florrio.fandom.com/zh/wiki/");
     }
-    if (DrawMicaButton({SidebarHeight+785, 580}, 205, 70, "DigDig", DARKPURPLE, 0.3f)) {
+    if (DrawMicaButton({SidebarHeight+785, 580}, 205, 70, "DigDig", PURPLE, 0.3f)) {
         system("start https://digdig.io/");
     }
 }
 void RMCL() {
     DrawTextUTF("RMCL", {SidebarHeight+30, 30}, 50, 2, YELLOW);
-    DrawMicaButton({SidebarHeight+35, 60}, 100, 30, "启动", BLACK, 0.1f);
-    DrawMicaButton({SidebarHeight+135, 60}, 100, 30, "设置", BLACK, 0.1f);
+    DrawMicaButton({SidebarHeight+35, 70}, 100, 30, "启动", BLANK, 0.3f);
+    DrawMicaButton({SidebarHeight+135, 70}, 100, 30, "设置", BLANK, 0.3f);
 
     // DrawTextureEx(mcpng, {SidebarHeight+30, 100}, 0, 0.5f, WHITE);
 }
@@ -167,28 +167,29 @@ int main() {
     DrawTextureEx(loading, {0,0}, 0, 1.0f, WHITE);
     EndDrawing();
 
+    SetWindowIcon(LoadImage("../src/logo.png"));
     fntFileData = LoadFileData("../src/NotoSansSC.ttf", &fntFileSize);
     init_file();
     now="home";
     logo = LoadTexture("../src/logo.png");
     homepng = LoadTexture("../src/home.png");
     mcpng= LoadTexture("../src/mcv.png");
+    blur = LoadTexture("../src/blur.png");
     appq["home"] = LoadTexture("../src/app/qh.png");
     appq["jsml"] = LoadTexture("../src/app/qj.png");
     appq["rmcl"] = LoadTexture("../src/app/qm.png");
     apps["home"] = LoadTexture("../src/app/sh.png");
     apps["jsml"] = LoadTexture("../src/app/sj.png");
-    apps["rmcl"] = LoadTexture("../src/app/sm.png");
-    SetWindowIcon(LoadImage("../src/logo.png"));
+    apps["rmcl"] = LoadTexture("../src/app/sm.png");  
     zh_app["home"]="主页";
     zh_app["rmcl"]="RMCL";
-    zh_app["jsml"]="GG脚本市场";
+    zh_app["jsml"]="脚本市场";
 
-
-    for (float fade=1.0f;fade>0.0f;fade-=0.01f) {
+    for (float fade=1.0f;fade>0.0f;fade-=0.02f) {
         BeginDrawing();
         ClearBackground(DARK_BACKGROUND);
-        DrawMicaRectangle(SidebarHeight, 0, screenWidth-SidebarHeight, screenHeight, 0.03f, Fade(BLACK, 0.5f));
+        DrawTextureEx(blur, {0, 0}, 0, 1.0f, WHITE);
+        DrawMicaRectangle(SidebarHeight, 0, screenWidth-SidebarHeight, screenHeight, 0.03f, BLACK);
         Sidebar();
         Home();
         mark();
@@ -198,9 +199,11 @@ int main() {
     while (!WindowShouldClose()) {
         BeginDrawing();
         ClearBackground(DARK_BACKGROUND);
+        DrawTextureEx(blur, {0, 0}, 0, 1.0f, WHITE);
         // 左侧主界面 (宽度300)
-        DrawMicaRectangle(SidebarHeight, 0, screenWidth-SidebarHeight, screenHeight, 0.03f, Fade(BLACK, 0.5f));
+        DrawMicaRectangle(SidebarHeight, 0, screenWidth-SidebarHeight, screenHeight, 0.03f, BLACK);
         //添加 LOGO.png
+        mark();
         now=Sidebar();
         if (now=="home") {
             Home();
@@ -208,7 +211,7 @@ int main() {
         if (now=="rmcl") {
             RMCL();
         }
-        mark();
+
         EndDrawing();
 
     }

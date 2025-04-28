@@ -76,33 +76,13 @@ void DrawTextUTF(string stxt, Vector2 pos, int fntSize, float spc, Color clr) {
 /// @param roundness 圆角半径
 /// @param color 矩形颜色
 void DrawMicaRectangle(float x, float y, float width, float height, float roundness, Color color) {
-    // 绘制阴影效果
-    const int sl = 5;
-    const float sox = 1.0f;
-    const float soy = 1.0f;
-    const float sss = 1.0f;
-    const Color sbc = {0, 0, 0, 40}; // 基础阴影颜色（半透明黑）
-
-    for (int i = 0; i < sl; ++i) {
-        const float spread = i * sss;
-        const Color shadowColor = {
-            sbc.r,
-            sbc.g,
-            sbc.b,
-            (unsigned char) (sbc.a - i * 8) // 逐层变淡
-        };
-        const Rectangle shadowRect = {
-            x - spread / 2 + sox,
-            y - spread / 2 + soy,
-            width + spread,
-            height + spread
-        };
-        DrawRectangleRounded(shadowRect, roundness, 8, shadowColor);
-    }
-
     // 绘制主矩形（半透明圆角）
     const Rectangle mainRect = {x, y, width, height};
-    DrawRectangleRounded(mainRect, roundness, 8, color);
+    if(color.a < 1.0f) {
+        DrawRectangleRounded(mainRect, roundness, 8, color);
+        return;
+    }
+    DrawRectangleRounded(mainRect, roundness, 8, Fade(color,0.35f));
 }
 
 /// 缓动函数：正弦出缓动
@@ -173,22 +153,28 @@ string DrawMicaInputbox(Vector2 p, float w, int fs, float s, Color c, int f) {
 /// @param c 按钮颜色
 /// @param curvature 按钮圆角程度
 /// @return 如果按钮被点击，返回 true；否则返回 false
-
 bool DrawMicaButton(Vector2 p, float w, float h, string t, Color c, float curvature) {
-    static float a[2] = {0};
+    float hover = 0, press = 0;
     Rectangle r = {p.x, p.y, w, h};
-    bool hv = CheckCollisionPointRec(GetMousePosition(), r), cl = false;
+    bool isHover = CheckCollisionPointRec(GetMousePosition(), r);
+    bool isClick = isHover && IsMouseButtonDown(0);
 
-    a[0] = CLAMP(a[0]+(hv?12:-12)*GetFrameTime(), 0, 1);
-    a[1] = CLAMP(a[1]+((hv&&IsMouseButtonDown(0))?12:-12)*GetFrameTime(), 0, 1);
+    hover += ((isHover ? 1.0f : 0.0f) - hover) * 12 * GetFrameTime();
+    press += ((isClick ? 1.0f : 0.0f) - press) * 12 * GetFrameTime();
 
-    if (hv && IsMouseButtonDown(0)) cl = true;
-
-    float s = 1 - EElasO(a[1]) * 0.1f;
+    float s = 1 - EElasO(press) * 0.1f;
     Vector2 np = {p.x + w * (1 - s) / 2, p.y + h * (1 - s) / 2};
-    DrawMicaRectangle(np.x, np.y, w * s, h * s, curvature, ColorAlpha(c, 0.8 + a[0] * 0.2));
-    DrawTextUTF(t, {np.x + w * s / 2 - MeasureText(t.c_str(), 25) / 2, np.y + h * s / 2 - 12}, 25, 0,WHITE);
-    return cl;
+    
+    if (isHover) {
+        DrawMicaRectangle(np.x, np.y, w * s, h * s, curvature, c);
+        // 覆盖一层半透明白色
+        DrawMicaRectangle(np.x, np.y, w * s, h * s, curvature, ColorAlpha(WHITE, 0.15f));
+    } else {
+        DrawMicaRectangle(np.x, np.y, w * s, h * s, curvature, c);
+    }
+    DrawTextUTF(t, {np.x + w * s / 2 - MeasureText(t.c_str(), 25) / 2, np.y + h * s / 2 - 12}, 25, 0, WHITE);
+
+    return isClick;
 }
 
 /// 绘制带图标的灯泡按钮
