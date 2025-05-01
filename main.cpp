@@ -29,7 +29,7 @@ string Sidebar() {
     float y=100;
     for (auto i:appname) {
         if (i==now) {
-            DrawMicaImageButton( appq[i],{0, y},SidebarHeight,50, zh_app[i],BLANK, 0.3f);
+            DrawMicaImageButton( appq[i],{0, y},SidebarHeight,50, zh_app[i],SKYBLUE, 0.3f);
         }
         else {
             if (DrawMicaImageButton( apps[i],{0, y},SidebarHeight,50, zh_app[i],BLANK, 0.3f)) {
@@ -69,7 +69,7 @@ void Sign() {
             DrawTextUTF("大", {SidebarHeight+50, 170}, 30, 2, GREEN);
         DrawTextUTF("星", {SidebarHeight+200, 110}, 30, 2, GREEN);
         DrawTextUTF("期", {SidebarHeight+200, 140}, 30, 2, GREEN);
-        DrawTextUTF(week[weekday], {SidebarHeight+200, 170}, 30, 2, GREEN);
+        DrawTextUTF(week[weekday], {SidebarHeight+200, 170}, 30, 2, GREEN); 
 
         string sday=to_string(day);
         if (sday.size()==1)
@@ -108,46 +108,46 @@ void Home(){
     DrawTextUTF("Minecraft", {SidebarHeight+535, 380}, 30, 2, WHITE);
     DrawTextUTF("Florr.io", {SidebarHeight+785, 380}, 30, 2, WHITE);
     //在常用下的3个按钮
-    if (DrawMicaButton({SidebarHeight+35, 420}, 205, 70, "Notion 笔记", RED, 0.3f)) {
+    if (DrawMicaButton({SidebarHeight+35, 420}, 205, 70, "Notion 笔记", RED, 0.2f)) {
         system("start https://www.notion.so/");
     }
 
-    if (DrawMicaButton({SidebarHeight+35, 500}, 205, 70, "博客园",RED, 0.3f)) {
+    if (DrawMicaButton({SidebarHeight+35, 500}, 205, 70, "博客园",RED, 0.2f)) {
         system("start https://www.cnblogs.com/");
     }
 
-    if (DrawMicaButton({SidebarHeight+35, 580}, 205, 70, "深度求知", RED, 0.3f)) {
+    if (DrawMicaButton({SidebarHeight+35, 580}, 205, 70, "深度求知", RED, 0.2f)) {
         system("start https://chat.deepseek.com/");
     }
     //在信息学奥赛下的3个按钮
-    if (DrawMicaButton({SidebarHeight+285, 420}, 205, 70, "洛谷", ORANGE, 0.3f)) {
+    if (DrawMicaButton({SidebarHeight+285, 420}, 205, 70, "洛谷", GOLD, 0.2f)) {
         system("start https://www.luogu.com.cn/");
     }
-    if (DrawMicaButton({SidebarHeight+285, 500}, 205, 70, "OI wiki", ORANGE, 0.3f)) {
+    if (DrawMicaButton({SidebarHeight+285, 500}, 205, 70, "OI wiki", GOLD, 0.2f)) {
         system("start https://OI.wiki/");
     }
-    if (DrawMicaButton({SidebarHeight+285, 580}, 205, 70, "Vjudge", ORANGE, 0.3f)) {
-        system("start https://vjudge.net/");
+    if (DrawMicaButton({SidebarHeight+285, 580}, 205, 70, "Vjudge", GOLD, 0.2f)) {
+        system("start https://vjudge.net/"); 
     }
     //在Minecraft下的3个按钮
-    if (DrawMicaButton({SidebarHeight+535, 420}, 205, 70, "Mod 百科", BLUE, 0.3f)) {
+    if (DrawMicaButton({SidebarHeight+535, 420}, 205, 70, "Mod 百科", BLUE, 0.2f)) {
         system("start https://www.mcmod.cn/");
     }
-    if (DrawMicaButton({SidebarHeight+535, 500}, 205, 70, "MC 资源", BLUE, 0.3f)) {
+    if (DrawMicaButton({SidebarHeight+535, 500}, 205, 70, "MC 资源", BLUE, 0.2f)) {
         system("start https://modrinth.com/");
     }
-    if (DrawMicaButton({SidebarHeight+535, 580}, 205, 70, "MC Wiki", BLUE, 0.3f)) {
+    if (DrawMicaButton({SidebarHeight+535, 580}, 205, 70, "MC Wiki", BLUE, 0.2f)) {
         system("start https://zh.minecraft.wiki/");
     }
 
     //在Florr.io下的3个按钮
-    if (DrawMicaButton({SidebarHeight+785, 420}, 205, 70, "Florr.io", PURPLE, 0.3f)) {
+    if (DrawMicaButton({SidebarHeight+785, 420}, 205, 70, "Florr.io", PURPLE, 0.2f)) {
         system("start https://florr.io/");
     }
-    if (DrawMicaButton({SidebarHeight+785, 500}, 205, 70, "Florr.io Wiki", PURPLE, 0.3f)) {
+    if (DrawMicaButton({SidebarHeight+785, 500}, 205, 70, "Florr.io Wiki", PURPLE, 0.2f)) {
         system("start https://florrio.fandom.com/zh/wiki/");
     }
-    if (DrawMicaButton({SidebarHeight+785, 580}, 205, 70, "DigDig", PURPLE, 0.3f)) {
+    if (DrawMicaButton({SidebarHeight+785, 580}, 205, 70, "DigDig", PURPLE, 0.2f)) {
         system("start https://digdig.io/");
     }
 }
@@ -156,19 +156,21 @@ void RMCL() {
     DrawMicaButton({SidebarHeight+35, 70}, 100, 30, "启动", BLANK, 0.3f);
     DrawMicaButton({SidebarHeight+135, 70}, 100, 30, "设置", BLANK, 0.3f);
 
-    // DrawTextureEx(mcpng, {SidebarHeight+30, 100}, 0, 0.5f, WHITE);
+    DrawTextureEx(mcpng, {SidebarHeight, 100}, 0, 0.8f, WHITE);   
+    
 }
 int main() {
     InitWindow(screenWidth, screenHeight, "GenGen ToolBox");
     SetTargetFPS(60);
     loading=LoadTexture("../src/loading.png");
+    fntFileData = LoadFileData("../src/NotoSansSC.ttf", &fntFileSize);
     BeginDrawing();
     ClearBackground(DARK_BACKGROUND);
     DrawTextureEx(loading, {0,0}, 0, 1.0f, WHITE);
     EndDrawing();
 
     SetWindowIcon(LoadImage("../src/logo.png"));
-    fntFileData = LoadFileData("../src/NotoSansSC.ttf", &fntFileSize);
+
     init_file();
     now="home";
     logo = LoadTexture("../src/logo.png");
@@ -182,7 +184,7 @@ int main() {
     apps["jsml"] = LoadTexture("../src/app/sj.png");
     apps["rmcl"] = LoadTexture("../src/app/sm.png");  
     zh_app["home"]="主页";
-    zh_app["rmcl"]="RMCL";
+    zh_app["rmcl"]="RMCL"; 
     zh_app["jsml"]="脚本市场";
 
     for (float fade=1.0f;fade>0.0f;fade-=0.02f) {

@@ -82,13 +82,13 @@ void DrawMicaRectangle(float x, float y, float width, float height, float roundn
         DrawRectangleRounded(mainRect, roundness, 8, color);
         return;
     }
-    DrawRectangleRounded(mainRect, roundness, 8, Fade(color,0.35f));
+    DrawRectangleRounded(mainRect, roundness, 8, Fade(color,0.2f));
 }
 
 /// 缓动函数：正弦出缓动
 /// @param t 时间参数（0 到 1）
 /// @return 缓动值
-float ESineO(float t) { return sin(t * PI / 2); }
+float ESineO(float t) { return sin(t * PI / 2); } 
 
 /// 缓动函数：弹性出缓动
 /// @param t 时间参数（0 到 1）
