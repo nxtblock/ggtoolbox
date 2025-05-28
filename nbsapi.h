@@ -7,6 +7,8 @@
 
 #include <bits/stdc++.h>
 
+using namespace std;
+
 /// 将字符串中的数字转换为中文数字表示
 /// @param q 输入的字符串
 /// @return 转换后的字符串
@@ -42,7 +44,7 @@ bool is_exist(const string& name) {
     if (file) {
         fclose(file);
         return true;
-    } else {
+    } else { 
         return false;
     }
 }
@@ -64,6 +66,11 @@ void update_file(string a,string b) {
 
 /// 初始化文件映射，从文件中加载键值对
 void init_file() {
+    if (!is_exist("../data/data.txt")) {
+        system("mkdir ..\\data");
+        ofstream file("../data/data.txt");
+        file.close();
+    }
     ifstream file("../data/data.txt");
     string a,b;
     while (file>>a>>b) {
@@ -80,5 +87,28 @@ string query_file(string a) {
     return file_map[a];
 }
 
-#endif //NBSAPI_H
 
+map<string, string> getrun;         // 存子进程输出
+
+// 启动并读取输出
+void run_cmd(const string& cmdline) {
+    thread([cmdline]() {
+        char buffer[1024] = { '\0' };
+        FILE* pf = _popen(cmdline.c_str(), "r");
+        if (pf == NULL) {
+            printf("open pipe failed\n");
+            getrun[cmdline] = "";
+            return;
+        }
+        string ret;
+        while (fgets(buffer, sizeof(buffer), pf)) {
+            ret += buffer;
+            getrun[cmdline] = buffer;
+        }
+        _pclose(pf);
+        getrun[cmdline] = "";
+    }).detach();
+}
+
+
+#endif //NBSAPI_H

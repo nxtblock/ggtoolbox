@@ -6,44 +6,57 @@ const int screenHeight = 720;
 const int SidebarHeight = 200;
 // 颜色定义
 #define DARK_BACKGROUND CLITERAL(Color){40, 40, 40, 255 }
-Texture2D logo,homepng,mcpng,loading,blur;
-
+Texture2D logo,homepng,mcpng,loading;
 
 
 void mark() {
     DrawTextUTF("DEV Version", {1080, 650}, 20, 2, WHITE);
     DrawTextUTF("有些 Bug 很正常", {1080, 680}, 20, 2, WHITE);
 }
-//home  rmcl      jsml
+//home  rmcl      gsml
 //主页   MC启动器   gengen脚本启动器
 string now;
 map<string,Texture2D> appq;
 map<string,Texture2D> apps;
-vector<string> appname={"home","rmcl","jsml"};
+vector<string> appname={"home","rmcl","gsml"};
 map<string,string>zh_app;
-string Sidebar() {
+void Sidebar() {
+    DrawMcRectangle(0, 0, SidebarHeight-3, 720, DARKGRAY);
     DrawTextureEx(logo, {SidebarHeight/2-90, 20}, 0, 0.5f, WHITE);
-    DrawTextUTF("GenGen", {SidebarHeight/2-30, 20}, 40, 2, WHITE);
+    DrawTextUTF("GenGen", {SidebarHeight/2-30, 20}, 35, 2, WHITE);
     DrawTextUTF("ToolBox", {SidebarHeight/2-20, 50}, 25, 2, WHITE);
 
     float y=100;
     for (auto i:appname) {
         if (i==now) {
-            DrawMicaImageButton( appq[i],{0, y},SidebarHeight,50, zh_app[i],SKYBLUE, 0.3f);
+            DrawMcImageButton( appq[i],{3, y},SidebarHeight-6,50, zh_app[i],SKYBLUE);
         }
         else {
-            if (DrawMicaImageButton( apps[i],{0, y},SidebarHeight,50, zh_app[i],BLANK, 0.3f)) {
+            if (DrawMicaImageButton( apps[i],{0, y},SidebarHeight,50, zh_app[i],BLANK,0.3f)) {
                 now=i;
             }
         }
         y+=55;
     }
-
-    return now;
+    if (IsKeyPressed(KEY_HOME)) {
+        now="home";
+    }   
+    
+    if (IsKeyPressed(KEY_ONE)) {
+        now="home";
+    }   
+    
+    if (IsKeyPressed(KEY_TWO)) {
+        now="rmcl";
+    }   
+    
+    if (IsKeyPressed(KEY_THREE)) {
+        now="gsml";
+    }   
 }
 void Sign() {
 
-    DrawMicaRectangle(SidebarHeight+25, 90, 225, 200, 0.1, DARKGRAY);
+    DrawMcRectangle(SidebarHeight+25, 90, 225, 200, DARKGRAY);
     //获取日期，年月日
     time_t now = time(0);
     tm* local_time = localtime(&now);  // 只计算一次，避免重复调用
@@ -75,7 +88,7 @@ void Sign() {
         if (sday.size()==1)
             sday="0"+sday;
         DrawTextUTF(sday, {SidebarHeight+95, 100}, 100, 2, WHITE);
-        if (DrawMicaButton({SidebarHeight+35, 220}, 205, 50, "签到", GREEN, 0.3f)==1) {
+        if (DrawMcButton({SidebarHeight+35, 220}, 205, 50, "签到", Fade(GREEN,0.7f),30)==1) {
             random_device fate;
             update_file("sign",to_string(month)+"-"+to_string(day)+"-"+to_string(fate()%3));
         }
@@ -84,86 +97,184 @@ void Sign() {
         string file=query_file("sign");
         int last_fate=stoi(file.substr(file.find("-", file.find("-")+1)+1));
         if (last_fate == 0) {
-            DrawTextUTF("$大吉$", {SidebarHeight+50, 110}, 80, 2, RED);
+            DrawTextUTF("$大吉$", {SidebarHeight+32, 110}, 80, 2, RED);
         } else if (last_fate == 1) {
-            DrawTextUTF("$中平$", {SidebarHeight+50, 110}, 80, 2, GREEN);
+            DrawTextUTF("$中平$", {SidebarHeight+32, 110}, 80, 2, GREEN);
         } else if (last_fate == 2) {
-            DrawTextUTF("$大凶$", {SidebarHeight+50, 110}, 80, 2, WHITE);
+            DrawTextUTF("$大凶$", {SidebarHeight+32, 110}, 80, 2, WHITE);
         }
-        DrawMicaButton({SidebarHeight+35, 220}, 205, 50, "已签到", GREEN, 0.3f);
+        DrawMcButton({SidebarHeight+35, 220}, 205, 50, "已签到", GREEN,30);
     }
-
-
 }
 void Home(){
-    DrawTextUTF("主页", {SidebarHeight+30, 30}, 50, 2, YELLOW);
+    DrawTextUTF("GGToolBox: HOME", {SidebarHeight+30, 30}, 30, 2, WHITE);
     Sign();
-
+    DrawMcRectangle(SidebarHeight+25, 310, 1030, 390, DARKGRAY);
     DrawTextureEx(homepng, {SidebarHeight+275, 90}, 0, 0.5f, WHITE);
-
-    DrawMicaRectangle(SidebarHeight+25, 310, 1030, 390, 0.05, DARKGRAY);
-    DrawTextUTF("快速导航", {SidebarHeight+35, 310}, 40, 2, YELLOW);
+    DrawTextUTF("快速导航", {SidebarHeight+35, 315}, 40, 2, YELLOW);
     DrawTextUTF("常用", {SidebarHeight+35, 380}, 30, 2, WHITE);
     DrawTextUTF("信息学奥赛", {SidebarHeight+285, 380}, 30, 2, WHITE);
     DrawTextUTF("Minecraft", {SidebarHeight+535, 380}, 30, 2, WHITE);
     DrawTextUTF("Florr.io", {SidebarHeight+785, 380}, 30, 2, WHITE);
-    //在常用下的3个按钮
-    if (DrawMicaButton({SidebarHeight+35, 420}, 205, 70, "Notion 笔记", RED, 0.2f)) {
-        system("start https://www.notion.so/");
+    //在常用下的3个按钮 
+    if (DrawMcButton({SidebarHeight+35, 420}, 205, 70, "BiliBili", RED,25)) {
+        system("start https://www.bilibili.com/");
     }
-
-    if (DrawMicaButton({SidebarHeight+35, 500}, 205, 70, "博客园",RED, 0.2f)) {
+    if (DrawMcButton({SidebarHeight+35, 500}, 205, 70, "博客园",RED,25)) {
         system("start https://www.cnblogs.com/");
     }
-
-    if (DrawMicaButton({SidebarHeight+35, 580}, 205, 70, "深度求知", RED, 0.2f)) {
+    if (DrawMcButton({SidebarHeight+35, 580}, 205, 70, "深度求知", RED,25)) {
         system("start https://chat.deepseek.com/");
     }
     //在信息学奥赛下的3个按钮
-    if (DrawMicaButton({SidebarHeight+285, 420}, 205, 70, "洛谷", GOLD, 0.2f)) {
+    if (DrawMcButton({SidebarHeight+285, 420}, 205, 70, "洛谷", GOLD,25)) {
         system("start https://www.luogu.com.cn/");
     }
-    if (DrawMicaButton({SidebarHeight+285, 500}, 205, 70, "OI wiki", GOLD, 0.2f)) {
+    if (DrawMcButton({SidebarHeight+285, 500}, 205, 70, "OI wiki", GOLD,25)) {
         system("start https://OI.wiki/");
     }
-    if (DrawMicaButton({SidebarHeight+285, 580}, 205, 70, "Vjudge", GOLD, 0.2f)) {
+    if (DrawMcButton({SidebarHeight+285, 580}, 205, 70, "Vjudge", GOLD,25)) {
         system("start https://vjudge.net/"); 
     }
     //在Minecraft下的3个按钮
-    if (DrawMicaButton({SidebarHeight+535, 420}, 205, 70, "Mod 百科", BLUE, 0.2f)) {
+    if (DrawMcButton({SidebarHeight+535, 420}, 205, 70, "Mod 百科", BLUE,25)) {
         system("start https://www.mcmod.cn/");
     }
-    if (DrawMicaButton({SidebarHeight+535, 500}, 205, 70, "MC 资源", BLUE, 0.2f)) {
+    if (DrawMcButton({SidebarHeight+535, 500}, 205, 70, "MC 资源", BLUE,25)) {
         system("start https://modrinth.com/");
     }
-    if (DrawMicaButton({SidebarHeight+535, 580}, 205, 70, "MC Wiki", BLUE, 0.2f)) {
+    if (DrawMcButton({SidebarHeight+535, 580}, 205, 70, "MC Wiki", BLUE,25)) {
         system("start https://zh.minecraft.wiki/");
     }
-
     //在Florr.io下的3个按钮
-    if (DrawMicaButton({SidebarHeight+785, 420}, 205, 70, "Florr.io", PURPLE, 0.2f)) {
+    if (DrawMcButton({SidebarHeight+785, 420}, 205, 70, "Florr.io", PURPLE,25)) {
         system("start https://florr.io/");
     }
-    if (DrawMicaButton({SidebarHeight+785, 500}, 205, 70, "Florr.io Wiki", PURPLE, 0.2f)) {
+    if (DrawMcButton({SidebarHeight+785, 500}, 205, 70, "Florr.io Wiki", PURPLE,25)) {
         system("start https://florrio.fandom.com/zh/wiki/");
     }
-    if (DrawMicaButton({SidebarHeight+785, 580}, 205, 70, "DigDig", PURPLE, 0.2f)) {
+    if (DrawMcButton({SidebarHeight+785, 580}, 205, 70, "DigDig", PURPLE,25)) {
         system("start https://digdig.io/");
     }
 }
-void RMCL() {
-    DrawTextUTF("RMCL", {SidebarHeight+30, 30}, 50, 2, YELLOW);
-    DrawMicaButton({SidebarHeight+35, 70}, 100, 30, "启动", BLANK, 0.3f);
-    DrawMicaButton({SidebarHeight+135, 70}, 100, 30, "设置", BLANK, 0.3f);
+void showmsg(string title,string msg){
+    DrawMcRectangle(screenWidth-320, screenHeight-130, 300, 100, DARKBLUE);
+    DrawTextUTF(title, {screenWidth-310, screenHeight-120}, 30, 2, YELLOW);
+    // 自动换行显示 msg，超出宽度则在最后加 "..."
+    int maxWidth = 280; // 弹窗宽度-边距
+    int fontSize = 20;
+    int lineHeight = 28;
+    vector<string> lines;
+    string curLine, curWord;
+    int curWidth = 0;
+    for (int i = 0; i <= msg.size(); ++i) {
+        char c = (i < msg.size() ? msg[i] : ' ');
+        if (c == '\n' or c == ' ' or i == msg.size()) {
+            int wordWidth = MeasureTextEx(GetFontDefault(), curWord.c_str(), fontSize, 2).x;
+            if (curWidth + wordWidth > maxWidth) {
+                if (!curLine.empty()) lines.push_back(curLine);
+                curLine = curWord;
+                curWidth = wordWidth;
+            } else {
+                curLine += curWord;
+                curWidth += wordWidth;
+            }
+            if (c == ' ' or c == '\n') { 
+                int spaceWidth = MeasureTextEx(GetFontDefault(), " ", fontSize, 2).x;
+                if (curWidth + spaceWidth > maxWidth) {
+                    lines.push_back(curLine);
+                    curLine = "";
+                    curWidth = 0;
+                } else {
+                    curLine += " ";
+                    curWidth += spaceWidth;
+                }
+            }
+            if (c == '\n') {
+                lines.push_back(curLine);
+                curLine = "";
+                curWidth = 0;
+            }
+            curWord = "";
+        } else {
+            curWord += c;
+        }
+    }
+    if (!curLine.empty()) lines.push_back(curLine);
 
-    DrawTextureEx(mcpng, {SidebarHeight, 100}, 0, 0.8f, WHITE);   
+    // 最多显示3行，超出加...
+    int maxLines = 2;
+    if ((int)lines.size() > maxLines) {
+        lines.resize(maxLines);
+        string &last = lines.back();
+        // 截断最后一行加...
+        while (MeasureTextEx(GetFontDefault(), (last + "...").c_str(), fontSize, 2).x > maxWidth && !last.empty()) {
+            last.pop_back();
+        }
+        last += "...";
+    }
+    for (int i = 0; i < lines.size(); ++i) {
+        DrawTextUTF(lines[i], {screenWidth-310, (float)(screenHeight-80 + (int)i*lineHeight)}, fontSize, 2, WHITE);
+    }
+}
+int stoptps=0,errortps=0,wait=0;
+int flag=0;
+void RMCL() {
+    DrawTextUTF("GGToolBox: NextBlock-RMCL", {SidebarHeight+30, 30}, 30, 2, WHITE);
+    DrawMicaButton({SidebarHeight+35, 70}, 100, 30, "开始游戏", BLANK,0.1,25);
+    DrawMicaButton({SidebarHeight+135, 70}, 100, 30, "配置", BLANK,0.1,25);
+    DrawTextureEx(mcpng, {SidebarHeight, 100}, 0, 0.845f, WHITE);
+    //在图片中间绘制一个启动按钮
     
+    if (flag==0) {
+        if(DrawMcButton({SidebarHeight+400, 520}, 200, 50, "开始游戏", GREEN,40)){
+            flag=1;
+            wait=240;
+            run_cmd("..\\mcf\\install.bat");
+            return;
+        }
+    }
+    if(flag==1) {
+        string gr = getrun["..\\mcf\\install.bat"];
+        if(gr.find("io-ok")!=-1){
+            flag=0;
+        }
+        if(gr.find("io-error")!=-1){
+            errortps=120;
+        }
+        showmsg("Minecraft 正在运行",gr);
+        if(wait>0){
+            DrawMcButton({SidebarHeight+400, 520}, 200, 50, "加载中...", GREEN, 40);
+            wait--;
+        }
+        else if(DrawMcButton({SidebarHeight+400, 520}, 200, 50, "停止游戏", RED, 40)) {
+            flag=0;
+            for(int i=1;i<=3;i++){
+                system("taskkill /f /im cmcl.exe");
+                system("taskkill /f /im java.exe");
+                system("taskkill /f /im javaw.exe");
+            }
+            stoptps=120;
+        }
+    }
+    if(stoptps>0){
+        stoptps--;
+        showmsg("停止成功","RMCL 已结束所有 java 进程");
+    }
+    if(errortps>0){
+        errortps--;
+        showmsg("发生错误","Minecraft 启动失败，可能是下载错误或模组冲突");
+    } 
+}
+void gsml() {
+    DrawTextUTF("GGToolBox: GenGen-Script Market", {SidebarHeight+30, 30}, 30, 2, WHITE);
 }
 int main() {
     InitWindow(screenWidth, screenHeight, "GenGen ToolBox");
+    InitFontSystem("../src/DouyinSansBold.otf");
     SetTargetFPS(60);
+    
     loading=LoadTexture("../src/loading.png");
-    fntFileData = LoadFileData("../src/NotoSansSC.ttf", &fntFileSize);
     BeginDrawing();
     ClearBackground(DARK_BACKGROUND);
     DrawTextureEx(loading, {0,0}, 0, 1.0f, WHITE);
@@ -176,48 +287,44 @@ int main() {
     logo = LoadTexture("../src/logo.png");
     homepng = LoadTexture("../src/home.png");
     mcpng= LoadTexture("../src/mcv.png");
-    blur = LoadTexture("../src/blur.png");
     appq["home"] = LoadTexture("../src/app/qh.png");
-    appq["jsml"] = LoadTexture("../src/app/qj.png");
+    appq["gsml"] = LoadTexture("../src/app/qj.png");
     appq["rmcl"] = LoadTexture("../src/app/qm.png");
     apps["home"] = LoadTexture("../src/app/sh.png");
-    apps["jsml"] = LoadTexture("../src/app/sj.png");
+    apps["gsml"] = LoadTexture("../src/app/sj.png");
     apps["rmcl"] = LoadTexture("../src/app/sm.png");  
     zh_app["home"]="主页";
-    zh_app["rmcl"]="RMCL"; 
-    zh_app["jsml"]="脚本市场";
-
+    zh_app["rmcl"]="RMCL";  
+    zh_app["gsml"]="脚本市场";
     for (float fade=1.0f;fade>0.0f;fade-=0.02f) {
         BeginDrawing();
         ClearBackground(DARK_BACKGROUND);
-        DrawTextureEx(blur, {0, 0}, 0, 1.0f, WHITE);
-        DrawMicaRectangle(SidebarHeight, 0, screenWidth-SidebarHeight, screenHeight, 0.03f, BLACK);
         Sidebar();
         Home();
         mark();
         DrawTextureEx(loading, {0, 0}, 0, 1.0f, ColorAlpha(WHITE, fade));
         EndDrawing();
     }
+
     while (!WindowShouldClose()) {
         BeginDrawing();
         ClearBackground(DARK_BACKGROUND);
-        DrawTextureEx(blur, {0, 0}, 0, 1.0f, WHITE);
-        // 左侧主界面 (宽度300)
-        DrawMicaRectangle(SidebarHeight, 0, screenWidth-SidebarHeight, screenHeight, 0.03f, BLACK);
         //添加 LOGO.png
         mark();
-        now=Sidebar();
+        Sidebar();
         if (now=="home") {
             Home();
         }
         if (now=="rmcl") {
             RMCL();
         }
-
+        if (now=="gsml") {
+            gsml();
+        }
         EndDrawing();
 
     }
-
+    UnloadFontSystem();
     CloseWindow();
     return 0;
 }

@@ -358,4 +358,5 @@ CMakeFiles/ggtoolbox.dir/main.cpp.obj: \
  D:/IDE/RedPanda-Cpp/mingw64/lib/gcc/x86_64-w64-mingw32/11.4.0/include/c++/source_location \
  D:/IDE/RedPanda-Cpp/mingw64/lib/gcc/x86_64-w64-mingw32/11.4.0/include/c++/syncstream \
  D:/IDE/RedPanda-Cpp/mingw64/lib/gcc/x86_64-w64-mingw32/11.4.0/include/c++/version \
+ C:\Users\liyif\CLionProjects\ggtoolbox\nbsfont.h \
  C:\Users\liyif\CLionProjects\ggtoolbox\nbsapi.h
