@@ -293,7 +293,7 @@ int main() {
     apps["home"] = LoadTexture("../src/app/sh.png");
     apps["gsml"] = LoadTexture("../src/app/sj.png");
     apps["rmcl"] = LoadTexture("../src/app/sm.png");  
-    zh_app["home"]="主页";
+    zh_app["home"]="主页"; 
     zh_app["rmcl"]="RMCL";  
     zh_app["gsml"]="脚本市场";
     for (float fade=1.0f;fade>0.0f;fade-=0.02f) {
