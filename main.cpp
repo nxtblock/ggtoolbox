@@ -236,8 +236,9 @@ void RMCL() {
     }
     if(flag==1) {
         string gr = getrun["..\\mcf\\install.bat"];
-        if(gr.find("io-ok")!=-1){
+        if(gr.find("io-ok")!=-1 or gr==""){
             flag=0;
+            stoptps=120;
         }
         if(gr.find("io-error")!=-1){
             errortps=120;
