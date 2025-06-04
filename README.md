@@ -156,6 +156,6 @@
 ## 联系方式
 
 如有任何问题或建议，请通过以下方式联系：
-- 邮箱：your-email@example.com
+- luogu: [https://www.luogu.com.cn/user/661094](https://www.luogu.com.cn/user/661094)
 - GitHub Issues: [https://github.com/yourusername/ggtoolbox/issues](https://github.com/yourusername/ggtoolbox/issues)
-```
+
