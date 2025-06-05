@@ -9,10 +9,6 @@ const int SidebarHeight = 200;
 Texture2D logo,homepng,mcpng,loading;
 
 
-void mark() {
-    DrawTextUTF("DEV Version", {1080, 650}, 20, 2, WHITE);
-    DrawTextUTF("有些 Bug 很正常", {1080, 680}, 20, 2, WHITE);
-}
 //home  rmcl      gsml
 //主页   MC启动器   gengen脚本启动器
 string now;
@@ -271,6 +267,7 @@ void gsml() {
     DrawTextUTF("GGToolBox: GenGen-Script Market", {SidebarHeight+30, 30}, 30, 2, WHITE);
 }
 int main() {
+
     InitWindow(screenWidth, screenHeight, "GenGen ToolBox");
     InitFontSystem("../src/DouyinSansBold.otf");
     SetTargetFPS(60);
@@ -297,12 +294,18 @@ int main() {
     zh_app["home"]="主页"; 
     zh_app["rmcl"]="RMCL";  
     zh_app["gsml"]="脚本市场";
+    int iserror = 0;
+    if(get_file("https://ghproxy.cfd/https://github.com/nxtblock/gsml/archive/refs/heads/main.zip","../tmp.zip")){
+        unzip_file("../tmp.zip");
+    }
+    else{
+        iserror=210; 
+    } 
     for (float fade=1.0f;fade>0.0f;fade-=0.02f) {
         BeginDrawing();
         ClearBackground(DARK_BACKGROUND);
         Sidebar();
         Home();
-        mark();
         DrawTextureEx(loading, {0, 0}, 0, 1.0f, ColorAlpha(WHITE, fade));
         EndDrawing();
     }
@@ -310,8 +313,6 @@ int main() {
     while (!WindowShouldClose()) {
         BeginDrawing();
         ClearBackground(DARK_BACKGROUND);
-        //添加 LOGO.png
-        mark();
         Sidebar();
         if (now=="home") {
             Home();
@@ -322,8 +323,11 @@ int main() {
         if (now=="gsml") {
             gsml();
         }
+        if(iserror){
+            showmsg("错误","无法链接到脚本市场（GSML）。");
+            iserror--;
+        }
         EndDrawing();
-
     }
     UnloadFontSystem();
     CloseWindow();

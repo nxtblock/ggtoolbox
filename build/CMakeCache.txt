@@ -15,6 +15,9 @@
 ########################
 
 //Path to a program.
+CCACHE_PROGRAM:FILEPATH=CCACHE_PROGRAM-NOTFOUND
+
+//Path to a program.
 CMAKE_ADDR2LINE:FILEPATH=D:/IDE/RedPanda-Cpp/mingw64/bin/addr2line.exe
 
 //Path to a program.

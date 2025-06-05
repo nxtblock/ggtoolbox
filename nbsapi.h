@@ -110,5 +110,18 @@ void run_cmd(const string& cmdline) {
     }).detach();
 }
 
+//把 rfile 远程资源下载到 file(阻塞)
+bool get_file(string rfile,string file){
+    string cmd = "curl -L -o " + file + " " + rfile;
+
+    return system(cmd.c_str()) == 0;
+
+}
+//把 file 解压
+bool unzip_file(string file) {
+    string cmd = "tar -xf " + file + " -C ../";
+
+    return system(cmd.c_str()) == 0;
+}
 
 #endif //NBSAPI_H

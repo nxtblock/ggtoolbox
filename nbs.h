@@ -200,7 +200,7 @@ bool DrawMcImageButton(Texture2D texture, Vector2 position, float width, float h
     float scaledHeight = texture.height * scale;
 
     Vector2 imagePosition = {
-        position.x + 5,
+        position.x + 5 + 10 * check,
         position.y + (height - scaledHeight) / 2
     };
 
