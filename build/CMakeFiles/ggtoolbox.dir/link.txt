@@ -1,3 +1,0 @@
-D:\CMake\bin\cmake.exe -E rm -f CMakeFiles\ggtoolbox.dir/objects.a
-D:\IDE\RedPanda-Cpp\mingw64\bin\ar.exe qc CMakeFiles\ggtoolbox.dir/objects.a @CMakeFiles\ggtoolbox.dir\objects1.rsp
-D:\IDE\RedPanda-Cpp\mingw64\bin\g++.exe -g -Wl,--whole-archive CMakeFiles\ggtoolbox.dir/objects.a -Wl,--no-whole-archive -o ggtoolbox.exe -Wl,--out-implib,libggtoolbox.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\ggtoolbox.dir\linkLibs.rsp
