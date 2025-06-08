@@ -163,31 +163,6 @@ bool DrawMcButton(Vector2 p, float w, float h, const char *t, Color c, int fs) {
     };
     DrawRectangleV({scaledP.x, scaledP.y + scaledH}, {scaledW, 3}, darker);
 
-    // 十二边形黑色边框
-    int indent = 3;
-    float L = scaledP.x - 3;
-    float T = scaledP.y - 3;
-    float R = scaledP.x + scaledW + 3;
-    float B = scaledP.y + scaledH + 3;
-
-    Vector2 v[12];
-    v[0]  = { L + indent, T };
-    v[1]  = { R - indent, T };
-    v[2]  = { R, T + indent };
-    v[3]  = { R, T + scaledH / 4 };
-    v[4]  = { R, B - indent };
-    v[5]  = { R - indent, B };
-    v[6]  = { L + indent, B };
-    v[7]  = { L, B - indent };
-    v[8]  = { L, T + scaledH * 3 / 4 };
-    v[9]  = { L, T + indent };
-    v[10] = { L + indent, T };
-    v[11] = { R - indent, T };
-
-    for(int i = 0; i < 11; i++)
-        DrawLine(v[i].x, v[i].y, v[i + 1].x, v[i + 1].y, BLACK);
-    DrawLine(v[11].x, v[11].y, v[0].x, v[0].y, BLACK);
-
     return isClick;
 }
 bool DrawMcImageButton(Texture2D texture, Vector2 position, float width, float height, string text, Color color) {
@@ -246,30 +221,7 @@ void DrawMcRectangle(float x, float y, float width, float height, Color color) {
     };
     DrawRectangleV({x, y + height}, {width, 3}, darker);
 
-    // 十二边形黑色边框
-    int indent = 3;
-    float L = x - 3;
-    float T = y - 3;
-    float R = x + width + 3;
-    float B = y + height + 3;
-
-    Vector2 v[12];
-    v[0]  = { L + indent, T };
-    v[1]  = { R - indent, T };
-    v[2]  = { R, T + indent };
-    v[3]  = { R, T + height / 4 };
-    v[4]  = { R, B - indent };
-    v[5]  = { R - indent, B };
-    v[6]  = { L + indent, B };
-    v[7]  = { L, B - indent };
-    v[8]  = { L, T + height * 3 / 4 };
-    v[9]  = { L, T + indent };
-    v[10] = { L + indent, T };
-    v[11] = { R - indent, T };
-
-    for(int i = 0; i < 11; i++)
-        DrawLine(v[i].x, v[i].y, v[i + 1].x, v[i + 1].y, BLACK);
-    DrawLine(v[11].x, v[11].y, v[0].x, v[0].y, BLACK);
+  
 }
 
 #endif //NBS_H

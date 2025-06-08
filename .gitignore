@@ -1,5 +1,17 @@
-mcf/.cmcl/*
-mcf/.minecraft/*
+# 屏蔽 build 文件夹及其所有内容
+/build/
+
+# 屏蔽 data 文件夹及其所有内容
+/data/
+
+# 屏蔽 mcf 文件夹及其所有内容
+/mcf/
+
+# 屏蔽 tmp.zip 文件
 tmp.zip
-gsml-main/*
-data/*
+
+# 屏蔽 gsml-main 文件夹及其所有内容
+/gsml-main/
+
+# 屏蔽 .vscode 文件夹及其所有内容
+/.vscode/

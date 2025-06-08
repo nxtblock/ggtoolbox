@@ -28,10 +28,10 @@ void Sidebar() {
             DrawMcImageButton( appq[i],{3, y},SidebarHeight-6,50, zh_app[i],SKYBLUE);
         }
         else {
-            if (DrawMicaImageButton( apps[i],{0, y},SidebarHeight,50, zh_app[i],BLANK,0.3f)) {
+            if (DrawMicaImageButton( apps[i],{0, y},SidebarHeight,50, zh_app[i],BLANK,0.1f)) {
                 now=i;
             }
-        }
+        } 
         y+=55;
     }
     if (IsKeyPressed(KEY_HOME)) {
@@ -156,8 +156,7 @@ void Home(){
 void showmsg(string title,string msg){
     DrawMcRectangle(screenWidth-320, screenHeight-130, 300, 100, DARKBLUE);
     DrawTextUTF(title, {screenWidth-310, screenHeight-120}, 30, 2, YELLOW);
-    // 自动换行显示 msg，超出宽度则在最后加 "..."
-    int maxWidth = 280; // 弹窗宽度-边距
+    int maxWidth = 280;
     int fontSize = 20;
     int lineHeight = 28;
     vector<string> lines;
