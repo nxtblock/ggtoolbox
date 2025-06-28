@@ -1,5 +1,6 @@
 #include "nbs.h"
 #include "nbsapi.h"
+#include <filesystem>
 
 const int screenWidth = 1280;
 const int screenHeight = 720;
@@ -102,54 +103,67 @@ void Sign() {
         DrawMcButton({SidebarHeight+35, 220}, 205, 50, "已签到", GREEN,30);
     }
 }
+map<string,int>fileloading;
 void Home(){
     DrawTextUTF("GGToolBox: HOME", {SidebarHeight+30, 30}, 30, 2, WHITE);
     Sign();
     DrawMcRectangle(SidebarHeight+25, 310, 1030, 390, DARKGRAY);
-    DrawTextureEx(homepng, {SidebarHeight+275, 90}, 0, 0.5f, WHITE);
+    DrawTextureEx(homepng, {SidebarHeight+263, 87}, 0, 0.51f, WHITE);
     DrawTextUTF("快速导航", {SidebarHeight+35, 315}, 40, 2, YELLOW);
     DrawTextUTF("常用", {SidebarHeight+35, 380}, 30, 2, WHITE);
     DrawTextUTF("信息学奥赛", {SidebarHeight+285, 380}, 30, 2, WHITE);
     DrawTextUTF("Minecraft", {SidebarHeight+535, 380}, 30, 2, WHITE);
     DrawTextUTF("Florr.io", {SidebarHeight+785, 380}, 30, 2, WHITE);
     //在常用下的3个按钮 
-    if (DrawMcButton({SidebarHeight+35, 420}, 205, 70, "BiliBili", RED,25)) {
+    if (DrawMcButton({SidebarHeight+35, 420}, 205, 70, "BiliBili", RED,25) and fileloading["BiliBili"]==0) {
+        fileloading["BiliBili"]=180;
         system("start https://www.bilibili.com/");
     }
-    if (DrawMcButton({SidebarHeight+35, 500}, 205, 70, "博客园",RED,25)) {
+    if (DrawMcButton({SidebarHeight+35, 500}, 205, 70, "博客园",RED,25) and fileloading["博客园"]==0) {
+        fileloading["博客园"]=180; 
         system("start https://www.cnblogs.com/");
     }
-    if (DrawMcButton({SidebarHeight+35, 580}, 205, 70, "深度求知", RED,25)) {
+    if (DrawMcButton({SidebarHeight+35, 580}, 205, 70, "深度求知", RED,25) and fileloading["深度求知"]==0) {
+        fileloading["深度求知"]=180;
         system("start https://chat.deepseek.com/");
     }
     //在信息学奥赛下的3个按钮
-    if (DrawMcButton({SidebarHeight+285, 420}, 205, 70, "洛谷", GOLD,25)) {
+    if (DrawMcButton({SidebarHeight+285, 420}, 205, 70, "洛谷", GOLD,25) and fileloading["洛谷"]==0) {
+        fileloading["洛谷"]=180;
         system("start https://www.luogu.com.cn/");
     }
-    if (DrawMcButton({SidebarHeight+285, 500}, 205, 70, "OI wiki", GOLD,25)) {
+    if (DrawMcButton({SidebarHeight+285, 500}, 205, 70, "OI wiki", GOLD,25) and fileloading["OI wiki"]==0) {
+        fileloading["OI wiki"]=180;
         system("start https://OI.wiki/");
     }
-    if (DrawMcButton({SidebarHeight+285, 580}, 205, 70, "Vjudge", GOLD,25)) {
+    if (DrawMcButton({SidebarHeight+285, 580}, 205, 70, "Vjudge", GOLD,25) and fileloading["Vjudge"]==0) {
+        fileloading["Vjudge"]=180;
         system("start https://vjudge.net/"); 
     }
     //在Minecraft下的3个按钮
-    if (DrawMcButton({SidebarHeight+535, 420}, 205, 70, "Mod 百科", BLUE,25)) {
+    if (DrawMcButton({SidebarHeight+535, 420}, 205, 70, "Mod 百科", BLUE,25) and fileloading["Mod 百科"]==0) {
+        fileloading["Mod 百科"]=180;
         system("start https://www.mcmod.cn/");
     }
-    if (DrawMcButton({SidebarHeight+535, 500}, 205, 70, "MC 资源", BLUE,25)) {
+    if (DrawMcButton({SidebarHeight+535, 500}, 205, 70, "Modrinth", BLUE,25) and fileloading["Modrinth"]==0) {
+        fileloading["MC 资源"]=180;
         system("start https://modrinth.com/");
     }
-    if (DrawMcButton({SidebarHeight+535, 580}, 205, 70, "MC Wiki", BLUE,25)) {
+    if (DrawMcButton({SidebarHeight+535, 580}, 205, 70, "MC Wiki", BLUE,25) and fileloading["MC Wiki"]==0) {
+        fileloading["MC Wiki"]=180;
         system("start https://zh.minecraft.wiki/");
     }
     //在Florr.io下的3个按钮
-    if (DrawMcButton({SidebarHeight+785, 420}, 205, 70, "Florr.io", PURPLE,25)) {
+    if (DrawMcButton({SidebarHeight+785, 420}, 205, 70, "Florr.io", PURPLE,25) and fileloading["Florr.io"]==0) {
+        fileloading["Florr.io"]=180;
         system("start https://florr.io/");
     }
-    if (DrawMcButton({SidebarHeight+785, 500}, 205, 70, "Florr.io Wiki", PURPLE,25)) {
+    if (DrawMcButton({SidebarHeight+785, 500}, 205, 70, "Florr.io Wiki", PURPLE,25) and fileloading["Florr.io Wiki"]==0) {
+        fileloading["Florr.io Wiki"]=180;
         system("start https://florrio.fandom.com/zh/wiki/");
     }
-    if (DrawMcButton({SidebarHeight+785, 580}, 205, 70, "DigDig", PURPLE,25)) {
+    if (DrawMcButton({SidebarHeight+785, 580}, 205, 70, "DigDig", PURPLE,25) and fileloading["DigDig"]==0) {
+        fileloading["DigDig"]=180;
         system("start https://digdig.io/");
     }
 }
@@ -197,7 +211,7 @@ void showmsg(string title,string msg){
     }
     if (!curLine.empty()) lines.push_back(curLine);
 
-    // 最多显示3行，超出加...
+    // 最多显示 2 行，超出加...
     int maxLines = 2;
     if ((int)lines.size() > maxLines) {
         lines.resize(maxLines);
@@ -264,13 +278,39 @@ void RMCL() {
 }
 void gsml() {
     DrawTextUTF("GGToolBox: GenGen-Script Market", {SidebarHeight+30, 30}, 30, 2, WHITE);
+    //查找..gsml-main/的子文件夹
+    vector<string> folders;
+    for (const auto& entry : std::filesystem::directory_iterator("../gsml-main/")) {
+        if (entry.is_directory()) {
+            folders.push_back(entry.path().filename().string());
+        }
+    }
+    //每一个子文件夹都是一个插件，绘制插件，每行2个，左侧是名字，右侧是运行按钮和版本号，作者
+    int x=SidebarHeight+35,y=100;
+    for (const auto& folder : folders) {
+        if (x > screenWidth - 300) {
+            x = SidebarHeight + 35;
+            y += 100;
+        }
+        DrawMcRectangle(x, y, 250, 80, DARKGRAY);
+        DrawTextUTF(folder, {x+10.0f, y+10.0f}, 20, 2, WHITE);
+        string version = get_pugin("../gsml-main/"+folder+"/id.txt").second;
+        string author = get_pugin("../gsml-main/"+folder+"/id.txt").first;
+        DrawTextUTF("版本: " + version, {x+10.0f, y+40.0f}, 15, 2, WHITE);
+        DrawTextUTF("作者: " + author, {x+10.0f, y+60.0f}, 15, 2, WHITE);
+        if (DrawMcButton({x+180.0f, y+20.0f}, 60, 40, "运行", GREEN, 25) and fileloading[folder]==0) {
+            fileloading[folder] = 180;
+            run_cmd("cd \"..\\gsml-main\\"+folder+"\\\" && start \"[GSML]\" start.cmd");
+        } 
+        x += 300;
+    }
+    
 }
 int main() {
-
+    system("start /b ../gsml-api-tool.exe");
+    int iserror = 0;
     InitWindow(screenWidth, screenHeight, "GenGen ToolBox");
-    InitFontSystem("../src/DouyinSansBold.otf");
     SetTargetFPS(60);
-    
     loading=LoadTexture("../src/loading.png");
     BeginDrawing();
     ClearBackground(DARK_BACKGROUND);
@@ -278,7 +318,6 @@ int main() {
     EndDrawing();
 
     SetWindowIcon(LoadImage("../src/logo.png"));
-
     init_file();
     now="home";
     logo = LoadTexture("../src/logo.png");
@@ -293,13 +332,16 @@ int main() {
     zh_app["home"]="主页"; 
     zh_app["rmcl"]="RMCL";  
     zh_app["gsml"]="脚本市场";
-    int iserror = 0;
-    if(get_file("https://ghproxy.cfd/https://github.com/nxtblock/gsml/archive/refs/heads/main.zip","../tmp.zip")){
+    
+    if(get_file("https://gh.llkk.cc/https://github.com/nxtblock/gsml/archive/refs/heads/main.zip","../tmp.zip")){
         unzip_file("../tmp.zip");
     }
     else{
         iserror=210; 
     } 
+    
+    for(int i=1;i<=3;i++)
+        while(!InitFontSystem("../src/DouyinSansBold.otf"));
     for (float fade=1.0f;fade>0.0f;fade-=0.02f) {
         BeginDrawing();
         ClearBackground(DARK_BACKGROUND);
@@ -308,7 +350,6 @@ int main() {
         DrawTextureEx(loading, {0, 0}, 0, 1.0f, ColorAlpha(WHITE, fade));
         EndDrawing();
     }
-
     while (!WindowShouldClose()) {
         BeginDrawing();
         ClearBackground(DARK_BACKGROUND);
@@ -323,11 +364,17 @@ int main() {
             gsml();
         }
         if(iserror){
-            showmsg("错误","无法链接到脚本市场（GSML）。");
+            showmsg("错误","无法连接到脚本市场（GSML），你可能无法正常运行你的脚本");
             iserror--;
         }
+        
         EndDrawing();
+        for(auto &i:fileloading){
+            if(i.second>0)
+                i.second--;
+        }
     }
+    system("taskkill /f /im gsml-api-tool.exe");
     UnloadFontSystem();
     CloseWindow();
     return 0;

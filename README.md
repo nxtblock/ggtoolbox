@@ -1,104 +1,120 @@
 
-# GGToolBox
+# 🧰 GGToolBox
 
-**GGToolBox** 是一个基于 `raylib` 的桌面工具箱应用，提供多种功能模块，包括主页导航、Minecraft 启动器（RMCL）、脚本市场（GSML）等。该项目旨在通过简洁的界面和高效的功能，为 OIer 提供便捷的工具体验。
-
----
-
-## 功能概览
-
-### 1. **主页导航**
-- 快速访问常用网站：
-  - [BiliBili](https://www.bilibili.com/)
-  - [博客园](https://www.cnblogs.com/)
-  - [深度求知](https://chat.deepseek.com/)
-- 信息学奥赛相关资源：
-  - [洛谷](https://www.luogu.com.cn/)
-  - [OI Wiki](https://OI.wiki/)
-  - [Vjudge](https://vjudge.net/)
-- Minecraft 相关资源：
-  - [Mod 百科](https://www.mcmod.cn/)
-  - [MC 资源](https://modrinth.com/)
-  - [MC Wiki](https://zh.minecraft.wiki/)
-- Florr.io 游戏相关资源：
-  - [Florr.io](https://florr.io/)
-  - [Florr.io Wiki](https://florrio.fandom.com/zh/wiki/)
-  - [DigDig](https://digdig.io/)
-
-### 2. **每日签到**
-- 显示当前日期、星期等信息。
-- 提供每日签到功能，记录签到状态并显示随机运势（如“大吉”、“中平”、“大凶”）。
-
-### 3. **Minecraft 启动器（RMCL）**
-- 支持启动 Minecraft 游戏。
-- 提供配置功能。
-- 显示启动状态和错误信息。
-- 支持停止游戏并清理相关进程。
-
-### 4. **脚本市场（GSML）**
-- 自动从远程仓库下载脚本市场资源并解压。
-- 提供脚本市场的基本界面。
+> 一个基于 [**raylib**](https://www.raylib.com/) 的桌面级工具箱，为信息学爱好者（OIer）提供简洁高效的多功能支持平台。
 
 ---
 
-## 安装与运行
+## 🌟 项目简介
 
-### 环境要求
-- **操作系统**：Windows
-- **编译器**：支持 C++20 的编译器（如 MinGW）
-- **依赖库**：
-  - [raylib](https://www.raylib.com/)
-  - OpenGL
-  - Windows 系统库（如 `gdi32`, `winmm`）
-
-### 构建步骤
-1. 克隆项目到本地：
-   ```bash
-   git clone https://github.com/yourusername/ggtoolbox.git
-   cd ggtoolbox
-   ```
-
-2. 安装依赖：
-   - 确保已安装 `raylib` 并将其包含路径和库路径配置到编译器中。
-
-3. 使用 CMake 构建项目：
-   ```bash
-   mkdir build
-   cd build
-   cmake ..
-   cmake --build .
-   ```
-
-4. 运行可执行文件：
-   ```bash
-   ./ggtoolbox.exe
-   ```
+**GGToolBox** 是一款 C++ 开发的桌面应用，集成多个功能模块，支持导航、签到、Minecraft 启动、脚本市场等实用功能，目标是通过模块化的设计，为 OIer 提供一站式工具服务。
 
 ---
 
-## 文件结构
+## 🔧 功能模块
+
+### 🏠 主页导航
+
+快速访问常用资源网站，覆盖 OI、游戏与技术等领域：
+
+* **常用网站**：
+  [BiliBili](https://www.bilibili.com/)｜[博客园](https://www.cnblogs.com/)｜[深度求知](https://chat.deepseek.com/)
+
+* **信息学资源**：
+  [洛谷](https://www.luogu.com.cn/)｜[OI Wiki](https://OI.wiki/)｜[Vjudge](https://vjudge.net/)
+
+* **Minecraft 社区**：
+  [MCMod 百科](https://www.mcmod.cn/)｜[Modrinth](https://modrinth.com/)｜[Minecraft Wiki](https://zh.minecraft.wiki/)
+
+* **小游戏推荐**：
+  [Florr.io](https://florr.io/)｜[Florr Wiki](https://florrio.fandom.com/zh/wiki/)｜[DigDig.io](https://digdig.io/)
+
+---
+
+### 📅 每日签到
+
+* 显示当前日期与星期。
+* 一键签到，随机展示今日运势（如：大吉、中吉、凶等）。
+* 自动记录签到历史。
+
+---
+
+### 🟩 Minecraft 启动器（RMCL）
+
+* 启动 Minecraft 主程序。
+* 查看并管理游戏进程。
+* 支持启动日志与状态显示。
+* 提供停止功能和自动清理残留进程。
+
+---
+
+### 🧩 脚本市场（GSML）
+
+* 自动下载并加载脚本插件。
+* 支持离线缓存与启动。
+* 插件采用统一目录结构，支持脚本和自定义资源。
+
+插件结构示例：
+
+```
+插件名/
+├── start.cmd     # 启动脚本
+├── id.txt        # 插件信息
+└── ...           # 其他资源
+```
+
+---
+
+## 🖥️ 安装与构建指南
+
+### ✅ 环境要求
+
+* Windows 系统
+* 支持 C++20 的编译器（推荐 MinGW）
+* 必需依赖：
+
+  * [`raylib`](https://www.raylib.com/)
+  * OpenGL
+  * Windows 系统库（`gdi32`, `winmm` 等）
+
+### 📦 构建步骤
+
+```bash
+# 克隆项目
+git clone https://github.com/yourusername/ggtoolbox.git
+cd ggtoolbox
+
+# 构建
+mkdir build
+cd build
+cmake ..
+cmake --build .
+
+# 运行
+./ggtoolbox.exe
+```
+
+---
+
+## 📁 项目结构
 
 ```
 .
-├── CMakeLists.txt       # CMake 构建配置文件
-├── main.cpp             # 主程序入口
-├── nbs.h                # 自定义绘图组件
-├── nbsapi.h             # 工具函数和 API
-├── src/                 # 资源文件（图片、字体等）
-│   ├── DouyinSansBold.otf
+├── CMakeLists.txt        # CMake 构建配置
+├── main.cpp              # 主程序入口
+├── nbs.h                 # 自定义绘图组件
+├── nbsapi.h              # 工具函数接口
+├── src/                  # 图形资源
 │   ├── home.png
-│   ├── logo.png
 │   ├── mcv.png
-│   └── app/             # 应用图标
+│   ├── logo.png
+│   └── app/              # 图标资源
 │       ├── qh.png
 │       ├── qj.png
-│       ├── qm.png
-│       ├── sh.png
-│       ├── sj.png
-│       └── sm.png
-├── data/                # 数据文件
-│   └── data.txt         # 签到记录
-└── mcf/                 # Minecraft 启动器相关文件
+│       ├── ...
+├── data/
+│   └── data.txt          # 签到记录
+└── mcf/                  # Minecraft 启动器相关
     ├── install.bat
     ├── cmcl.exe
     └── nbsmc.mrpack
@@ -106,56 +122,63 @@
 
 ---
 
-## 使用说明
+## ⚙️ 使用说明
 
-### 快捷键
-- `Home`：返回主页。
-- `1`：切换到主页模块。
-- `2`：切换到 Minecraft 启动器模块。
-- `3`：切换到脚本市场模块。
+### 🔀 快捷键操作
 
-### 签到功能
-1. 打开应用后，进入主页模块。
-2. 点击“签到”按钮完成每日签到。
-3. 签到后将显示当天的运势。
+* `Home`：返回主页
+* `1`：主页导航
+* `2`：Minecraft 启动器
+* `3`：脚本市场
 
-### Minecraft 启动器
-1. 切换到 RMCL 模块。
-2. 点击“开始游戏”按钮启动 Minecraft。
-3. 若需要停止游戏，可点击“停止游戏”按钮。
+### ✅ 签到操作
 
-### 脚本市场
-1. 应用启动时会尝试下载脚本市场资源。
-2. 若下载失败，将显示错误提示。
+1. 打开应用后进入主页。
+2. 点击“签到”完成操作。
+3. 查看当日运势结果。
 
----
+### 🟢 Minecraft 启动
 
-## 贡献指南
+1. 切换至 RMCL 模块。
+2. 点击“开始游戏”以启动。
+3. 游戏运行中可选择“停止”进行清理。
 
-欢迎对本项目进行贡献！以下是参与方式：
-1. Fork 本仓库。
-2. 创建新分支：
-   ```bash
-   git checkout -b feature/your-feature-name
-   ```
-3. 提交更改并推送到你的分支：
-   ```bash
-   git commit -m "Add your message"
-   git push origin feature/your-feature-name
-   ```
-4. 提交 Pull Request。
+### 📦 脚本市场使用
+
+* 启动应用后会自动尝试拉取远程插件仓库。
+* 插件均支持使用 `start.cmd` 启动。
+* 插件格式统一，便于扩展与集成。
 
 ---
 
-## 许可证
+## 🤝 贡献方式
 
-本项目采用 [MIT License](LICENSE) 许可证。
+我们欢迎任何贡献者参与优化：
+
+```bash
+# Fork 项目并创建新分支
+git checkout -b feature/my-feature
+
+# 提交更改
+git commit -m "新增功能/修复 bug"
+
+# 推送并创建 PR
+git push origin feature/my-feature
+```
 
 ---
 
-## 联系方式
+## 📄 许可证
 
-如有任何问题或建议，请通过以下方式联系：
-- luogu: [https://www.luogu.com.cn/user/661094](https://www.luogu.com.cn/user/661094)
-- GitHub Issues: [https://github.com/yourusername/ggtoolbox/issues](https://github.com/yourusername/ggtoolbox/issues)
+本项目遵循 [MIT License](./LICENSE)。
 
+---
+
+## 📬 联系方式
+
+* 💬 洛谷主页：[https://www.luogu.com.cn/user/661094](https://www.luogu.com.cn/user/661094)
+* 🐛 提交问题：[GitHub Issues](https://github.com/nxtblock/ggtoolbox/issues)
+
+---
+
+> GGToolBox —— 一站式信息学辅助工具，为热爱代码的你服务 💻✨

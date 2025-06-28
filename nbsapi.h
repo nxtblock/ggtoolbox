@@ -64,6 +64,14 @@ void update_file(string a,string b) {
     }
 }
 
+pair<string,string> get_pugin(string file){
+    ifstream file1(file);
+    string a,b;
+    file1>>a>>b;
+    file1.close();
+    return {a,b};
+}
+
 /// 初始化文件映射，从文件中加载键值对
 void init_file() {
     if (!is_exist("../data/data.txt")) {
@@ -77,6 +85,7 @@ void init_file() {
         file_map[a]=b;
     }
 }
+
 
 /// 查询文件映射中指定键的值
 /// @param a 键
@@ -93,6 +102,10 @@ map<string, string> getrun;         // 存子进程输出
 // 启动并读取输出
 void run_cmd(const string& cmdline) {
     thread([cmdline]() {
+        if(getrun.count(cmdline)) {
+            if (getrun[cmdline] != "") return; // 如果正在运行则不重复启动
+        }
+        getrun[cmdline] = ""; // 初始化输出为空
         char buffer[1024] = { '\0' };
         FILE* pf = _popen(cmdline.c_str(), "r");
         if (pf == NULL) {
@@ -123,5 +136,6 @@ bool unzip_file(string file) {
 
     return system(cmd.c_str()) == 0;
 }
+
 
 #endif //NBSAPI_H

@@ -5,7 +5,9 @@
 /data/
 
 # 屏蔽 mcf 文件夹及其所有内容
-/mcf/
+/mcf/.cmcl
+/mcf/.minecraft
+/mcf/cmcl.json
 
 # 屏蔽 tmp.zip 文件
 tmp.zip
