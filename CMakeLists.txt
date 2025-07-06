@@ -3,7 +3,6 @@ project(ggtoolbox)
 
 set(CMAKE_CXX_STANDARD 20)
 
-# 可选：仅在 Ninja 下启用 Unity builds 和 PCH
 if(CMAKE_GENERATOR STREQUAL "Ninja")
     set(CMAKE_UNITY_BUILD ON)
     set(CMAKE_UNITY_BUILD_BATCH_SIZE 8)
@@ -17,3 +16,4 @@ else()
 endif()
 
 target_link_libraries(ggtoolbox raylib opengl32 gdi32 winmm)
+

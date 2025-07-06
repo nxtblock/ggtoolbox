@@ -116,6 +116,7 @@ void run_cmd(const string& cmdline) {
         string ret;
         while (fgets(buffer, sizeof(buffer), pf)) {
             ret += buffer;
+            cout<<buffer;
             getrun[cmdline] = buffer;
         }
         _pclose(pf);
@@ -137,5 +138,16 @@ bool unzip_file(string file) {
     return system(cmd.c_str()) == 0;
 }
 
+void enable_gsml_tool(){ 
+    run_cmd("taskkill /f /im gsml-api-tool.exe & taskkill /f /im off-gsml-api-tool.exe & start /b ../gsml-api-tool.exe");
+}
+
+void disable_gsml_tool() {
+    run_cmd("taskkill /f /im gsml-api-tool.exe & taskkill /f /im off-gsml-api-tool.exe & start /b ../off-gsml-api-tool.exe");
+}
+void exit_gsml_tool() {
+    run_cmd("taskkill /f /im gsml-api-tool.exe");
+    run_cmd("taskkill /f /im off-gsml-api-tool.exe");
+}
 
 #endif //NBSAPI_H

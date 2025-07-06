@@ -10,19 +10,17 @@ const int SidebarHeight = 200;
 Texture2D logo,homepng,mcpng,loading;
 
 
-//home  rmcl      gsml
-//主页   MC启动器   gengen脚本启动器
 string now;
 map<string,Texture2D> appq;
 map<string,Texture2D> apps;
-vector<string> appname={"home","rmcl","gsml"};
+vector<string> appname={"home","gsml","running"};
 map<string,string>zh_app;
 void Sidebar() {
     DrawMcRectangle(0, 0, SidebarHeight-3, 720, DARKGRAY);
     DrawTextureEx(logo, {SidebarHeight/2-90, 20}, 0, 0.5f, WHITE);
     DrawTextUTF("GenGen", {SidebarHeight/2-30, 20}, 35, 2, WHITE);
     DrawTextUTF("ToolBox", {SidebarHeight/2-20, 50}, 25, 2, WHITE);
-
+    string last_now=now;
     float y=100;
     for (auto i:appname) {
         if (i==now) {
@@ -35,6 +33,7 @@ void Sidebar() {
         } 
         y+=55;
     }
+    
     if (IsKeyPressed(KEY_HOME)) {
         now="home";
     }   
@@ -42,14 +41,18 @@ void Sidebar() {
     if (IsKeyPressed(KEY_ONE)) {
         now="home";
     }   
-    
     if (IsKeyPressed(KEY_TWO)) {
-        now="rmcl";
-    }   
-    
-    if (IsKeyPressed(KEY_THREE)) {
         now="gsml";
-    }   
+    }
+    if(IsKeyPressed(KEY_THREE)) {
+        now="running";
+    }
+    if(last_now!=now and now=="running"){
+        enable_gsml_tool();
+    }
+    if(last_now=="running" and now!="running"){
+        disable_gsml_tool();
+    }
 }
 void Sign() {
 
@@ -228,54 +231,6 @@ void showmsg(string title,string msg){
 }
 int stoptps=0,errortps=0,wait=0;
 int flag=0;
-void RMCL() {
-    DrawTextUTF("GGToolBox: NextBlock-RMCL", {SidebarHeight+30, 30}, 30, 2, WHITE);
-    DrawMicaButton({SidebarHeight+35, 70}, 100, 30, "开始游戏", BLANK,0.1,25);
-    DrawMicaButton({SidebarHeight+135, 70}, 100, 30, "配置", BLANK,0.1,25);
-    DrawTextureEx(mcpng, {SidebarHeight, 100}, 0, 0.845f, WHITE);
-    //在图片中间绘制一个启动按钮
-    
-    if (flag==0) {
-        if(DrawMcButton({SidebarHeight+400, 520}, 200, 50, "开始游戏", GREEN,40)){
-            flag=1;
-            wait=240;
-            run_cmd("..\\mcf\\install.bat");
-            return;
-        }
-    }
-    if(flag==1) {
-        string gr = getrun["..\\mcf\\install.bat"];
-        if(gr.find("io-ok")!=-1 or gr==""){
-            flag=0;
-            stoptps=120;
-        }
-        if(gr.find("io-error")!=-1){
-            errortps=120;
-        }
-        showmsg("Minecraft 正在运行",gr);
-        if(wait>0){
-            DrawMcButton({SidebarHeight+400, 520}, 200, 50, "加载中...", GREEN, 40);
-            wait--;
-        }
-        else if(DrawMcButton({SidebarHeight+400, 520}, 200, 50, "停止游戏", RED, 40)) {
-            flag=0;
-            for(int i=1;i<=3;i++){
-                system("taskkill /f /im cmcl.exe");
-                system("taskkill /f /im java.exe");
-                system("taskkill /f /im javaw.exe");
-            }
-            stoptps=120;
-        }
-    }
-    if(stoptps>0){
-        stoptps--;
-        showmsg("停止成功","RMCL 已结束所有 java 进程");
-    }
-    if(errortps>0){
-        errortps--;
-        showmsg("发生错误","Minecraft 启动失败，可能是下载错误或模组冲突");
-    } 
-}
 void gsml() {
     DrawTextUTF("GGToolBox: GenGen-Script Market", {SidebarHeight+30, 30}, 30, 2, WHITE);
     //查找..gsml-main/的子文件夹
@@ -301,13 +256,19 @@ void gsml() {
         if (DrawMcButton({x+180.0f, y+20.0f}, 60, 40, "运行", GREEN, 25) and fileloading[folder]==0) {
             fileloading[folder] = 180;
             run_cmd("cd \"..\\gsml-main\\"+folder+"\\\" && start \"[GSML]\" start.cmd");
+            now="running";
+            enable_gsml_tool();
         } 
         x += 300;
     }
     
 }
+void running(){
+    
+    DrawTextUTF("GGToolBox: Script run management", {SidebarHeight+30, 30}, 30, 2, WHITE);
+    
+}
 int main() {
-    system("start /b ../gsml-api-tool.exe");
     int iserror = 0;
     InitWindow(screenWidth, screenHeight, "GenGen ToolBox");
     SetTargetFPS(60);
@@ -317,23 +278,22 @@ int main() {
     DrawTextureEx(loading, {0,0}, 0, 1.0f, WHITE);
     EndDrawing();
 
-    SetWindowIcon(LoadImage("../src/logo.png"));
     init_file();
     now="home";
     logo = LoadTexture("../src/logo.png");
     homepng = LoadTexture("../src/home.png");
     mcpng= LoadTexture("../src/mcv.png");
-    appq["home"] = LoadTexture("../src/app/qh.png");
-    appq["gsml"] = LoadTexture("../src/app/qj.png");
-    appq["rmcl"] = LoadTexture("../src/app/qm.png");
-    apps["home"] = LoadTexture("../src/app/sh.png");
-    apps["gsml"] = LoadTexture("../src/app/sj.png");
-    apps["rmcl"] = LoadTexture("../src/app/sm.png");  
+    appq["home"] = LoadTexture("../src/app/sprite0.png");
+    appq["gsml"] = LoadTexture("../src/app/sprite1.png");
+    appq["running"] = LoadTexture("../src/app/sprite2.png");
+    apps["home"] = LoadTexture("../src/app/sprite3.png");
+    apps["gsml"] = LoadTexture("../src/app/sprite4.png");
+    apps["running"] = LoadTexture("../src/app/sprite5.png");
     zh_app["home"]="主页"; 
-    zh_app["rmcl"]="RMCL";  
     zh_app["gsml"]="脚本市场";
+    zh_app["running"]="运行管理";
     
-    if(get_file("https://gh.llkk.cc/https://github.com/nxtblock/gsml/archive/refs/heads/main.zip","../tmp.zip")){
+    if(get_file("https://j.1win.ggff.net/https://github.com/nxtblock/gsml/archive/refs/heads/main.zip","../tmp.zip")){
         unzip_file("../tmp.zip");
     }
     else{
@@ -350,6 +310,8 @@ int main() {
         DrawTextureEx(loading, {0, 0}, 0, 1.0f, ColorAlpha(WHITE, fade));
         EndDrawing();
     }
+    
+    SetWindowIcon(LoadImage("../src/logo.png"));
     while (!WindowShouldClose()) {
         BeginDrawing();
         ClearBackground(DARK_BACKGROUND);
@@ -357,11 +319,11 @@ int main() {
         if (now=="home") {
             Home();
         }
-        if (now=="rmcl") {
-            RMCL();
-        }
         if (now=="gsml") {
             gsml();
+        }
+        if(now=="running"){
+            running();
         }
         if(iserror){
             showmsg("错误","无法连接到脚本市场（GSML），你可能无法正常运行你的脚本");
@@ -374,7 +336,7 @@ int main() {
                 i.second--;
         }
     }
-    system("taskkill /f /im gsml-api-tool.exe");
+    exit_gsml_tool();
     UnloadFontSystem();
     CloseWindow();
     return 0;
