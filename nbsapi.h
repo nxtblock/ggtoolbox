@@ -123,21 +123,11 @@ void run_cmd(const string& cmdline) {
         getrun[cmdline] = "";
     }).detach();
 }
-
-//把 rfile 远程资源下载到 file(阻塞)
-bool get_file(string rfile,string file){
-    string cmd = "curl -L -o " + file + " " + rfile;
-
-    return system(cmd.c_str()) == 0;
+void get_gsml(string rfile, string file) {
+    string cmd = "curl -L -o " + file + " " + rfile+" && tar -xf "+file+" -C ../";
+    run_cmd(cmd);
 
 }
-//把 file 解压
-bool unzip_file(string file) {
-    string cmd = "tar -xf " + file + " -C ../";
-
-    return system(cmd.c_str()) == 0;
-}
-
 void enable_gsml_tool(){ 
     run_cmd("taskkill /f /im gsml-api-tool.exe & taskkill /f /im off-gsml-api-tool.exe & start /b ../gsml-api-tool.exe");
 }

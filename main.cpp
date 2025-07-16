@@ -235,6 +235,10 @@ void gsml() {
     DrawTextUTF("GGToolBox: GenGen-Script Market", {SidebarHeight+30, 30}, 30, 2, WHITE);
     //查找..gsml-main/的子文件夹
     vector<string> folders;
+    if (!std::filesystem::exists("../gsml-main/")) {
+        DrawTextUTF("正在加载插件库...", {SidebarHeight+400, 300}, 40, 2, YELLOW);
+        return;
+    }
     for (const auto& entry : std::filesystem::directory_iterator("../gsml-main/")) {
         if (entry.is_directory()) {
             folders.push_back(entry.path().filename().string());
@@ -267,6 +271,7 @@ void running(){
     
     DrawTextUTF("GGToolBox: Script run management", {SidebarHeight+30, 30}, 30, 2, WHITE);
     
+    DrawTextUTF("你还没有运行插件", {SidebarHeight+400, 300}, 40, 2, YELLOW);
 }
 int main() {
     int iserror = 0;
@@ -292,9 +297,8 @@ int main() {
     zh_app["home"]="主页"; 
     zh_app["gsml"]="脚本市场";
     zh_app["running"]="运行管理";
-    
-    if(get_file("https://j.1win.ggff.net/https://github.com/nxtblock/gsml/archive/refs/heads/main.zip","../tmp.zip")){
-        unzip_file("../tmp.zip");
+    if(!system("ping www.baidu.com -n 1")){
+        get_gsml("https://gh.llkk.cc/https://github.com/nxtblock/gsml/archive/refs/heads/main.zip","../tmp.zip");
     }
     else{
         iserror=210; 

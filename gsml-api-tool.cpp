@@ -58,9 +58,8 @@ int main() {
 
             SetWindowPos(gsmlWindow, HWND_TOP, right - 1080, top + 110, 1080, bottom - top - 110,
                          SWP_SHOWWINDOW | SWP_NOACTIVATE);
-        } else {
             f=1;
-        }
+        } 
         //Plain Craft Launcher Community Edition
         HWND pclWindow = NULL;
         targetTitle = L"Plain Craft Launcher Community Edition";
@@ -92,9 +91,8 @@ int main() {
 
             SetWindowPos(pclWindow, HWND_TOP, right - 1080, top + 110, 1080, bottom - top - 110,
                          SWP_SHOWWINDOW | SWP_NOACTIVATE);
-        } else {
             f=1;
-        }
+        } 
         if(f==0)
             Sleep(500);
     }
