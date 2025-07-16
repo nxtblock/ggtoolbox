@@ -278,6 +278,7 @@ int main() {
     InitWindow(screenWidth, screenHeight, "GenGen ToolBox");
     SetTargetFPS(60);
     loading=LoadTexture("../src/loading.png");
+    SetWindowIcon(LoadImage("../src/logo.png"));
     BeginDrawing();
     ClearBackground(DARK_BACKGROUND);
     DrawTextureEx(loading, {0,0}, 0, 1.0f, WHITE);
@@ -298,7 +299,7 @@ int main() {
     zh_app["gsml"]="脚本市场";
     zh_app["running"]="运行管理";
     if(!system("ping www.baidu.com -n 1")){
-        get_gsml("https://gh.llkk.cc/https://github.com/nxtblock/gsml/archive/refs/heads/main.zip","../tmp.zip");
+        get_gsml("https://git.ppp.ac.cn/https://github.com/nxtblock/gsml/archive/refs/heads/main.zip","../tmp.zip");
     }
     else{
         iserror=210; 
@@ -315,7 +316,6 @@ int main() {
         EndDrawing();
     }
     
-    SetWindowIcon(LoadImage("../src/logo.png"));
     while (!WindowShouldClose()) {
         BeginDrawing();
         ClearBackground(DARK_BACKGROUND);
