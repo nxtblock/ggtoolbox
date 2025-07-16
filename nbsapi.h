@@ -124,9 +124,14 @@ void run_cmd(const string& cmdline) {
     }).detach();
 }
 void get_gsml(string rfile, string file) {
-    string cmd = "curl -L -o " + file + " " + rfile+" && tar -xf "+file+" -C ../";
-    run_cmd(cmd);
+    // 使用 PowerShell 下载并解压 ZIP 文件
+    string ps_script =
+        "Invoke-WebRequest -Uri '" + rfile + "' -OutFile '" + file + "'; "
+        "Expand-Archive -Path '" + file + "' -DestinationPath '..\\' -Force";
 
+    string full_cmd = "powershell.exe -Command \"" + ps_script + "\"";
+    
+    run_cmd(full_cmd);
 }
 void enable_gsml_tool(){ 
     run_cmd("taskkill /f /im gsml-api-tool.exe & taskkill /f /im off-gsml-api-tool.exe & start /b ../gsml-api-tool.exe");
