@@ -34,19 +34,6 @@ void Sidebar() {
         y+=55;
     }
     
-    if (IsKeyPressed(KEY_HOME)) {
-        now="home";
-    }   
-    
-    if (IsKeyPressed(KEY_ONE)) {
-        now="home";
-    }   
-    if (IsKeyPressed(KEY_TWO)) {
-        now="gsml";
-    }
-    if(IsKeyPressed(KEY_THREE)) {
-        now="running";
-    }
     if(last_now!=now and now=="running"){
         enable_gsml_tool();
     }
@@ -231,41 +218,158 @@ void showmsg(string title,string msg){
 }
 int stoptps=0,errortps=0,wait=0;
 int flag=0;
-void gsml() {
-    DrawTextUTF("GGToolBox: GenGen-Script Market", {SidebarHeight+30, 30}, 30, 2, WHITE);
-    //查找..gsml-main/的子文件夹
-    vector<string> folders;
-    if (!std::filesystem::exists("../gsml-main/")) {
-        DrawTextUTF("正在加载插件库...", {SidebarHeight+400, 300}, 40, 2, YELLOW);
-        return;
-    }
-    for (const auto& entry : std::filesystem::directory_iterator("../gsml-main/")) {
+
+string searchQuery = "";        // 存储用户输入的搜索词
+vector<string> allFolders;      // 所有插件文件夹（初始化一次）
+vector<string> filteredFolders; // 当前过滤后的插件列表
+int currentPage = 0;            // 当前页码
+const int itemsPerPage = 12;    // 每页最多显示 12 个插件
+void initGSMLFolders() {
+    if (!filesystem::exists("../gsml-main/")) return;
+    allFolders.clear();
+    for (const auto& entry : filesystem::directory_iterator("../gsml-main/")) {
         if (entry.is_directory()) {
-            folders.push_back(entry.path().filename().string());
+            string folderName = entry.path().filename().string();
+            allFolders.push_back(folderName);
         }
     }
-    //每一个子文件夹都是一个插件，绘制插件，每行2个，左侧是名字，右侧是运行按钮和版本号，作者
-    int x=SidebarHeight+35,y=100;
-    for (const auto& folder : folders) {
+
+    filteredFolders = allFolders; // 初始化为全部
+}
+void filterFolders(string query) {
+    filteredFolders.clear();
+
+    if (query.empty()) {
+        filteredFolders = allFolders;
+        return;
+    }
+    for(auto &i:query){
+        i=tolower(i);
+    }
+    vector<pair<int,string>> matchIndices;
+    for (auto folder : allFolders) {
+        int matchCount = 0;
+        size_t pos = 0;
+        string y=folder;
+        for(auto &i:folder){
+            i=tolower(i);
+        }
+        for(auto i:folder){
+            for (char c : query) {
+                if(i==c){
+                    matchCount++;
+                }
+            }
+        }
+        if (matchCount > 0) {
+            matchIndices.push_back({matchCount, y});
+        }
+    }
+    sort(matchIndices.begin(), matchIndices.end(), [](const pair<int, string>& a, const pair<int, string>& b) {
+        return a.first > b.first;
+    });
+    filteredFolders.clear();
+    for(auto i:matchIndices){
+        filteredFolders.push_back(i.second);
+    }
+}
+void gsml() {
+    initGSMLFolders();
+    DrawTextUTF("GGToolBox: GenGen-Script Market", {SidebarHeight + 30, 30}, 30, 2, WHITE);
+
+    // 使用你写的输入框组件
+    Vector2 inputPos = { SidebarHeight + 35, 70 };
+    float inputWidth = 1000;
+    int fontSize = 20;
+    float spacing = 10;
+    Color inputColor = DARKBLUE;
+    int enableInput = 1; // 启用输入
+
+    // 获取用户输入
+    searchQuery = DrawMcInputbox(inputPos, inputWidth, fontSize, spacing, inputColor, enableInput);
+
+    // 过滤插件
+    filterFolders(searchQuery); // 自定义过滤函数
+
+    int totalItems = filteredFolders.size();
+
+    // 确保总页数至少为 1
+    int totalPages = max(1, (totalItems + itemsPerPage - 1) / itemsPerPage);
+
+    // 边界检查
+    if (currentPage < 0 || currentPage >= totalPages) {
+        currentPage = 0;
+    }
+
+    // 分页导航栏开始位置
+    int navX = SidebarHeight + 35;
+    int navY = screenHeight - 80;
+
+    // 显示页码（包含省略号逻辑）
+    vector<int> pagesToShow;
+
+    if (totalPages <= 7) {
+        for (int i = 0; i < totalPages; ++i)
+            pagesToShow.push_back(i);
+    } else {
+        pagesToShow.push_back(0);
+        if (currentPage > 3) pagesToShow.push_back(-1); // 插入省略号
+
+        for (int i = max(1, currentPage - 2); i <= min(totalPages - 2, currentPage + 2); ++i)
+            pagesToShow.push_back(i);
+
+        if (currentPage < totalPages - 3) pagesToShow.push_back(-1);
+        pagesToShow.push_back(totalPages - 1);
+    }
+
+    for (int p : pagesToShow) {
+        if (p == -1) {
+            DrawTextUTF("...", {(float)navX + 10, (float)navY + 5}, 20, 2, WHITE);
+            navX += 40;
+        } else {
+            string pageNumStr = to_string(p + 1);
+            Color btnColor = (p == currentPage) ? MAROON : GRAY;
+            if (DrawMcButton({(float)navX, (float)navY}, 40, 30, pageNumStr.c_str(), btnColor, 25)) {
+                if (p >= 0 && p < totalPages) {
+                    currentPage = p;
+                }
+            }
+            navX += 50;
+        }
+    }
+
+    // 绘制插件卡片区域
+    int x = SidebarHeight + 35;
+    int y = 120;
+    int startIndex = currentPage * itemsPerPage;
+    int endIndex = min(startIndex + itemsPerPage, (int)filteredFolders.size());
+
+    for (int i = startIndex; i < endIndex; ++i) {
+        const auto& folder = filteredFolders[i];
+
         if (x > screenWidth - 300) {
             x = SidebarHeight + 35;
             y += 100;
         }
+
         DrawMcRectangle(x, y, 250, 80, DARKGRAY);
-        DrawTextUTF(folder, {x+10.0f, y+10.0f}, 20, 2, WHITE);
-        string version = get_pugin("../gsml-main/"+folder+"/id.txt").second;
-        string author = get_pugin("../gsml-main/"+folder+"/id.txt").first;
-        DrawTextUTF("版本: " + version, {x+10.0f, y+40.0f}, 15, 2, WHITE);
-        DrawTextUTF("作者: " + author, {x+10.0f, y+60.0f}, 15, 2, WHITE);
-        if (DrawMcButton({x+180.0f, y+20.0f}, 60, 40, "运行", GREEN, 25) and fileloading[folder]==0) {
+        DrawTextUTF(folder.c_str(), {x + 10.0f, y + 10.0f}, 20, 2, WHITE);
+
+        string version = get_pugin("../gsml-main/" + folder + "/id.txt").second;
+        string author = get_pugin("../gsml-main/" + folder + "/id.txt").first;
+
+        DrawTextUTF(("版本: " + version).c_str(), {x + 10.0f, y + 40.0f}, 15, 2, WHITE);
+        DrawTextUTF(("作者: " + author).c_str(), {x + 10.0f, y + 60.0f}, 15, 2, WHITE);
+
+        if (DrawMcButton({x + 180.0f, y + 20.0f}, 60, 40, "运行", GREEN, 25) && fileloading[folder] == 0) {
             fileloading[folder] = 180;
-            run_cmd("cd \"..\\gsml-main\\"+folder+"\\\" && start \"[GSML]\" start.cmd");
-            now="running";
+            run_cmd("cd \"..\\gsml-main\\" + folder + "\\\" && start \"[GSML]\" start.cmd");
+            now = "running";
             enable_gsml_tool();
-        } 
+        }
+
         x += 300;
     }
-    
 }
 void running(){
     
@@ -275,6 +379,7 @@ void running(){
 }
 int main() {
     int iserror = 0;
+    SetTraceLogLevel(LOG_ERROR);
     InitWindow(screenWidth, screenHeight, "GenGen ToolBox");
     SetTargetFPS(60);
     loading=LoadTexture("../src/loading.png");
@@ -298,7 +403,7 @@ int main() {
     zh_app["home"]="主页"; 
     zh_app["gsml"]="脚本市场";
     zh_app["running"]="运行管理";
-    if(!system("ping www.baidu.com -n 1")){
+    if(!system("ping www.baidu.com -n 1 > nul 2> nul")){
         get_gsml("https://git.ppp.ac.cn/https://github.com/nxtblock/gsml/archive/refs/heads/main.zip","../tmp.zip");
     }
     else{

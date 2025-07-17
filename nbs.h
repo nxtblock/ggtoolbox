@@ -223,5 +223,51 @@ void DrawMcRectangle(float x, float y, float width, float height, Color color) {
 
   
 }
+string DrawMcInputbox(Vector2 p, float w, int fs, float s, Color c, int f) {
+    static string t;
+    static bool a = false;
+    float h = fs * 1.4f;
+    Rectangle r = {p.x, p.y, w, h};
 
+    // 动画逻辑
+    static float an = 0;
+    an += (a ? 8 : -8) * GetFrameTime();
+    an = CLAMP(an, 0, 5);
+
+    // 使用 DrawMcRectangle 绘制输入框背景
+    DrawMcRectangle(p.x, p.y, w, h, c);
+
+    // 检测点击区域
+    if (f && CheckCollisionPointRec(GetMousePosition(), r)) {
+        if (IsMouseButtonPressed(0)) a = true;
+    } else if (IsMouseButtonPressed(0)) {
+        a = false;
+    }
+
+    // 输入处理
+    if (a && f) {
+        int k = GetCharPressed();
+        while (k > 0) {
+            t += (char)k;
+            k = GetCharPressed();
+        }
+        if (IsKeyPressed(KEY_BACKSPACE)) {
+            if (!t.empty()) t = t.substr(0, t.size() - 1);
+        }
+    }
+
+    // 绘制文本 + 光标闪烁
+    if (f == 1) {
+        string show = t;
+        if ((int)(GetTime()) % 2 == 0 && !t.empty()) {
+            DrawTextUTF(t.c_str(), {p.x + s, p.y + (h - fs) / 2}, fs, 0, WHITE);
+        } else {
+            show += "|";
+            DrawTextUTF(show.c_str(), {p.x + s, p.y + (h - fs) / 2}, fs, 0, WHITE);
+        }
+    }
+
+
+    return t;
+}
 #endif //NBS_H
