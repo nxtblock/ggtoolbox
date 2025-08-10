@@ -1,7 +1,6 @@
 #include "nbs.h"
 #include "nbsapi.h"
 #include <filesystem>
-
 const int screenWidth = 1280;
 const int screenHeight = 720;
 const int SidebarHeight = 200;
@@ -287,7 +286,7 @@ void gsml() {
 
     // 获取用户输入
     searchQuery = DrawMcInputbox(inputPos, inputWidth, fontSize, spacing, inputColor, enableInput);
-
+    
     // 过滤插件
     filterFolders(searchQuery); // 自定义过滤函数
 
@@ -343,7 +342,7 @@ void gsml() {
     int y = 120;
     int startIndex = currentPage * itemsPerPage;
     int endIndex = min(startIndex + itemsPerPage, (int)filteredFolders.size());
-
+    
     for (int i = startIndex; i < endIndex; ++i) {
         const auto& folder = filteredFolders[i];
 
@@ -379,7 +378,8 @@ void running(){
 }
 int main() {
     int iserror = 0;
-    SetTraceLogLevel(LOG_ERROR);
+    SetTraceLogLevel(LOG_WARNING);
+    SetConfigFlags(FLAG_MSAA_4X_HINT); 
     InitWindow(screenWidth, screenHeight, "GenGen ToolBox");
     SetTargetFPS(60);
     loading=LoadTexture("../src/loading.png");
@@ -391,9 +391,12 @@ int main() {
 
     init_file();
     now="home";
+    
+    cout<<"j1"<<endl;
     logo = LoadTexture("../src/logo.png");
     homepng = LoadTexture("../src/home.png");
     mcpng= LoadTexture("../src/mcv.png");
+    cout<<"j2"<<endl;
     appq["home"] = LoadTexture("../src/app/sprite0.png");
     appq["gsml"] = LoadTexture("../src/app/sprite1.png");
     appq["running"] = LoadTexture("../src/app/sprite2.png");
@@ -403,13 +406,10 @@ int main() {
     zh_app["home"]="主页"; 
     zh_app["gsml"]="脚本市场";
     zh_app["running"]="运行管理";
-    if(!system("ping www.baidu.com -n 1 > nul 2> nul")){
-        get_gsml("https://git.ppp.ac.cn/https://github.com/nxtblock/gsml/archive/refs/heads/main.zip","../tmp.zip");
-    }
-    else{
-        iserror=210; 
-    } 
+    cout<<"c1"<<endl;
+    get_gsml("https://git.ppp.ac.cn/https://github.com/nxtblock/gsml/archive/refs/heads/main.zip","../tmp.zip");
     
+    cout<<"j3"<<endl;
     for(int i=1;i<=3;i++)
         while(!InitFontSystem("../src/DouyinSansBold.otf"));
     for (float fade=1.0f;fade>0.0f;fade-=0.02f) {
@@ -435,7 +435,7 @@ int main() {
             running();
         }
         if(iserror){
-            showmsg("错误","无法连接到脚本市场（GSML），你可能无法正常运行你的脚本");
+            showmsg("错误","无法连接到脚本市场（GSML），\n你可能无法正常运行你的脚本");
             iserror--;
         }
         

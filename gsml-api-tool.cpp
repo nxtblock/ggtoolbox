@@ -20,17 +20,27 @@ BOOL CALLBACK EnumWindowsProc(HWND hwnd, LPARAM lParam) {
     
     return TRUE;
 }
-
+unordered_map<HWND,int>mp;
 int main() {
-    cout << "tool work\n";
+	HWND gengenWindow = NULL;
+	targetTitle = L"GenGen ToolBox";
+	EnumWindows(EnumWindowsProc, reinterpret_cast<LPARAM>(&gengenWindow));
+	
     while (1) {
-        HWND gengenWindow = NULL;
-        targetTitle = L"GenGen ToolBox";
-        EnumWindows(EnumWindowsProc, reinterpret_cast<LPARAM>(&gengenWindow));
-        
         HWND gsmlWindow = NULL;
         targetTitle = L"[GSML]";
         EnumWindows(EnumWindowsProc, reinterpret_cast<LPARAM>(&gsmlWindow));
+		if(gsmlWindow and !mp.count(gsmlWindow)){
+			if(mp.size()!=0){
+				CloseWindow(gsmlWindow);
+			}
+			else{
+				mp[gsmlWindow]=time(0);
+			}
+            for(auto i:mp){
+                cout<<i.first<<" "<<i.second<<endl;
+            }
+		}
         bool f=0;
         if (gengenWindow != NULL && gsmlWindow != NULL) {
             // 设置 GSML 拥有者为 GenGen
@@ -94,6 +104,6 @@ int main() {
             f=1;
         } 
         if(f==0)
-            Sleep(500);
+            Sleep(1000);
     }
 }

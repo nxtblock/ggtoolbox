@@ -142,6 +142,7 @@ void disable_gsml_tool() {
 }
 void exit_gsml_tool() {
     run_cmd("taskkill /f /im gsml-api-tool.exe");
+    run_cmd("taskkill /im conhost.exe");
     run_cmd("taskkill /f /im off-gsml-api-tool.exe");
 }
 

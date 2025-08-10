@@ -62,7 +62,8 @@ Font GetDynamicFont(const char *txt, int fntSize = 32) {
 /// 绘制 UTF-8 文本
 void DrawTextUTF(string stxt, Vector2 pos, int fntSize, float spacing, Color color) {
     if (fntSize==0 or stxt.empty()) return;
-    stxt+="      ";
+    if(stxt.size()%2)stxt+="       ";
+    else stxt+="      ";
     Font fnt = GetDynamicFont(stxt.c_str(), fntSize);
     DrawTextEx(fnt, stxt.c_str(), pos, (float)fntSize, spacing, color);
 }

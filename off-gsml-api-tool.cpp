@@ -22,7 +22,6 @@ BOOL CALLBACK EnumWindowsProc(HWND hwnd, LPARAM lParam) {
 }
 
 int main() {
-    cout << "off tool work\n";
     while (1) {
         HWND gsmlWindow = NULL;
         targetTitle = L"[GSML]";
