@@ -378,7 +378,7 @@ void running(){
 }
 int main() {
     int iserror = 0;
-    SetTraceLogLevel(LOG_WARNING);
+    SetTraceLogLevel(LOG_ERROR);
     SetConfigFlags(FLAG_MSAA_4X_HINT); 
     InitWindow(screenWidth, screenHeight, "GenGen ToolBox");
     SetTargetFPS(60);
@@ -392,11 +392,9 @@ int main() {
     init_file();
     now="home";
     
-    cout<<"j1"<<endl;
     logo = LoadTexture("../src/logo.png");
     homepng = LoadTexture("../src/home.png");
     mcpng= LoadTexture("../src/mcv.png");
-    cout<<"j2"<<endl;
     appq["home"] = LoadTexture("../src/app/sprite0.png");
     appq["gsml"] = LoadTexture("../src/app/sprite1.png");
     appq["running"] = LoadTexture("../src/app/sprite2.png");
@@ -406,11 +404,9 @@ int main() {
     zh_app["home"]="主页"; 
     zh_app["gsml"]="脚本市场";
     zh_app["running"]="运行管理";
-    cout<<"c1"<<endl;
     get_gsml("https://git.ppp.ac.cn/https://github.com/nxtblock/gsml/archive/refs/heads/main.zip","../tmp.zip");
-    
-    cout<<"j3"<<endl;
-    for(int i=1;i<=3;i++)
+   
+    for(int i=1;i<=30;i++)
         while(!InitFontSystem("../src/DouyinSansBold.otf"));
     for (float fade=1.0f;fade>0.0f;fade-=0.02f) {
         BeginDrawing();

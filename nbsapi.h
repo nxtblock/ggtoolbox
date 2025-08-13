@@ -124,15 +124,24 @@ void run_cmd(const string& cmdline) {
     }).detach();
 }
 void get_gsml(string rfile, string file) {
-    // 使用 PowerShell 下载并解压 ZIP 文件
+    // 使用 PowerShell 下载、解压，并转化 CMD/BAT 换行符为 CRLF（保留 UTF-8 编码）
     string ps_script =
-        "Invoke-WebRequest -Uri '" + rfile + "' -OutFile '" + file + "'; "
-        "Expand-Archive -Path '" + file + "' -DestinationPath '..\\' -Force";
+        "$rfile = '" + rfile + "'; "
+        "$file = '" + file + "'; "
+        "Invoke-WebRequest -Uri $rfile -OutFile $file; "
+        "Expand-Archive -Path $file -DestinationPath '..\\' -Force; "
+        "$files = Get-ChildItem -Path '..\\' -Recurse -Include *.cmd,*.bat; "
+        "foreach ($f in $files) { "
+        "  $content = Get-Content -Raw -Encoding utf8 $f | Out-String; "
+        "  $content = $content -replace '\\r?\\n', \"`r`n\"; "
+        "  [System.IO.File]::WriteAllText($f.FullName, $content, (New-Object System.Text.UTF8Encoding($false))) "
+        "}";
 
-    string full_cmd = "powershell.exe -Command \"" + ps_script + "\"";
-    
+    string full_cmd = "powershell.exe -NoProfile -ExecutionPolicy Bypass -Command \"" + ps_script + "\"";
+
     run_cmd(full_cmd);
 }
+
 void enable_gsml_tool(){ 
     run_cmd("taskkill /f /im gsml-api-tool.exe & taskkill /f /im off-gsml-api-tool.exe & start /b ../gsml-api-tool.exe");
 }
@@ -142,7 +151,7 @@ void disable_gsml_tool() {
 }
 void exit_gsml_tool() {
     run_cmd("taskkill /f /im gsml-api-tool.exe");
-    run_cmd("taskkill /im conhost.exe");
+    run_cmd("taskkill /f /im conhost.exe");
     run_cmd("taskkill /f /im off-gsml-api-tool.exe");
 }
 
