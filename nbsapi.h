@@ -124,24 +124,12 @@ void run_cmd(const string& cmdline) {
     }).detach();
 }
 void get_gsml(string rfile, string file) {
-    // 使用 PowerShell 下载、解压，并转化 CMD/BAT 换行符为 CRLF（保留 UTF-8 编码）
-    string ps_script =
-        "$rfile = '" + rfile + "'; "
-        "$file = '" + file + "'; "
-        "Invoke-WebRequest -Uri $rfile -OutFile $file; "
-        "Expand-Archive -Path $file -DestinationPath '..\\' -Force; "
-        "$files = Get-ChildItem -Path '..\\' -Recurse -Include *.cmd,*.bat; "
-        "foreach ($f in $files) { "
-        "  $content = Get-Content -Raw -Encoding utf8 $f | Out-String; "
-        "  $content = $content -replace '\\r?\\n', \"`r`n\"; "
-        "  [System.IO.File]::WriteAllText($f.FullName, $content, (New-Object System.Text.UTF8Encoding($false))) "
-        "}";
-
-    string full_cmd = "powershell.exe -NoProfile -ExecutionPolicy Bypass -Command \"" + ps_script + "\"";
-
+    string step1 = "powershell -Command \"Invoke-WebRequest -Uri '" + rfile + "' -OutFile '" + file + "'\"";
+    string step2 = "powershell -Command \"Expand-Archive -Path '" + file + "' -DestinationPath '..\\' -Force\"";
+    string step3 = "powershell -Command \"Get-ChildItem '..\\gsml-main\\' -Recurse -Include *.bat,*.cmd | ForEach-Object { Write-Host 'Converting:' $_.FullName; $content = Get-Content $_.FullName -Raw -Encoding UTF8; $content = $content -replace '\\r?\\n', ([char]13 + [char]10); [System.IO.File]::WriteAllBytes($_.FullName, (New-Object System.Text.UTF8Encoding $false).GetBytes($content)) }\"";
+    string full_cmd = step1 + " && " + step2 + " && " + step3;
     run_cmd(full_cmd);
 }
-
 void enable_gsml_tool(){ 
     run_cmd("taskkill /f /im gsml-api-tool.exe & taskkill /f /im off-gsml-api-tool.exe & start /b ../gsml-api-tool.exe");
 }
@@ -152,6 +140,7 @@ void disable_gsml_tool() {
 void exit_gsml_tool() {
     run_cmd("taskkill /f /im gsml-api-tool.exe");
     run_cmd("taskkill /f /im conhost.exe");
+    run_cmd("taskkill /f /im \"Plain Craft Launcher.exe\"");
     run_cmd("taskkill /f /im off-gsml-api-tool.exe");
 }
 

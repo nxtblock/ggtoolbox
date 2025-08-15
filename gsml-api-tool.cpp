@@ -30,17 +30,17 @@ int main() {
         HWND gsmlWindow = NULL;
         targetTitle = L"[GSML]";
         EnumWindows(EnumWindowsProc, reinterpret_cast<LPARAM>(&gsmlWindow));
-		if(gsmlWindow and !mp.count(gsmlWindow)){
-			if(mp.size()!=0){
-				CloseWindow(gsmlWindow);
-			}
-			else{
-				mp[gsmlWindow]=time(0);
-			}
-            for(auto i:mp){
-                cout<<i.first<<" "<<i.second<<endl;
-            }
-		}
+		// if(gsmlWindow and !mp.count(gsmlWindow)){
+		// 	if(mp.size()!=0){
+		// 		CloseWindow(gsmlWindow);
+		// 	}
+		// 	else{
+		// 		mp[gsmlWindow]=time(0);
+		// 	}
+        //     for(auto i:mp){
+        //         cout<<i.first<<" "<<i.second<<endl;
+        //     }
+		// }
         bool f=0;
         if (gengenWindow != NULL && gsmlWindow != NULL) {
             // 设置 GSML 拥有者为 GenGen
