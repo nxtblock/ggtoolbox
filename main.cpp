@@ -75,7 +75,7 @@ void Sign() {
         if (sday.size()==1)
             sday="0"+sday;
         DrawTextUTF(sday, {SidebarHeight+95, 100}, 100, 2, WHITE);
-        if (DrawMcButton({SidebarHeight+35, 220}, 205, 50, "签到", GRAY,30)==1) {
+        if (DrawMcButton({SidebarHeight+35, 220}, 205, 50, "签到", DARKGREEN,30)==1) {
             random_device fate;
             update_file("sign",to_string(month)+"-"+to_string(day)+"-"+to_string(fate()%3));
         }
@@ -90,7 +90,7 @@ void Sign() {
         } else if (last_fate == 2) {
             DrawTextUTF("$大凶$", {SidebarHeight+32, 110}, 80, 2, WHITE);
         }
-        DrawMcButton({SidebarHeight+35, 220}, 205, 50, "已签到", GRAY,30);
+        DrawMcButton({SidebarHeight+35, 220}, 205, 50, "已签到", DARKGREEN,30);
     }
 }
 map<string,int>fileloading;
@@ -118,15 +118,15 @@ void Home(){
         system("start https://chat.deepseek.com/");
     }
     //在信息学奥赛下的3个按钮
-    if (DrawMcButton({SidebarHeight+305, 420}, 205, 70, "洛谷", DARKGREEN,25) and fileloading["洛谷"]==0) {
+    if (DrawMcButton({SidebarHeight+305, 420}, 205, 70, "洛谷", MAROON,25) and fileloading["洛谷"]==0) {
         fileloading["洛谷"]=180;
         system("start https://www.luogu.com.cn/");
     }
-    if (DrawMcButton({SidebarHeight+305, 500}, 205, 70, "OI wiki", DARKGREEN,25) and fileloading["OI wiki"]==0) {
+    if (DrawMcButton({SidebarHeight+305, 500}, 205, 70, "OI wiki", MAROON,25) and fileloading["OI wiki"]==0) {
         fileloading["OI wiki"]=180;
         system("start https://OI.wiki/");
     }
-    if (DrawMcButton({SidebarHeight+305, 580}, 205, 70, "Vjudge", DARKGREEN,25) and fileloading["Vjudge"]==0) {
+    if (DrawMcButton({SidebarHeight+305, 580}, 205, 70, "Vjudge", MAROON,25) and fileloading["Vjudge"]==0) {
         fileloading["Vjudge"]=180;
         system("start https://vjudge.net/"); 
     }
@@ -328,7 +328,7 @@ void gsml() {
             navX += 40;
         } else {
             string pageNumStr = to_string(p + 1);
-            Color btnColor = (p == currentPage) ? MAROON : GRAY;
+            Color btnColor = (p == currentPage) ? SKYBLUE : GRAY;
             if (DrawMcButton({(float)navX, (float)navY}, 40, 30, pageNumStr.c_str(), btnColor, 25)) {
                 if (p >= 0 && p < totalPages) {
                     currentPage = p;
@@ -361,7 +361,7 @@ void gsml() {
         DrawTextUTF(("版本: " + version).c_str(), {x + 10.0f, y + 40.0f}, 15, 2, WHITE);
         DrawTextUTF(("作者: " + author).c_str(), {x + 10.0f, y + 60.0f}, 15, 2, WHITE);
 
-        if (DrawMcButton({x + 180.0f, y + 20.0f}, 60, 40, "运行", GRAY, 25) && fileloading[folder] == 0) {
+        if (DrawMcButton({x + 180.0f, y + 20.0f}, 60, 40, "运行", DARKGREEN, 25) && fileloading[folder] == 0) {
             fileloading[folder] = 180;
             run_cmd("cd \"..\\gsml-main\\" + folder + "\\\" && start \"[GSML]\" start.cmd");
             now = "running";

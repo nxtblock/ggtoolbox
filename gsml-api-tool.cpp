@@ -4,106 +4,94 @@ using namespace std;
 
 wstring targetTitle;
 
-BOOL CALLBACK EnumWindowsProc(HWND hwnd, LPARAM lParam) {
+// ≤È’“µ•∏ˆ¥∞ø⁄£®±ÍÃ‚∆•≈‰£©
+BOOL CALLBACK FindWindowProc(HWND hwnd, LPARAM lParam) {
     HWND* pFoundWindow = reinterpret_cast<HWND*>(lParam);
-    
     const int titleLength = GetWindowTextLengthW(hwnd);
     if (titleLength == 0) return TRUE;
-    
     vector<wchar_t> titleBuffer(titleLength + 1);
     GetWindowTextW(hwnd, titleBuffer.data(), titleLength + 1);
-    
     if (wcsstr(titleBuffer.data(), targetTitle.c_str()) != NULL) {
         *pFoundWindow = hwnd;
         return FALSE;
     }
-    
     return TRUE;
 }
-unordered_map<HWND,int>mp;
+
+// ≤È’“À˘”–¥∞ø⁄£®±ÍÃ‚∞¸∫¨πÿº¸◊÷£©
+BOOL CALLBACK FindAllWindowsProc(HWND hwnd, LPARAM lParam) {
+    const int titleLength = GetWindowTextLengthW(hwnd);
+    if (titleLength == 0) return TRUE;
+    vector<wchar_t> titleBuffer(titleLength + 1);
+    GetWindowTextW(hwnd, titleBuffer.data(), titleLength + 1);
+    if (wcsstr(titleBuffer.data(), L"[GSML]") != NULL) {
+        reinterpret_cast<vector<HWND>*>(lParam)->push_back(hwnd);
+    }
+    return TRUE;
+}
+
+// …Ë÷√¥∞ø⁄—˘ Ω≤¢∞Û∂®µΩ∏∏¥∞ø⁄
+void AttachAndStyle(HWND child, HWND parent) {
+    SetWindowLongPtr(child, GWLP_HWNDPARENT, (LONG_PTR)parent);
+    LONG_PTR exStyle = GetWindowLongPtr(child, GWL_EXSTYLE);
+    exStyle &= ~WS_EX_APPWINDOW;
+    exStyle |= WS_EX_TOOLWINDOW;
+    SetWindowLongPtr(child, GWL_EXSTYLE, exStyle);
+    SetWindowPos(child, NULL, 0, 0, 0, 0,
+                 SWP_NOMOVE | SWP_NOSIZE | SWP_NOZORDER | SWP_FRAMECHANGED);
+    if (IsIconic(child)) ShowWindow(child, SW_RESTORE);
+}
+
+// “∆∂Ø¥∞ø⁄µΩ GenGen µƒ”“≤‡
+void PositionWindow(HWND child, HWND gengenWindow) {
+    RECT rect;
+    GetWindowRect(gengenWindow, &rect);
+    int right = rect.right;
+    int top = rect.top;
+    int bottom = rect.bottom;
+    SetWindowPos(child, HWND_TOP, right - 1080, top + 110, 1080, bottom - top - 110,
+                 SWP_SHOWWINDOW | SWP_NOACTIVATE);
+}
+
 int main() {
-	HWND gengenWindow = NULL;
-	targetTitle = L"GenGen ToolBox";
-	EnumWindows(EnumWindowsProc, reinterpret_cast<LPARAM>(&gengenWindow));
-	
-    while (1) {
-        HWND gsmlWindow = NULL;
-        targetTitle = L"[GSML]";
-        EnumWindows(EnumWindowsProc, reinterpret_cast<LPARAM>(&gsmlWindow));
-		// if(gsmlWindow and !mp.count(gsmlWindow)){
-		// 	if(mp.size()!=0){
-		// 		CloseWindow(gsmlWindow);
-		// 	}
-		// 	else{
-		// 		mp[gsmlWindow]=time(0);
-		// 	}
-        //     for(auto i:mp){
-        //         cout<<i.first<<" "<<i.second<<endl;
-        //     }
-		// }
-        bool f=0;
-        if (gengenWindow != NULL && gsmlWindow != NULL) {
-            // ËÆæÁΩÆ GSML Êã•ÊúâËÄÖ‰∏∫ GenGen
-            SetWindowLongPtr(gsmlWindow, GWLP_HWNDPARENT, (LONG_PTR)gengenWindow);
+    HWND gengenWindow = NULL;
+    targetTitle = L"GenGen ToolBox";
+    EnumWindows(FindWindowProc, reinterpret_cast<LPARAM>(&gengenWindow));
 
-            // ‰øÆÊîπÊâ©Â±ïÊ†∑Âºè‰ª•ÈöêËóè‰ªªÂä°Ê†èÂõæÊ†á
-            LONG_PTR exStyle = GetWindowLongPtr(gsmlWindow, GWL_EXSTYLE);
-            exStyle &= ~WS_EX_APPWINDOW;       // ÁßªÈô§‰ªªÂä°Ê†èÂõæÊ†á
-            exStyle |= WS_EX_TOOLWINDOW;       // Ê∑ªÂä†Â∑•ÂÖ∑Á™óÂè£Ê†∑Âºè
-            SetWindowLongPtr(gsmlWindow, GWL_EXSTYLE, exStyle);
-            SetWindowPos(gsmlWindow, NULL, 0, 0, 0, 0,
-                         SWP_NOMOVE | SWP_NOSIZE | SWP_NOZORDER | SWP_FRAMECHANGED);
+    // »°œ˚ GenGen «ø÷∆÷√∂•
+    if (gengenWindow != NULL) {
+        SetWindowPos(gengenWindow, HWND_NOTOPMOST, 0, 0, 0, 0,
+                     SWP_NOMOVE | SWP_NOSIZE | SWP_NOACTIVATE | SWP_FRAMECHANGED);
+    }
 
-            // Èò≤Ê≠¢ÊúÄÂ∞èÂåñ
-            if (IsIconic(gsmlWindow)) {
-                ShowWindow(gsmlWindow, SW_RESTORE);
-            }
-
-            // ÁßªÂä®Âπ∂ÁΩÆÈ°∂
-            RECT rect;
-            GetWindowRect(gengenWindow, &rect);
-            int right = rect.right;
-            int top = rect.top;
-            int bottom = rect.bottom;
-
-            SetWindowPos(gsmlWindow, HWND_TOP, right - 1080, top + 110, 1080, bottom - top - 110,
-                         SWP_SHOWWINDOW | SWP_NOACTIVATE);
-            f=1;
-        } 
-        //Plain Craft Launcher Community Edition
+    while (true) {
         HWND pclWindow = NULL;
         targetTitle = L"Plain Craft Launcher Community Edition";
-        EnumWindows(EnumWindowsProc, reinterpret_cast<LPARAM>(&pclWindow));
+        EnumWindows(FindWindowProc, reinterpret_cast<LPARAM>(&pclWindow));
 
-        if (gengenWindow != NULL && pclWindow != NULL) {
-            // ËÆæÁΩÆ GSML Êã•ÊúâËÄÖ‰∏∫ GenGen
-            SetWindowLongPtr(pclWindow, GWLP_HWNDPARENT, (LONG_PTR)gengenWindow);
+        vector<HWND> gsmlWindows;
+        EnumWindows(FindAllWindowsProc, reinterpret_cast<LPARAM>(&gsmlWindows));
 
-            // ‰øÆÊîπÊâ©Â±ïÊ†∑Âºè‰ª•ÈöêËóè‰ªªÂä°Ê†èÂõæÊ†á
-            LONG_PTR exStyle = GetWindowLongPtr(pclWindow, GWL_EXSTYLE);
-            exStyle &= ~WS_EX_APPWINDOW;       // ÁßªÈô§‰ªªÂä°Ê†èÂõæÊ†á
-            exStyle |= WS_EX_TOOLWINDOW;       // Ê∑ªÂä†Â∑•ÂÖ∑Á™óÂè£Ê†∑Âºè
-            SetWindowLongPtr(pclWindow, GWL_EXSTYLE, exStyle);
-            SetWindowPos(pclWindow, NULL, 0, 0, 0, 0,
-                         SWP_NOMOVE | SWP_NOSIZE | SWP_NOZORDER | SWP_FRAMECHANGED);
-
-            // Èò≤Ê≠¢ÊúÄÂ∞èÂåñ
-            if (IsIconic(pclWindow)) {
-                ShowWindow(pclWindow, SW_RESTORE);
+        if (pclWindow != NULL) {
+            // “˛≤ÿÀ˘”– GSML
+            for (HWND hwnd : gsmlWindows) {
+                ShowWindow(hwnd, SW_HIDE);
             }
 
-            // ÁßªÂä®Âπ∂ÁΩÆÈ°∂
-            RECT rect;
-            GetWindowRect(gengenWindow, &rect);
-            int right = rect.right;
-            int top = rect.top;
-            int bottom = rect.bottom;
+            // œ‘ æ≤¢∂®Œª PCL
+            if (gengenWindow != NULL) {
+                AttachAndStyle(pclWindow, gengenWindow);
+                PositionWindow(pclWindow, gengenWindow);
+            }
+        } else {
+            // œ‘ æ≤¢∂®ŒªÀ˘”– GSML
+            for (HWND hwnd : gsmlWindows) {
+                if (gengenWindow != NULL) {
+                    AttachAndStyle(hwnd, gengenWindow);
+                    PositionWindow(hwnd, gengenWindow);
+                }
+            }
+        }
 
-            SetWindowPos(pclWindow, HWND_TOP, right - 1080, top + 110, 1080, bottom - top - 110,
-                         SWP_SHOWWINDOW | SWP_NOACTIVATE);
-            f=1;
-        } 
-        if(f==0)
-            Sleep(1000);
     }
 }
