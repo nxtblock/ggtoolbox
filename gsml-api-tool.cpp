@@ -4,7 +4,7 @@ using namespace std;
 
 wstring targetTitle;
 
-// ²éÕÒµ¥¸ö´°¿Ú£¨±êÌâÆ¥Åä£©
+// æŸ¥æ‰¾å•ä¸ªçª—å£ï¼ˆæ ‡é¢˜åŒ¹é…ï¼‰
 BOOL CALLBACK FindWindowProc(HWND hwnd, LPARAM lParam) {
     HWND* pFoundWindow = reinterpret_cast<HWND*>(lParam);
     const int titleLength = GetWindowTextLengthW(hwnd);
@@ -18,7 +18,7 @@ BOOL CALLBACK FindWindowProc(HWND hwnd, LPARAM lParam) {
     return TRUE;
 }
 
-// ²éÕÒËùÓĞ´°¿Ú£¨±êÌâ°üº¬¹Ø¼ü×Ö£©
+// æŸ¥æ‰¾æ‰€æœ‰çª—å£ï¼ˆæ ‡é¢˜åŒ…å«å…³é”®å­—ï¼‰
 BOOL CALLBACK FindAllWindowsProc(HWND hwnd, LPARAM lParam) {
     const int titleLength = GetWindowTextLengthW(hwnd);
     if (titleLength == 0) return TRUE;
@@ -30,7 +30,7 @@ BOOL CALLBACK FindAllWindowsProc(HWND hwnd, LPARAM lParam) {
     return TRUE;
 }
 
-// ÉèÖÃ´°¿ÚÑùÊ½²¢°ó¶¨µ½¸¸´°¿Ú
+// è®¾ç½®çª—å£æ ·å¼å¹¶ç»‘å®šåˆ°çˆ¶çª—å£
 void AttachAndStyle(HWND child, HWND parent) {
     SetWindowLongPtr(child, GWLP_HWNDPARENT, (LONG_PTR)parent);
     LONG_PTR exStyle = GetWindowLongPtr(child, GWL_EXSTYLE);
@@ -42,7 +42,7 @@ void AttachAndStyle(HWND child, HWND parent) {
     if (IsIconic(child)) ShowWindow(child, SW_RESTORE);
 }
 
-// ÒÆ¶¯´°¿Úµ½ GenGen µÄÓÒ²à
+// ç§»åŠ¨çª—å£åˆ° GenGen çš„å³ä¾§
 void PositionWindow(HWND child, HWND gengenWindow) {
     RECT rect;
     GetWindowRect(gengenWindow, &rect);
@@ -58,7 +58,7 @@ int main() {
     targetTitle = L"GenGen ToolBox";
     EnumWindows(FindWindowProc, reinterpret_cast<LPARAM>(&gengenWindow));
 
-    // È¡Ïû GenGen Ç¿ÖÆÖÃ¶¥
+    // å–æ¶ˆ GenGen å¼ºåˆ¶ç½®é¡¶
     if (gengenWindow != NULL) {
         SetWindowPos(gengenWindow, HWND_NOTOPMOST, 0, 0, 0, 0,
                      SWP_NOMOVE | SWP_NOSIZE | SWP_NOACTIVATE | SWP_FRAMECHANGED);
@@ -73,18 +73,18 @@ int main() {
         EnumWindows(FindAllWindowsProc, reinterpret_cast<LPARAM>(&gsmlWindows));
 
         if (pclWindow != NULL) {
-            // Òş²ØËùÓĞ GSML
+            // éšè—æ‰€æœ‰ GSML
             for (HWND hwnd : gsmlWindows) {
                 ShowWindow(hwnd, SW_HIDE);
             }
 
-            // ÏÔÊ¾²¢¶¨Î» PCL
+            // æ˜¾ç¤ºå¹¶å®šä½ PCL
             if (gengenWindow != NULL) {
                 AttachAndStyle(pclWindow, gengenWindow);
                 PositionWindow(pclWindow, gengenWindow);
             }
         } else {
-            // ÏÔÊ¾²¢¶¨Î»ËùÓĞ GSML
+            // æ˜¾ç¤ºå¹¶å®šä½æ‰€æœ‰ GSML
             for (HWND hwnd : gsmlWindows) {
                 if (gengenWindow != NULL) {
                     AttachAndStyle(hwnd, gengenWindow);

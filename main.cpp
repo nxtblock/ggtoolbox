@@ -5,7 +5,7 @@ const int screenWidth = 1280;
 const int screenHeight = 720;
 const int SidebarHeight = 200;
 // 颜色定义
-#define DARK_BACKGROUND CLITERAL(Color){20, 20, 20, 255 }
+#define DARK_BACKGROUND CLITERAL(Color){10, 10, 10, 255 }
 #define GDARKGRAY CLITERAL(Color){40, 40, 40, 255 }
 Texture2D logo,homepng,mcpng,loading;
 
@@ -105,15 +105,15 @@ void Home(){
     DrawTextUTF("Minecraft", {SidebarHeight+555, 380}, 30, 2, WHITE);
     DrawTextUTF("Florr.io", {SidebarHeight+805, 380}, 30, 2, WHITE);
     //在常用下的3个按钮 
-    if (DrawMcButton({SidebarHeight+55, 420}, 205, 70, "BiliBili", DARKGRAY,25) and fileloading["BiliBili"]==0) {
+    if (DrawMcButton({SidebarHeight+55, 420}, 205, 70, "BiliBili", GRAY,25) and fileloading["BiliBili"]==0) {
         fileloading["BiliBili"]=180;
         system("start https://www.bilibili.com/");
     }
-    if (DrawMcButton({SidebarHeight+55, 500}, 205, 70, "博客园",DARKGRAY,25) and fileloading["博客园"]==0) {
+    if (DrawMcButton({SidebarHeight+55, 500}, 205, 70, "博客园",GRAY,25) and fileloading["博客园"]==0) {
         fileloading["博客园"]=180; 
         system("start https://www.cnblogs.com/");
     }
-    if (DrawMcButton({SidebarHeight+55, 580}, 205, 70, "深度求索", DARKGRAY,25) and fileloading["深度求索"]==0) {
+    if (DrawMcButton({SidebarHeight+55, 580}, 205, 70, "深度求索", GRAY,25) and fileloading["深度求索"]==0) {
         fileloading["深度求索"]=180;
         system("start https://chat.deepseek.com/");
     }
@@ -144,15 +144,15 @@ void Home(){
         system("start https://zh.minecraft.wiki/");
     }
     //在Florr.io下的3个按钮
-    if (DrawMcButton({SidebarHeight+805, 420}, 205, 70, "Florr.io", DARKBROWN,25) and fileloading["Florr.io"]==0) {
+    if (DrawMcButton({SidebarHeight+805, 420}, 205, 70, "Florr.io", BROWN,25) and fileloading["Florr.io"]==0) {
         fileloading["Florr.io"]=180;
         system("start https://florr.io/");
     }
-    if (DrawMcButton({SidebarHeight+805, 500}, 205, 70, "Florr.io Wiki", DARKBROWN,25) and fileloading["Florr.io Wiki"]==0) {
+    if (DrawMcButton({SidebarHeight+805, 500}, 205, 70, "Florr.io Wiki", BROWN,25) and fileloading["Florr.io Wiki"]==0) {
         fileloading["Florr.io Wiki"]=180;
         system("start https://florrio.fandom.com/zh/wiki/");
     }
-    if (DrawMcButton({SidebarHeight+805, 580}, 205, 70, "DigDig", DARKBROWN,25) and fileloading["DigDig"]==0) {
+    if (DrawMcButton({SidebarHeight+805, 580}, 205, 70, "DigDig", BROWN,25) and fileloading["DigDig"]==0) {
         fileloading["DigDig"]=180;
         system("start https://digdig.io/");
     }
