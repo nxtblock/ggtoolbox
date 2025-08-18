@@ -165,8 +165,8 @@ bool DrawMcButton(Vector2 p, float w, float h, const char *t, Color c, int fs) {
 
     return isClick;
 }
-bool DrawMcImageButton(Texture2D texture, Vector2 position, float width, float height, string text, Color color) {
-    bool check = DrawMcButton({position.x, position.y}, width, height, text.c_str(), color,28);
+bool DrawMcImageButton(Texture2D texture, Vector2 position, float width, float height, string text, Color color,int siz=28) {
+    bool check = DrawMcButton({position.x, position.y}, width, height, text.c_str(), color,siz);
 
     float scale = fminf(width / texture.width, height / texture.height);
     scale = fminf(scale, 1.0f) * 0.8;

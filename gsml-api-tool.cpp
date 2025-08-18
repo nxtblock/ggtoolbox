@@ -4,7 +4,7 @@ using namespace std;
 
 wstring targetTitle;
 
-// æŸ¥æ‰¾å•ä¸ªçª—å£ï¼ˆæ ‡é¢˜åŒ¹é…ï¼‰
+// ²éÕÒµ¥¸ö´°¿Ú£¨±êÌâÆ¥Åä£©
 BOOL CALLBACK FindWindowProc(HWND hwnd, LPARAM lParam) {
     HWND* pFoundWindow = reinterpret_cast<HWND*>(lParam);
     const int titleLength = GetWindowTextLengthW(hwnd);
@@ -18,7 +18,7 @@ BOOL CALLBACK FindWindowProc(HWND hwnd, LPARAM lParam) {
     return TRUE;
 }
 
-// æŸ¥æ‰¾æ‰€æœ‰çª—å£ï¼ˆæ ‡é¢˜åŒ…å«å…³é”®å­—ï¼‰
+// ²éÕÒËùÓĞ´°¿Ú£¨±êÌâ°üº¬¹Ø¼ü×Ö£©
 BOOL CALLBACK FindAllWindowsProc(HWND hwnd, LPARAM lParam) {
     const int titleLength = GetWindowTextLengthW(hwnd);
     if (titleLength == 0) return TRUE;
@@ -30,7 +30,7 @@ BOOL CALLBACK FindAllWindowsProc(HWND hwnd, LPARAM lParam) {
     return TRUE;
 }
 
-// è®¾ç½®çª—å£æ ·å¼å¹¶ç»‘å®šåˆ°çˆ¶çª—å£
+// ÉèÖÃ´°¿ÚÑùÊ½²¢°ó¶¨µ½¸¸´°¿Ú
 void AttachAndStyle(HWND child, HWND parent) {
     SetWindowLongPtr(child, GWLP_HWNDPARENT, (LONG_PTR)parent);
     LONG_PTR exStyle = GetWindowLongPtr(child, GWL_EXSTYLE);
@@ -42,7 +42,7 @@ void AttachAndStyle(HWND child, HWND parent) {
     if (IsIconic(child)) ShowWindow(child, SW_RESTORE);
 }
 
-// ç§»åŠ¨çª—å£åˆ° GenGen çš„å³ä¾§
+// ÒÆ¶¯´°¿Úµ½ GenGen µÄÓÒ²à
 void PositionWindow(HWND child, HWND gengenWindow) {
     RECT rect;
     GetWindowRect(gengenWindow, &rect);
@@ -51,14 +51,64 @@ void PositionWindow(HWND child, HWND gengenWindow) {
     int bottom = rect.bottom;
     SetWindowPos(child, HWND_TOP, right - 1080, top + 110, 1080, bottom - top - 110,
                  SWP_SHOWWINDOW | SWP_NOACTIVATE);
+    ShowWindow(child, SW_SHOW);
+}
+// »ñÈ¡Ö¸¶¨´°¿ÚµÄ½ø³Ì´´½¨Ê±¼ä£¨FILETIME ¸ñÊ½£©
+bool GetWindowCreationTime(HWND hwnd, FILETIME& creationTime) {
+    DWORD processId;
+    GetWindowThreadProcessId(hwnd, &processId);
+
+    HANDLE hProcess = OpenProcess(PROCESS_QUERY_INFORMATION, FALSE, processId);
+    if (!hProcess) return false;
+
+    FILETIME ftCreation, ftExit, ftKernel, ftUser;
+    BOOL success = GetProcessTimes(hProcess, &ftCreation, &ftExit, &ftKernel, &ftUser);
+    CloseHandle(hProcess);
+
+    if (success) {
+        creationTime = ftCreation;
+        return true;
+    }
+    return false;
 }
 
+// ±È½Ï¶à¸ö HWND£¬·µ»ØÔËĞĞÊ±¼ä×î³¤£¨Æô¶¯×îÔç£©µÄÄÇ¸ö
+HWND FindLongestRunningWindow(const std::vector<HWND>& hwndList) {
+    if (hwndList.empty()) return nullptr;
+
+    HWND longestHwnd = nullptr;
+    FILETIME earliestTime = {0, 0xFFFFFFFF}; // ³õÊ¼»¯Îª×î´óÊ±¼ä£¨±ÜÃâÓÃ×îĞ¡Öµ£©
+
+    bool found = false;
+
+    for (HWND hwnd : hwndList) {
+        if (!IsWindow(hwnd)) continue; // È·±£´°¿ÚÈÔÈ»´æÔÚ
+
+        FILETIME creationTime;
+        if (GetWindowCreationTime(hwnd, creationTime)) {
+            // µÚÒ»¸öÓĞĞ§´°¿ÚÖ±½Ó¸³Öµ
+            if (!found) {
+                earliestTime = creationTime;
+                longestHwnd = hwnd;
+                found = true;
+            } else {
+                // ±È½ÏÊ±¼ä£ºÈç¹û creationTime < earliestTime£¬Ôò¸üÔç£¨ÔËĞĞ¸ü¾Ã£©
+                if (CompareFileTime(&creationTime, &earliestTime) == -1) {
+                    earliestTime = creationTime;
+                    longestHwnd = hwnd;
+                }
+            }
+        }
+    }
+
+    return found ? longestHwnd : nullptr;
+}
 int main() {
     HWND gengenWindow = NULL;
     targetTitle = L"GenGen ToolBox";
     EnumWindows(FindWindowProc, reinterpret_cast<LPARAM>(&gengenWindow));
 
-    // å–æ¶ˆ GenGen å¼ºåˆ¶ç½®é¡¶
+    // È¡Ïû GenGen Ç¿ÖÆÖÃ¶¥
     if (gengenWindow != NULL) {
         SetWindowPos(gengenWindow, HWND_NOTOPMOST, 0, 0, 0, 0,
                      SWP_NOMOVE | SWP_NOSIZE | SWP_NOACTIVATE | SWP_FRAMECHANGED);
@@ -71,20 +121,32 @@ int main() {
 
         vector<HWND> gsmlWindows;
         EnumWindows(FindAllWindowsProc, reinterpret_cast<LPARAM>(&gsmlWindows));
+        if(gsmlWindows.size()>1){
+            SendMessage(FindLongestRunningWindow(gsmlWindows), WM_SYSCOMMAND, SC_CLOSE, 0);
+            // µ¯³ö MessageBox Ç°£¬ÏÈ³¢ÊÔ¼¤»î×ÀÃæ»òÇ°ÖÃ
+            FLASHWINFO fi = { sizeof(fi) };
+            fi.hwnd = NULL; // »á±»×Ô¶¯ÕÒµ½
+            fi.dwFlags = FLASHW_ALL | FLASHW_TIMERNOFG;
+            fi.uCount = 3;
+            fi.dwTimeout = 0;
+            FlashWindowEx(&fi); // ÉÁÆÁÌáĞÑ
 
+            // È»ºóµ¯³ö MessageBox
+            MessageBox(gsmlWindows[0], "GSML ´°¿Ú¹ı¶à£¬ÒÑ×Ô¶¯¹Ø±ÕÖ®Ç°µÄ´°¿Ú", "´íÎó", MB_OK | MB_TOPMOST);
+        }     
         if (pclWindow != NULL) {
-            // éšè—æ‰€æœ‰ GSML
+            // Òş²ØËùÓĞ GSML
             for (HWND hwnd : gsmlWindows) {
                 ShowWindow(hwnd, SW_HIDE);
             }
 
-            // æ˜¾ç¤ºå¹¶å®šä½ PCL
+            // ÏÔÊ¾²¢¶¨Î» PCL
             if (gengenWindow != NULL) {
                 AttachAndStyle(pclWindow, gengenWindow);
                 PositionWindow(pclWindow, gengenWindow);
             }
         } else {
-            // æ˜¾ç¤ºå¹¶å®šä½æ‰€æœ‰ GSML
+            // ÏÔÊ¾²¢¶¨Î»ËùÓĞ GSML
             for (HWND hwnd : gsmlWindows) {
                 if (gengenWindow != NULL) {
                     AttachAndStyle(hwnd, gengenWindow);

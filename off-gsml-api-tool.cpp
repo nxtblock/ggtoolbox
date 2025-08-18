@@ -36,6 +36,6 @@ int main() {
             ShowWindow(pclWindow, SW_HIDE);
         }
         
-        Sleep(5000);
+        Sleep(500);
     }
 }

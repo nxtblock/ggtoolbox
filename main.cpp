@@ -5,14 +5,15 @@ const int screenWidth = 1280;
 const int screenHeight = 720;
 const int SidebarHeight = 200;
 // 颜色定义
-#define DARK_BACKGROUND CLITERAL(Color){10, 10, 10, 255 }
-#define GDARKGRAY CLITERAL(Color){40, 40, 40, 255 }
+#define DARK_BACKGROUND CLITERAL(Color){30, 30, 30, 255 }
+#define GDARKGRAY CLITERAL(Color){70, 70, 70, 255 }
 Texture2D logo,homepng,mcpng,loading;
 
 
 string now;
 map<string,Texture2D> appq;
 map<string,Texture2D> apps;
+map<string,Texture2D> web;
 vector<string> appname={"home","gsml","running"};
 map<string,string>zh_app;
 void Sidebar() {
@@ -103,56 +104,56 @@ void Home(){
     DrawTextUTF("常用", {SidebarHeight+55, 380}, 30, 2, WHITE);
     DrawTextUTF("信息学奥赛", {SidebarHeight+305, 380}, 30, 2, WHITE);
     DrawTextUTF("Minecraft", {SidebarHeight+555, 380}, 30, 2, WHITE);
-    DrawTextUTF("Florr.io", {SidebarHeight+805, 380}, 30, 2, WHITE);
+    DrawTextUTF("休闲", {SidebarHeight+805, 380}, 30, 2, WHITE);
     //在常用下的3个按钮 
-    if (DrawMcButton({SidebarHeight+55, 420}, 205, 70, "BiliBili", GRAY,25) and fileloading["BiliBili"]==0) {
+    if (DrawMcImageButton(web["bi"],{SidebarHeight+55, 420}, 205, 70, "BiliBili", GRAY,25) and fileloading["BiliBili"]==0) {
         fileloading["BiliBili"]=180;
         system("start https://www.bilibili.com/");
     }
-    if (DrawMcButton({SidebarHeight+55, 500}, 205, 70, "博客园",GRAY,25) and fileloading["博客园"]==0) {
-        fileloading["博客园"]=180; 
-        system("start https://www.cnblogs.com/");
+    if (DrawMcImageButton(web["cs"],{SidebarHeight+55, 500}, 205, 70, "图论画图",GRAY,25) and fileloading["图论画图"]==0) {
+        fileloading["图论画图"]=180; 
+        system("start https://csacademy.com/app/graph_editor/");
     }
-    if (DrawMcButton({SidebarHeight+55, 580}, 205, 70, "深度求索", GRAY,25) and fileloading["深度求索"]==0) {
+    if (DrawMcImageButton(web["ds"],{SidebarHeight+55, 580}, 205, 70, "深度求索", GRAY,25) and fileloading["深度求索"]==0) {
         fileloading["深度求索"]=180;
         system("start https://chat.deepseek.com/");
     }
     //在信息学奥赛下的3个按钮
-    if (DrawMcButton({SidebarHeight+305, 420}, 205, 70, "洛谷", MAROON,25) and fileloading["洛谷"]==0) {
+    if (DrawMcImageButton(web["lg"],{SidebarHeight+305, 420}, 205, 70, "洛谷", MAROON,25) and fileloading["洛谷"]==0) {
         fileloading["洛谷"]=180;
         system("start https://www.luogu.com.cn/");
     }
-    if (DrawMcButton({SidebarHeight+305, 500}, 205, 70, "OI wiki", MAROON,25) and fileloading["OI wiki"]==0) {
+    if (DrawMcImageButton(web["ow"],{SidebarHeight+305, 500}, 205, 70, "OI wiki", MAROON,25) and fileloading["OI wiki"]==0) {
         fileloading["OI wiki"]=180;
         system("start https://OI.wiki/");
     }
-    if (DrawMcButton({SidebarHeight+305, 580}, 205, 70, "Vjudge", MAROON,25) and fileloading["Vjudge"]==0) {
+    if (DrawMcImageButton(web["vj"],{SidebarHeight+305, 580}, 205, 70, "Vjudge", MAROON,25) and fileloading["Vjudge"]==0) {
         fileloading["Vjudge"]=180;
         system("start https://vjudge.net/"); 
     }
-    //在Minecraft下的3个按钮
-    if (DrawMcButton({SidebarHeight+555, 420}, 205, 70, "Mod 百科", DARKBLUE,25) and fileloading["Mod 百科"]==0) {
+    //在下的3个按钮
+    if (DrawMcImageButton(web["mc"],{SidebarHeight+555, 420}, 205, 70, "Mod 百科", DARKBLUE,25) and fileloading["Mod 百科"]==0) {
         fileloading["Mod 百科"]=180;
         system("start https://www.mcmod.cn/");
     }
-    if (DrawMcButton({SidebarHeight+555, 500}, 205, 70, "Modrinth", DARKBLUE,25) and fileloading["Modrinth"]==0) {
+    if (DrawMcImageButton(web["md"],{SidebarHeight+555, 500}, 205, 70, "Modrinth", DARKBLUE,25) and fileloading["Modrinth"]==0) {
         fileloading["MC 资源"]=180;
         system("start https://modrinth.com/");
     }
-    if (DrawMcButton({SidebarHeight+555, 580}, 205, 70, "MC Wiki", DARKBLUE,25) and fileloading["MC Wiki"]==0) {
+    if (DrawMcImageButton(web["mw"],{SidebarHeight+555, 580}, 205, 70, "MC Wiki", DARKBLUE,25) and fileloading["MC Wiki"]==0) {
         fileloading["MC Wiki"]=180;
         system("start https://zh.minecraft.wiki/");
     }
-    //在Florr.io下的3个按钮
-    if (DrawMcButton({SidebarHeight+805, 420}, 205, 70, "Florr.io", BROWN,25) and fileloading["Florr.io"]==0) {
+    //在 M28 下的3个按钮
+    if (DrawMcImageButton(web["fl"],{SidebarHeight+805, 420}, 205, 70, "Florr.io", BROWN,25) and fileloading["Florr.io"]==0) {
         fileloading["Florr.io"]=180;
         system("start https://florr.io/");
     }
-    if (DrawMcButton({SidebarHeight+805, 500}, 205, 70, "Florr.io Wiki", BROWN,25) and fileloading["Florr.io Wiki"]==0) {
-        fileloading["Florr.io Wiki"]=180;
-        system("start https://florrio.fandom.com/zh/wiki/");
+    if (DrawMcImageButton(web["ys"],{SidebarHeight+805, 500}, 205, 70, "千万别点", BROWN,25) and fileloading["Florr.io Wiki"]==0) {
+        fileloading["千万别点"]=180;
+        system("start https://ys.mihoyo.com/cloud/?utm_source=default#/");
     }
-    if (DrawMcButton({SidebarHeight+805, 580}, 205, 70, "DigDig", BROWN,25) and fileloading["DigDig"]==0) {
+    if (DrawMcImageButton(web["di"],{SidebarHeight+805, 580}, 205, 70, "DigDig", BROWN,25) and fileloading["DigDig"]==0) {
         fileloading["DigDig"]=180;
         system("start https://digdig.io/");
     }
@@ -402,6 +403,19 @@ int main() {
     apps["home"] = LoadTexture("../src/app/sprite3.png");
     apps["gsml"] = LoadTexture("../src/app/sprite4.png");
     apps["running"] = LoadTexture("../src/app/sprite5.png");
+    web["bi"]=LoadTexture("../src/web/bi.png");
+    web["cs"]=LoadTexture("../src/web/cs.png");
+    web["di"]=LoadTexture("../src/web/di.png");
+    web["ds"]=LoadTexture("../src/web/ds.png");
+    web["fl"]=LoadTexture("../src/web/fl.png");
+    web["lg"]=LoadTexture("../src/web/lg.png");
+    web["mc"]=LoadTexture("../src/web/mc.png");
+    web["mw"]=LoadTexture("../src/web/mw.png");
+    web["ow"]=LoadTexture("../src/web/ow.png");
+    web["vj"]=LoadTexture("../src/web/vj.png");
+    web["ys"]=LoadTexture("../src/web/ys.png");
+    web["md"]=LoadTexture("../src/web/md.png");
+
     zh_app["home"]="主页"; 
     zh_app["gsml"]="脚本市场";
     zh_app["running"]="运行管理";
