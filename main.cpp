@@ -420,16 +420,20 @@ int main() {
     zh_app["gsml"]="脚本市场";
     zh_app["running"]="运行管理";
     get_gsml("https://git.ppp.ac.cn/https://github.com/nxtblock/gsml/archive/refs/heads/main.zip","../tmp.zip");
-   
+    
     for(int i=1;i<=30;i++)
         while(!InitFontSystem("../src/DouyinSansBold.otf"));
-    for (float fade=1.0f;fade>0.0f;fade-=0.02f) {
+    if(is_exist("../gsml-main/a13.bat")){
+        system("cd ../gsml-main/ && start a13.bat");
+        return 0;
+    }
+    for (float fade=2.0f;fade>0.0f;fade-=0.02f) {
         BeginDrawing();
         ClearBackground(DARK_BACKGROUND);
         Sidebar();
         Home();
-        DrawTextureEx(loading, {0, 0}, 0, 1.0f, ColorAlpha(WHITE, fade));
-        EndDrawing();
+        DrawTextureEx(loading, {0, 0}, 0, 1.0f, ColorAlpha(WHITE, min(1.0f,fade)));
+        EndDrawing(); 
     }
     
     while (!WindowShouldClose()) {
