@@ -149,8 +149,8 @@ void Home(){
         fileloading["Florr.io"]=180;
         system("start https://florr.io/");
     }
-    if (DrawMcImageButton(web["ys"],{SidebarHeight+805, 500}, 205, 70, "千万别点", BROWN,25) and fileloading["Florr.io Wiki"]==0) {
-        fileloading["千万别点"]=180;
+    if (DrawMcImageButton(web["ys"],{SidebarHeight+805, 500}, 205, 70, "云 · 原神", BROWN,25) and fileloading["Florr.io Wiki"]==0) {
+        fileloading["云 · 原神"]=180;
         system("start https://ys.mihoyo.com/cloud/?utm_source=default#/");
     }
     if (DrawMcImageButton(web["di"],{SidebarHeight+805, 580}, 205, 70, "DigDig", BROWN,25) and fileloading["DigDig"]==0) {

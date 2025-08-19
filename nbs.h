@@ -169,7 +169,7 @@ bool DrawMcImageButton(Texture2D texture, Vector2 position, float width, float h
     bool check = DrawMcButton({position.x, position.y}, width, height, text.c_str(), color,siz);
 
     float scale = fminf(width / texture.width, height / texture.height);
-    scale = fminf(scale, 1.0f) * 0.8;
+    scale = fminf(scale, 1.0f) * 0.7;
 
     float scaledWidth = texture.width * scale;
     float scaledHeight = texture.height * scale;
