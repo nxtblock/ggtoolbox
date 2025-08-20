@@ -17,18 +17,6 @@
 
 快速访问常用资源网站，覆盖 OI、游戏与技术等领域：
 
-* **常用网站**：
-  [BiliBili](https://www.bilibili.com/)｜[博客园](https://www.cnblogs.com/)｜[深度求知](https://chat.deepseek.com/)
-
-* **信息学资源**：
-  [洛谷](https://www.luogu.com.cn/)｜[OI Wiki](https://OI.wiki/)｜[Vjudge](https://vjudge.net/)
-
-* **Minecraft 社区**：
-  [MCMod 百科](https://www.mcmod.cn/)｜[Modrinth](https://modrinth.com/)｜[Minecraft Wiki](https://zh.minecraft.wiki/)
-
-* **小游戏推荐**：
-  [Florr.io](https://florr.io/)｜[Florr Wiki](https://florrio.fandom.com/zh/wiki/)｜[DigDig.io](https://digdig.io/)
-
 ---
 
 ### 📅 每日签到
@@ -39,7 +27,7 @@
 
 ---
 
-### 🟩 Minecraft 启动器（RMCL）
+### 🟩 Minecraft 启动器（PCL2 in GSML）
 
 * 启动 Minecraft 主程序。
 * 查看并管理游戏进程。
