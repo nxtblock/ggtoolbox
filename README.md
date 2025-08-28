@@ -1,172 +1,122 @@
 
-# 🧰 GGToolBox
+![GenGen ToolBox](https://cdn.luogu.com.cn/upload/image_hosting/8knq6gtj.png)
 
-> 一个基于 [**raylib**](https://www.raylib.com/) 的桌面级工具箱，为信息学爱好者（OIer）提供简洁高效的多功能支持平台。
+[![国内加速下载-↓-blue](https://img.shields.io/badge/%E5%9B%BD%E5%86%85%E5%8A%A0%E9%80%9F%E4%B8%8B%E8%BD%BD-%E2%86%93-blue?style=for-the-badge)](https://gitproxy.click/https://github.com/nxtblock/ggtoolbox/releases/download/v1.3.1/Setup.exe)
+[![Github-→-orange](https://img.shields.io/badge/Github-%E2%86%92-orange?style=for-the-badge&logo=github)](https://github.com/nxtblock/ggtoolbox)
+[![官网-→-red](https://img.shields.io/badge/%E5%AE%98%E7%BD%91-%E2%86%92-red?style=for-the-badge)](https://nxtblock.github.io)
+[![猜你想看_GenGen_CF_RMJ-→-yellow](https://img.shields.io/badge/%E7%8C%9C%E4%BD%A0%E6%83%B3%E7%9C%8B_GenGen_CF_RMJ-%E2%86%92-yellow?style=for-the-badge)](https://www.luogu.com.cn/discuss/1130350)
 
----
 
-## 🌟 项目简介
+## 项目简介
 
-**GGToolBox** 是一款 C++ 开发的桌面应用，集成多个功能模块，支持导航、签到、Minecraft 启动、脚本市场等实用功能，目标是通过模块化的设计，为 OIer 提供一站式工具服务。
 
----
 
-## 🔧 功能模块
+**GenGen ToolBox** 是由 [GenGen 工程施工队](https://www.luogu.com.cn/team/111044) 历时一年精心打造的 **C++ 应用**，基于轻量级图形库 [raylib](https://www.raylib.com/) 开发，专为信息学竞赛（OI）选手设计，致力于提供高效、便捷、模块化的工具集成体验。
 
-### 🏠 主页导航
+**GenGen ToolBox** 是构建 OIer 脚本生态共同体的一个基础，包括但不限于**自动安装 VScode，加速通过 CF 盾，内网聊天，还有各种等等。**
 
-快速访问常用资源网站，覆盖 OI、游戏与技术等领域：
 
----
+它集成了 **导航中心、每日签到、Minecraft 启动器、脚本市场** 等实用功能，采用 **模块化架构**，支持按需启用与自由组合，真正实现“一站式”服务，帮助 OIer 高效管理日常学习与娱乐需求。
 
-### 📅 每日签到
+### 核心特性
 
-* 显示当前日期与星期。
-* 一键签到，随机展示今日运势（如：大吉、中吉、凶等）。
-* 自动记录签到历史。
-
----
-
-### 🟩 Minecraft 启动器（PCL2 in GSML）
-
-* 启动 Minecraft 主程序。
-* 查看并管理游戏进程。
-* 支持启动日志与状态显示。
-* 提供停止功能和自动清理残留进程。
+- **模块化设计**：功能独立封装，灵活扩展。
+- **一站式集成**：从学习资源导航到游戏启动，统一入口，免去切换烦恼。
+- **跨平台潜力**：基于 raylib 构建，界面轻量，未来可拓展至多平台。
+- **云端脚本市场**：连接 GitHub GSML 仓库，实时同步社区优质插件。
+- **国内优化访问**：内置网络优化机制，确保在大陆地区稳定访问 GitHub 资源。
 
 ---
 
-### 🧩 脚本市场（GSML）
+## 安装教程
 
-* 自动下载并加载脚本插件。
-* 支持离线缓存与启动。
-* 插件采用统一目录结构，支持脚本和自定义资源。
+1. 点击上方 **“国内加速下载”** 按钮获取安装包（`Setup.exe`）。
+2. 若系统提示 **“发现病毒，无法下载”**，请参考以下解决方案：
+   - 临时关闭 Windows Defender 实时保护（[操作指南](https://jingyan.baidu.com/article/c45ad29ceff15e441653e23f.html)）。
+3. 运行安装程序，它将自动创建桌面快捷方式，双击即可启动。
 
-插件结构示例：
-
-```
-插件名/
-├── start.cmd     # 启动脚本
-├── id.txt        # 插件信息
-└── ...           # 其他资源
-```
+> **安全声明**：我们郑重承诺，GenGen ToolBox **不含任何恶意代码或后门程序**。  
+> 已通过 [Gridinsoft 在线查毒平台](https://zh.gridinsoft.com/online-virus-scanner/id/e6c1b8ed0d1a94a877a14c34e84bc7f9bf8df7d770c71608040464253f52982b) 多引擎扫描验证，安全可信。
 
 ---
 
-## 🖥️ 安装与构建指南
+## 使用说明
+> 相关说明
+1. 首次启动会启动的比较慢，请耐心等待。
+2. 部分 Windows 运行插件时显示中文时部分可能会重叠，因为 Windows 10 早期版本对 UTF-8 支持不是很好，<del>微软你尽不做好事。</del>
+3. 我们不支持也不准备支持史前操作系统 Windows 7 及以下的版本，也是 UTF-8 的问题。
+4. 关于 Linux 我们有支持的计划。
+5. 我们支持自动更新。
 
-### ✅ 环境要求
+![主界面](https://cdn.luogu.com.cn/upload/image_hosting/is9fvbyu.png)  
+**主界面：简洁直观的操作面板**
 
-* Windows 系统
-* 支持 C++20 的编译器（推荐 MinGW）
-* 必需依赖：
+![脚本市场](https://cdn.luogu.com.cn/upload/image_hosting/okm3a3ki.png)  
+**脚本市场，功能一目了然，支持云端更新**
 
-  * [`raylib`](https://www.raylib.com/)
-  * OpenGL
-  * Windows 系统库（`gdi32`, `winmm` 等）
+![运行管理](https://cdn.luogu.com.cn/upload/image_hosting/3v58fyzn.png)  
+![](https://cdn.luogu.com.cn/upload/image_hosting/mh6tx3hu.png)
+![](https://cdn.luogu.com.cn/upload/image_hosting/nsg14t0b.png)
+**运行管理：可查看当前运行的插件的输出或者GUI**
 
-### 📦 构建步骤
+> 关于 PCL：我们使用的时配置后的 PCL2 CE，支持联机，并且启动时会自动安装 NBS-Minecraft（GenGen工程施工开发的整合包）。
 
-```bash
-# 克隆项目
-git clone https://github.com/yourusername/ggtoolbox.git
-cd ggtoolbox
+> 请不要运行多个插件：
+运行多个插件时我们会结束之前运行的插件。
 
-# 构建
-mkdir build
-cd build
-cmake ..
-cmake --build .
+### 如何使用脚本市场？
 
-# 运行
-./ggtoolbox.exe
-```
-
----
-
-## 📁 项目结构
-
-```
-.
-├── CMakeLists.txt        # CMake 构建配置
-├── main.cpp              # 主程序入口
-├── nbs.h                 # 自定义绘图组件
-├── nbsapi.h              # 工具函数接口
-├── src/                  # 图形资源
-│   ├── home.png
-│   ├── mcv.png
-│   ├── logo.png
-│   └── app/              # 图标资源
-│       ├── qh.png
-│       ├── qj.png
-│       ├── ...
-├── data/
-│   └── data.txt          # 签到记录
-└── mcf/                  # Minecraft 启动器相关
-    ├── install.bat
-    ├── cmcl.exe
-    └── nbsmc.mrpack
-```
+- 点击脚本列表中的 **“运行”** 按钮，即可执行对应插件脚本。
+- 所有脚本均来自 **GitHub GSML 仓库**，保持云端同步，自动更新。
+- 若你想贡献自己的脚本，点击页面上的 **“Upload-new 插件”** 按钮，跳转至上传页面参与共建！
 
 ---
 
-## ⚙️ 使用说明
+## 结语
 
-### 🔀 快捷键操作
+GenGen ToolBox 不只是一个工具箱，更是我们对“更好用的 OI 生态”的一次探索。  
+未来我们将持续迭代，加入更多实用功能，欢迎加入我们的社区，一起打造属于 OIer 的数字工作台！
 
-* `Home`：返回主页
-* `1`：主页导航
-* `2`：Minecraft 启动器
-* `3`：脚本市场
+你可以在讨论区或 Github 去 @liyifan202201 以上传 BUG
 
-### ✅ 签到操作
 
-1. 打开应用后进入主页。
-2. 点击“签到”完成操作。
-3. 查看当日运势结果。
+## 仓库地址
 
-### 🟢 Minecraft 启动
-
-1. 切换至 RMCL 模块。
-2. 点击“开始游戏”以启动。
-3. 游戏运行中可选择“停止”进行清理。
-
-### 📦 脚本市场使用
-
-* 启动应用后会自动尝试拉取远程插件仓库。
-* 插件均支持使用 `start.cmd` 启动。
-* 插件格式统一，便于扩展与集成。
+> GitHub 仓库：[https://github.com/nxtblock/ggtoolbox](https://github.com/nxtblock/ggtoolbox)  
+> GSML（脚本云端库） 仓库：[https://github.com/nxtblock/gsml](https://github.com/nxtblock/gsml)
 
 ---
 
-## 🤝 贡献方式
+## 关于我们
+> 关于我们
 
-我们欢迎任何贡献者参与优化：
+[Who are GenGen? →](https://www.luogu.com.cn/discuss/870801)
 
-```bash
-# Fork 项目并创建新分支
-git checkout -b feature/my-feature
+GenGen 团队专注于为 **OIer** 提升使用体验，已推出：
 
-# 提交更改
-git commit -m "新增功能/修复 bug"
+- [GenGen CF RMJ](https://www.luogu.com.cn/discuss/1130350)：将 CF RMJ 的核心功能复活了。
+- **GenGen ToolBox**：全能桌面工具箱。
+- 更多项目正在开发中，敬请期待！
 
-# 推送并创建 PR
-git push origin feature/my-feature
-```
+### 团队成员
 
----
+- **吉祥物**：[General0826](https://www.luogu.com.cn/user/1351126)
+- **开发组**：[liyifan202201](https://www.luogu.com.cn/user/661094)，[GCSG01](https://www.luogu.com.cn/user/1032267)
+- **后勤支持**：[yangyafan](https://www.luogu.com.cn/user/697932)
 
-## 📄 许可证
+请认准 GenGen 官方团队，支持正版项目！
 
-本项目遵循 [MIT License](./LICENSE)。
+![支持我们](https://cdn.luogu.com.cn/upload/image_hosting/7uzglkak.png)
 
----
 
-## 📬 联系方式
+我们牺牲休息时间坚持开发，只为让每一位 OIer 用上更好用的工具。  
+如果你觉得 GenGen ToolBox 对你有帮助，请：
 
-* 💬 洛谷主页：[https://www.luogu.com.cn/user/661094](https://www.luogu.com.cn/user/661094)
-* 🐛 提交问题：[GitHub Issues](https://github.com/nxtblock/ggtoolbox/issues)
+- 给我们的 GitHub 项目点个 ⭐ [Star](https://github.com/nxtblock/ggtoolbox)
+- 分享给身边的同学朋友
+- 积极反馈建议或提交脚本插件
 
----
+**你的每一个支持，都是我们继续前行的力量！**
 
-> GGToolBox —— 一站式信息学辅助工具，为热爱代码的你服务 💻✨
+~~没错，我就是来乞讨的~~
+
