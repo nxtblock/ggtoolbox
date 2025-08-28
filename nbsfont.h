@@ -52,7 +52,7 @@ Font GetDynamicFont(const char *txt, int fntSize = 32) {
 
     int cpCount = 0;
     int *cps = LoadCodepoints(txt, &cpCount);
-    Font fnt = LoadFontFromMemory(".ttf", fntFileData, fntFileSize, fntSize, cps, cpCount);
+    Font fnt = LoadFontFromMemory(".otf", fntFileData, fntFileSize, fntSize, cps, cpCount);
     UnloadCodepoints(cps);
 
     fntCache.insert({key, fnt});
