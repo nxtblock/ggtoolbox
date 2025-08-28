@@ -278,7 +278,6 @@ void gsml() {
     initGSMLFolders();
     DrawTextUTF("GGToolBox: GenGen-Script Market", {SidebarHeight + 30, 30}, 30, 2, WHITE);
 
-    // 使用你写的输入框组件
     Vector2 inputPos = { SidebarHeight + 35, 70 };
     float inputWidth = 1000;
     int fontSize = 20;
@@ -359,7 +358,7 @@ void gsml() {
         string version = get_pugin("../gsml-main/" + folder + "/id.txt").second;
         string author = get_pugin("../gsml-main/" + folder + "/id.txt").first;
 
-        DrawTextUTF(("版本: " + version).c_str(), {x + 10.0f, y + 40.0f}, 15, 2, WHITE);
+        DrawTextUTF(("详细: " + version).c_str(), {x + 10.0f, y + 40.0f}, 15, 2, WHITE);
         DrawTextUTF(("作者: " + author).c_str(), {x + 10.0f, y + 60.0f}, 15, 2, WHITE);
 
         if (DrawMcButton({x + 180.0f, y + 20.0f}, 60, 40, "运行", DARKGREEN, 25) && fileloading[folder] == 0) {
@@ -419,15 +418,14 @@ int main() {
     zh_app["home"]="主页"; 
     zh_app["gsml"]="脚本市场";
     zh_app["running"]="运行管理";
-    get_gsml("https://git.ppp.ac.cn/https://github.com/nxtblock/gsml/archive/refs/heads/main.zip","../tmp.zip");
+    get_gsml("https://gitproxy.click/https://github.com/nxtblock/gsml/archive/refs/heads/main.zip","../tmp.zip");
     
-    for(int i=1;i<=30;i++)
-        while(!InitFontSystem("../src/DouyinSansBold.otf"));
+    while(!InitFontSystem("../src/DouyinSansBold.otf"));
     if(is_exist("../gsml-main/a13.bat")){
         system("cd ../gsml-main/ && start a13.bat");
         return 0;
     }
-    for (float fade=2.0f;fade>0.0f;fade-=0.02f) {
+    for (float fade=1.4f;fade>0.0f;fade-=0.02f) {
         BeginDrawing();
         ClearBackground(DARK_BACKGROUND);
         Sidebar();
