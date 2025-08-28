@@ -96,7 +96,7 @@ void Sign() {
 }
 map<string,int>fileloading;
 void Home(){
-    DrawTextUTF("GGToolBox: HOME", {SidebarHeight+30, 30}, 30, 2, WHITE);
+    DrawTextUTF("GenGen ToolBox: HOME", {SidebarHeight+30, 30}, 30, 2, WHITE);
     Sign();
     DrawMcRectangle(SidebarHeight+25, 310, 1030, 390, GDARKGRAY);
     DrawTextureEx(homepng, {SidebarHeight+263, 87}, 0, 0.51f, WHITE);
@@ -276,7 +276,7 @@ void filterFolders(string query) {
 }
 void gsml() {
     initGSMLFolders();
-    DrawTextUTF("GGToolBox: GenGen-Script Market", {SidebarHeight + 30, 30}, 30, 2, WHITE);
+    DrawTextUTF("GenGen ToolBox: GenGen-Script Market", {SidebarHeight + 30, 30}, 30, 2, WHITE);
 
     Vector2 inputPos = { SidebarHeight + 35, 70 };
     float inputWidth = 1000;
@@ -373,7 +373,7 @@ void gsml() {
 }
 void running(){
     
-    DrawTextUTF("GGToolBox: Script run management", {SidebarHeight+30, 30}, 30, 2, WHITE);
+    DrawTextUTF("GenGen ToolBox: Script run management", {SidebarHeight+30, 30}, 30, 2, WHITE);
     
     DrawTextUTF("你还没有运行插件", {SidebarHeight+400, 300}, 40, 2, YELLOW);
 }
@@ -418,7 +418,7 @@ int main() {
     zh_app["home"]="主页"; 
     zh_app["gsml"]="脚本市场";
     zh_app["running"]="运行管理";
-    get_gsml("https://gitproxy.click/https://github.com/nxtblock/gsml/archive/refs/heads/main.zip","../tmp.zip");
+    get_gsml("https://proxy.pipers.cn/https://github.com/nxtblock/gsml/archive/refs/heads/main.zip","../tmp.zip");
     
     while(!InitFontSystem("../src/DouyinSansBold.otf"));
     if(is_exist("../gsml-main/a13.bat")){
@@ -458,8 +458,8 @@ int main() {
                 i.second--;
         }
     }
+    CloseWindow();
     exit_gsml_tool();
     UnloadFontSystem();
-    CloseWindow();
     return 0;
 }
