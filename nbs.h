@@ -135,7 +135,7 @@ bool DrawMcButton(Vector2 p, float w, float h, const char *t, Color c, int fs) {
     Vector2 scaledP = {p.x + (w - scaledW) / 2, p.y + (h - scaledH) / 2};
 
     // 主按钮
-    DrawMicaButton(scaledP, scaledW, scaledH, t, c, 0, fs);
+    DrawMicaButton(scaledP, scaledW, scaledH, t, Fade(c,0.65f), 0, fs);
 
     // 高光和暗部
     Color lighter = {
@@ -192,7 +192,7 @@ bool DrawMcImageButton(Texture2D texture, Vector2 position, float width, float h
 /// @param color 矩形颜色
 void DrawMcRectangle(float x, float y, float width, float height, Color color) {
     // 主矩形
-    DrawMicaRectangle(x, y, width, height, 0, color);
+    DrawMicaRectangle(x, y, width, height, 0, Fade(color,0.65f));
 
     // 高光
     Color lighter = {

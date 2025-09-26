@@ -98,7 +98,7 @@ string query_file(string a) {
 
 
 map<string, string> getrun;         // 存子进程输出
-
+map<string, bool> isrun;  
 // 启动并读取输出
 void run_cmd(const string& cmdline) {
     thread([cmdline]() {
@@ -106,6 +106,7 @@ void run_cmd(const string& cmdline) {
             if (getrun[cmdline] != "") return; // 如果正在运行则不重复启动
         }
         getrun[cmdline] = ""; // 初始化输出为空
+        isrun[cmdline]=1;
         char buffer[1024] = { '\0' };
         FILE* pf = _popen(cmdline.c_str(), "r");
         if (pf == NULL) {
@@ -116,32 +117,45 @@ void run_cmd(const string& cmdline) {
         string ret;
         while (fgets(buffer, sizeof(buffer), pf)) {
             ret += buffer;
-            cout<<buffer;
+            // cout<<buffer;
             getrun[cmdline] = buffer;
         }
         _pclose(pf);
+        isrun[cmdline]=0;
         getrun[cmdline] = "";
     }).detach();
 }
+int gsmliserror;
 void get_gsml(string rfile, string file) {
     string step1 = "powershell -Command \"Invoke-WebRequest -Uri '" + rfile + "' -OutFile '" + file + "'\"";
     string step2 = "powershell -Command \"Expand-Archive -Path '" + file + "' -DestinationPath '..\\' -Force\"";
     string step3 = "powershell -Command \"Get-ChildItem '..\\gsml-main\\' -Recurse -Include *.bat,*.cmd | ForEach-Object { Write-Host 'Converting:' $_.FullName; $content = Get-Content $_.FullName -Raw -Encoding UTF8; $content = $content -replace '\\r?\\n', ([char]13 + [char]10); [System.IO.File]::WriteAllBytes($_.FullName, (New-Object System.Text.UTF8Encoding $false).GetBytes($content)) }\"";
     string full_cmd = step1 + " && " + step2 + " && " + step3;
     run_cmd(full_cmd);
+    thread([full_cmd]() {
+        while(!isrun[full_cmd]);
+        while(isrun[full_cmd]){
+            if(getrun[full_cmd].find("Invoke-WebRequest :")!=-1){
+                gsmliserror=1;
+                cout<<getrun[full_cmd]<<endl;
+                break;
+            }
+        }
+    }).detach();
+
 }
 void enable_gsml_tool(){ 
-    run_cmd("taskkill /f /im gsml-api-tool.exe & taskkill /f /im off-gsml-api-tool.exe & start /b ../gsml-api-tool.exe");
+    run_cmd("taskkill /f /im gsml-api-tool.exe & taskkill /f /im off-gsml-api-tool.exe  & start /b ../gsml-api-tool.exe");
 }
 
 void disable_gsml_tool() {
-    run_cmd("taskkill /f /im gsml-api-tool.exe & taskkill /f /im off-gsml-api-tool.exe & start /b ../off-gsml-api-tool.exe");
+    run_cmd("taskkill /f /im gsml-api-tool.exe & taskkill /f /im off-gsml-api-tool.exe  & start /b ../off-gsml-api-tool.exe");
 }
 void exit_gsml_tool() {
-    run_cmd("taskkill /f /im gsml-api-tool.exe");
-    run_cmd("taskkill /f /im conhost.exe");
-    run_cmd("taskkill /f /im \"Plain Craft Launcher.exe\"");
-    run_cmd("taskkill /f /im off-gsml-api-tool.exe");
+    system("start /b ../off-gsml-api-tool.exe");
+    system("taskkill /f /im gsml-api-tool.exe");
+    system("taskkill /f /im \"Plain Craft Launcher.exe\"");
+    system("taskkill /f /im off-gsml-api-tool.exe");
 }
 
 #endif //NBSAPI_H
