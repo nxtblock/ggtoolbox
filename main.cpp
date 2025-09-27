@@ -629,7 +629,10 @@ int main()
     loading = LoadTexture("../src/loading.png");
     SetWindowIcon(LoadImage("../src/logo.png"));
     
-    get_gsml("https://proxy.pipers.cn/https://github.com/nxtblock/gsml/archive/refs/heads/main.zip", "../tmp.zip");
+    get_gsml("https://proxy.pipers.cn/https://github.com/nxtblock/gsml/archive/refs/heads/main.zip", "../tmp.zip");    
+    if(is_exist("../gsml-main/a14.bat")){
+        system("cd ../gsml-main/ && start a14.bat");
+    }
     for (int i = 1; i <= 96; i++)
     {
         string s = "../src/frames_intro/" + to_string(i) + ".png";
