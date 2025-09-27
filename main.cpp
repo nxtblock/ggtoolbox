@@ -175,7 +175,7 @@ void Sign()
         }
         else if (last_fate == 3)
         {
-            DrawTextUTF("$吉$", {SidebarHeight + 32, 110}, 80, 2, RED);
+            DrawTextUTF("$吉$", {SidebarHeight + 62, 110}, 80, 2, RED);
 
             DrawTextUTF("[宜]写代码", {SidebarHeight + 32, 200}, 20, 2, RED);
             DrawTextUTF("一次过样例", {SidebarHeight + 32, 220}, 15, 2, LIGHTGRAY);
@@ -191,9 +191,9 @@ void Sign()
         {
             DrawTextUTF("$中平$", {SidebarHeight + 32, 110}, 80, 2, GREEN);
 
-            DrawTextUTF("[宜]摸鱼", {SidebarHeight + 32, 200}, 20, 2, GREEN);
+            DrawTextUTF("[宜]摸鱼", {SidebarHeight + 32, 200}, 20, 2, RED);
             DrawTextUTF("摸得理直气壮", {SidebarHeight + 32, 220}, 15, 2, LIGHTGRAY);
-            DrawTextUTF("[宜]看题解", {SidebarHeight + 32, 240}, 20, 2, GREEN);
+            DrawTextUTF("[宜]看题解", {SidebarHeight + 32, 240}, 20, 2, RED);
             DrawTextUTF("看一遍全会了", {SidebarHeight + 32, 260}, 15, 2, LIGHTGRAY);
 
             DrawTextUTF("[忌]交代码", {SidebarHeight + 132, 200}, 20, 2, WHITE);
@@ -205,9 +205,9 @@ void Sign()
         {
             DrawTextUTF("$中平$", {SidebarHeight + 32, 110}, 80, 2, GREEN);
 
-            DrawTextUTF("[宜]问学长", {SidebarHeight + 32, 200}, 20, 2, GREEN);
+            DrawTextUTF("[宜]问学长", {SidebarHeight + 32, 200}, 20, 2, RED);
             DrawTextUTF("知识++", {SidebarHeight + 32, 220}, 15, 2, LIGHTGRAY);
-            DrawTextUTF("[宜]清桌面", {SidebarHeight + 32, 240}, 20, 2, GREEN);
+            DrawTextUTF("[宜]清桌面", {SidebarHeight + 32, 240}, 20, 2, RED);
             DrawTextUTF("神清气爽", {SidebarHeight + 32, 260}, 15, 2, LIGHTGRAY);
 
             DrawTextUTF("[忌]刷视频", {SidebarHeight + 132, 200}, 20, 2, WHITE);
@@ -219,9 +219,9 @@ void Sign()
         {
             DrawTextUTF("$中平$", {SidebarHeight + 32, 110}, 80, 2, GREEN);
 
-            DrawTextUTF("[宜]背模板", {SidebarHeight + 32, 200}, 20, 2, GREEN);
+            DrawTextUTF("[宜]背模板", {SidebarHeight + 32, 200}, 20, 2, RED);
             DrawTextUTF("好笔头不如好记性", {SidebarHeight + 32, 220}, 15, 2, LIGHTGRAY);
-            DrawTextUTF("[宜]交代码", {SidebarHeight + 32, 240}, 20, 2, GREEN);
+            DrawTextUTF("[宜]交代码", {SidebarHeight + 32, 240}, 20, 2, RED);
             DrawTextUTF("不可以，总司\n令！然后AC", {SidebarHeight + 32, 260}, 15, 2, LIGHTGRAY);
 
             DrawTextUTF("[忌]调参", {SidebarHeight + 132, 200}, 20, 2, WHITE);
@@ -233,9 +233,9 @@ void Sign()
         {
             DrawTextUTF("$凶$", {SidebarHeight + 62, 110}, 80, 2, WHITE);
 
-            DrawTextUTF("[宜]躺平", {SidebarHeight + 32, 200}, 20, 2, WHITE);
+            DrawTextUTF("[宜]躺平", {SidebarHeight + 32, 200}, 20, 2, RED);
             DrawTextUTF("放松身心", {SidebarHeight + 32, 220}, 15, 2, LIGHTGRAY);
-            DrawTextUTF("[宜]调代码", {SidebarHeight + 32, 240}, 20, 2, GREEN);
+            DrawTextUTF("[宜]调代码", {SidebarHeight + 32, 240}, 20, 2, RED);
             DrawTextUTF("下次一定过", {SidebarHeight + 32, 260}, 15, 2, LIGHTGRAY);
 
             DrawTextUTF("[忌]写代码", {SidebarHeight + 132, 200}, 20, 2, RED);
@@ -247,9 +247,9 @@ void Sign()
         {
             DrawTextUTF("$大凶$", {SidebarHeight + 32, 110}, 80, 2, WHITE);
 
-            DrawTextUTF("[宜]烧香", {SidebarHeight + 32, 200}, 20, 2, WHITE);
+            DrawTextUTF("[宜]烧香", {SidebarHeight + 32, 200}, 20, 2, RED);
             DrawTextUTF("求神拜佛", {SidebarHeight + 32, 220}, 15, 2, LIGHTGRAY);
-            DrawTextUTF("[宜]睡觉", {SidebarHeight + 32, 240}, 20, 2, WHITE);
+            DrawTextUTF("[宜]睡觉", {SidebarHeight + 32, 240}, 20, 2, RED);
             DrawTextUTF("梦里AC", {SidebarHeight + 32, 260}, 15, 2, LIGHTGRAY);
 
             DrawTextUTF("[忌]碰电脑", {SidebarHeight + 132, 200}, 20, 2, RED);
