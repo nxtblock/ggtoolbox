@@ -606,7 +606,7 @@ void gsml()
         {
             fileloading[folder] = 180;
             run_cmd("cd \"..\\gsml-main\\" + folder + "\\\" && start \"[GSML]\" start.cmd");
-            now = "running";
+            StartTransition("running");
             enable_gsml_tool();
         }
 
