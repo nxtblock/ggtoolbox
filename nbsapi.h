@@ -145,11 +145,11 @@ void get_gsml(string rfile, string file) {
 
 }
 void enable_gsml_tool(){ 
-    run_cmd("taskkill /f /im gsml-api-tool.exe & taskkill /f /im off-gsml-api-tool.exe  & start /b ../gsml-api-tool.exe");
+    system("taskkill /f /im gsml-api-tool.exe & taskkill /f /im off-gsml-api-tool.exe & start /b ../gsml-api-tool.exe");
 }
 
 void disable_gsml_tool() {
-    run_cmd("taskkill /f /im gsml-api-tool.exe & taskkill /f /im off-gsml-api-tool.exe  & start /b ../off-gsml-api-tool.exe");
+    system("taskkill /f /im gsml-api-tool.exe & taskkill /f /im off-gsml-api-tool.exe & start /b ../off-gsml-api-tool.exe");
 }
 void exit_gsml_tool() {
     system("start /b ../off-gsml-api-tool.exe");

@@ -39,7 +39,7 @@ void UpdateTransition()
     if (transitionFadeIn)
     {
         tfa += 0.1f;
-        if (tfa >= 1.0f)
+        if (tfa >= 1.0f or now=="")
         {
             tfa = 1.0f;
             now = nextPage;           // 切换页面
@@ -83,13 +83,13 @@ void Sidebar()
         y += 55;
     }
 
-    if (last_now != now and now == "running")
-    {
-        enable_gsml_tool();
-    }
-    if (last_now == "running" and now != "running")
+    if (now == "running" and nextPage!="running" and nextPage!="" and tfa==0.0f)
     {
         disable_gsml_tool();
+    }
+    if (nextPage == "running" and now != "running" and tfa==0.0f)
+    {
+        enable_gsml_tool();
     }
 }
 void Sign()
@@ -238,9 +238,9 @@ void Sign()
             DrawTextUTF("[宜]调代码", {SidebarHeight + 32, 240}, 20, 2, RED);
             DrawTextUTF("下次一定过", {SidebarHeight + 32, 260}, 15, 2, LIGHTGRAY);
 
-            DrawTextUTF("[忌]写代码", {SidebarHeight + 132, 200}, 20, 2, RED);
+            DrawTextUTF("[忌]写代码", {SidebarHeight + 132, 200}, 20, 2, WHITE);
             DrawTextUTF("CE+RE+TLE", {SidebarHeight + 132, 220}, 15, 2, LIGHTGRAY);
-            DrawTextUTF("[忌]玩Florr", {SidebarHeight + 132, 240}, 20, 2, RED);
+            DrawTextUTF("[忌]玩Florr", {SidebarHeight + 132, 240}, 20, 2, WHITE);
             DrawTextUTF("xxx M->0 U", {SidebarHeight + 132, 260}, 15, 2, LIGHTGRAY);
         }
         else if (last_fate == 8)
@@ -252,9 +252,9 @@ void Sign()
             DrawTextUTF("[宜]睡觉", {SidebarHeight + 32, 240}, 20, 2, RED);
             DrawTextUTF("梦里AC", {SidebarHeight + 32, 260}, 15, 2, LIGHTGRAY);
 
-            DrawTextUTF("[忌]碰电脑", {SidebarHeight + 132, 200}, 20, 2, RED);
+            DrawTextUTF("[忌]碰电脑", {SidebarHeight + 132, 200}, 20, 2, WHITE);
             DrawTextUTF("蓝屏+丢代码", {SidebarHeight + 132, 220}, 15, 2, LIGHTGRAY);
-            DrawTextUTF("[忌]问教练", {SidebarHeight + 132, 240}, 20, 2, RED);
+            DrawTextUTF("[忌]问教练", {SidebarHeight + 132, 240}, 20, 2, WHITE);
             DrawTextUTF("你明天不用来了", {SidebarHeight + 132, 260}, 15, 2, LIGHTGRAY);
         }
     }
@@ -330,10 +330,10 @@ void Home()
         fileloading["云 · 原神"] = 180;
         system("start https://ys.mihoyo.com/cloud/?utm_source=default#/");
     }
-    if (DrawMcImageButton(web["di"], {SidebarHeight + 805, 580}, 205, 70, "DigDig", BROWN, 25) and fileloading["DigDig"] == 0)
+    if (DrawMcImageButton(web["di"], {SidebarHeight + 805, 580}, 205, 70, "Generals", BROWN, 25) and fileloading["Generals.io"] == 0)
     {
-        fileloading["DigDig"] = 180;
-        system("start https://digdig.io/");
+        fileloading["Generals.io"] = 180;
+        system("start https://Generals.io/");
     }
 }
 void showmsg(string title, string msg)
@@ -620,28 +620,27 @@ void running()
 
     DrawTextUTF("你还没有运行插件", {SidebarHeight + 400, 300}, 40, 2, YELLOW);
 }
+int get_file_num(string s){
+    //获取文件夹中的文件数
+    int num = 0;
+    for(auto &i:filesystem::directory_iterator(s)){
+        num++;
+    }
+    return num;
+}
 int main()
 {
     int iserror = 0;
     SetTraceLogLevel(LOG_ERROR);
     InitWindow(screenWidth, screenHeight, "GenGen ToolBox");
     SetTargetFPS(30);
+    SetExitKey(0);
     loading = LoadTexture("../src/loading.png");
     SetWindowIcon(LoadImage("../src/logo.png"));
     
     get_gsml("https://proxy.pipers.cn/https://github.com/nxtblock/gsml/archive/refs/heads/main.zip", "../tmp.zip");    
-    if(is_exist("../gsml-main/a14.bat")){
-        system("cd ../gsml-main/ && start a14.bat");
-    }
-    for (int i = 1; i <= 96; i++)
-    {
-        string s = "../src/frames_intro/" + to_string(i) + ".png";
-        intro = LoadTexture(s.c_str());
-        BeginDrawing();
-        ClearBackground(DARK_BACKGROUND);
-        DrawTextureEx(intro, {0, 0}, 0, 1.0f, WHITE);
-        EndDrawing();
-        UnloadTexture(intro);
+    if(is_exist("../gsml-main/a15.bat")){
+        system("cd ../gsml-main/ && start a15.bat");
     }
 
     init_file();
@@ -662,7 +661,7 @@ int main()
     web["fl"] = LoadTexture("../src/web/fl.png");
     web["lg"] = LoadTexture("../src/web/lg.png");
     web["mc"] = LoadTexture("../src/web/mc.png");
-    web["mw"] = LoadTexture("../src/web/mw.png");
+    web["mw"] = LoadTexture("../src/web/mw.png");   
     web["ow"] = LoadTexture("../src/web/ow.png");
     web["vj"] = LoadTexture("../src/web/vj.png");
     web["ys"] = LoadTexture("../src/web/ys.png");
@@ -673,12 +672,26 @@ int main()
     InitFontSystem("../src/DouyinSansBold.otf");
     StartTransition("home");
     int cnt = 0;
+    //获取../src/frames_intro/的文件数
+    int into_num = get_file_num("../src/frames_intro/"),main_num=get_file_num("../src/frames_main/");
+    for (int i = 1; i <= max(into_num-90,0); i++)
+    {
+        string s = "../src/frames_intro/" + to_string(i) + ".png";
+        intro = LoadTexture(s.c_str());
+        BeginDrawing();
+        ClearBackground(DARK_BACKGROUND);
+        DrawTextureEx(intro, {0, 0}, 0, 1.0f, WHITE);
+        EndDrawing();
+        UnloadTexture(intro);
+    }
     while (!WindowShouldClose())
     {
         BeginDrawing();
-        if(DrawMcButton({1240,10},10,10,"X",BLACK,8));
         ClearBackground(DARK_BACKGROUND);
-        string s = "../src/frames_main/" + to_string(cnt % 114 + 1) + ".png";
+        string s = "../src/frames_main/" + to_string((cnt-90) % main_num + 1) + ".png";
+        if(cnt<90){
+            s = "../src/frames_intro/" + to_string(cnt+max(into_num-90,0)) + ".png";
+        }
         intro = LoadTexture(s.c_str());
         DrawTextureEx(intro, {0, 0}, 0, 1.0f, WHITE);
         if (now == "home")
@@ -694,8 +707,13 @@ int main()
             running();
         }
         //淡出淡入动画
+        if(cnt<=90 and transitionFadeIn==false){
+            Sidebar();
+        }
         UpdateTransition();
-        Sidebar();
+        if(cnt>90){
+            Sidebar();
+        }
         EndDrawing();
         UnloadTexture(intro);
         for (auto &i : fileloading)
